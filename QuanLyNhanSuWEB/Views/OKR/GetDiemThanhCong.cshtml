@@ -1,0 +1,38 @@
+﻿@model IEnumerable<QuanLyNhanSuAPI.Models.HoSoNhanSu.DiemThanhCongCuaOkr>
+
+@{
+    ViewData["Title"] = "GetDiemThanhCong";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-3">
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    
+                    <th>
+                        Điểm
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                    
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Diem)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Chỉnh Sửa", "UpdateDiemOkr", new {  id=item.Id  }, new {@class="btn btn-success"})
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

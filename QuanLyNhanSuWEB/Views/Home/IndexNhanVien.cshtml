@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "IndexNhanVien";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="search-box">
+    <div class="input-group-timkiem">
+        <input type="search" id="search" class="timkiem" placeholder="Tìm kiếm menu" onkeyup="search()">
+        <img src="~/assets/img/search.png" alt="">
+    </div>
+</section>
+
+<section id="feature" class="section-p1">
+   
+    <div class="fe-box">
+        <img src="~/assets/img/x/3.png" alt="">
+        <h6><a asp-controller="OKR" asp-action="Index">OKRs</a></h6>
+    </div>
+    <div class="fe-box">
+        <img src="~/assets/img/x/4.png" alt="">
+        <h6><a asp-controller="Account" asp-action="DoiMatKhau">Thiết Lập</a></h6>
+    </div>
+    
+   
+</section>

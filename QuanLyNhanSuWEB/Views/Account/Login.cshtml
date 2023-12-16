@@ -1,0 +1,41 @@
+﻿@model LoginTaiKhoan
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" href="~/assets/css/login.css" asp-append-version="true" />
+    <title>Login</title>
+</head>
+<body>
+    <div class="wrapper">
+        <form method="post" asp-action="Login" asp-controller="Account">
+            @*<div class="form-group">
+            <input class="form-control" name="Email" id="Email" type="text" placeholder="Email">
+            </div>
+            <div class="form-group">
+            <input class="form-control" name="Password" id="Password" type="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+            <button class="btn btn-primary btn-block" type="submit">Login</button>
+            </div>*@
+            <h1>Mission Manager Team</h1>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="input-box">
+                <input type="text" name="Email" id="Email" placeholder="Tài khoản" >
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="input-box">
+                <input type="password" name="Password" id="Password" placeholder="Mật khẩu" >
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn">Đăng nhập</button>
+        </form>
+    </div>
+</body>
+</html>

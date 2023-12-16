@@ -1,0 +1,70 @@
+﻿@{
+    var thongTinNhanVien = ViewBag.ThongTinNhanVien;
+}
+
+<div class="employee-summary " style="border: 1px solid #ccc;
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;">
+    <div class="employee-image" style="width: 100px;
+            height: 100px;
+            border: 1px solid #ccc;
+            margin-right: 20px;">
+        <img src="~/uploads/@thongTinNhanVien.HinhAnh" width="100px" height="100px" alt="Hình nhân viên">
+    </div>
+    <div class="employee-details" style="flex: 1;">
+        <dl class="dl-horizontal">
+            <dt style="display: inline;">
+                Họ và Tên:
+            </dt>
+            <dd style="display: inline;">
+                @thongTinNhanVien.HoKhaiSinh @thongTinNhanVien.TenKhaiSinh
+            </dd>
+        </dl>
+        <dl class="dl-horizontal">
+            <dt style="display: inline;">
+                Mã Nhân Viên:
+            </dt>
+            <dd style="display: inline;">
+                @thongTinNhanVien.IdNv
+            </dd>
+        </dl>
+
+        <dl class="dl-horizontal">
+            <dt style="display: inline;">
+                Phòng Ban:
+            </dt>
+            <dd style="display: inline;">
+                @thongTinNhanVien.IdPbNavigation.TenPhongBan
+            </dd>
+        </dl>
+
+        <dl class="dl-horizontal">
+            <dt style="display: inline;">
+                Điện Thoại Nhà
+            </dt>
+            <dd style="display: inline;">
+                @thongTinNhanVien.DienThoaiNha
+            </dd>
+        </dl>
+
+        <dl class="dl-horizontal">
+            <dt style="display: inline;">
+                Điện Thoại Di Động
+            </dt>
+            <dd style="display: inline;">
+                @thongTinNhanVien.Dtdd
+            </dd>
+        </dl>
+
+        <dl class="dl-horizontal">
+            <dt style="display: inline;">
+                Email
+            </dt>
+            <dd style="display: inline;">
+                @thongTinNhanVien.Email
+            </dd>
+        </dl>
+    </div>
+</div>

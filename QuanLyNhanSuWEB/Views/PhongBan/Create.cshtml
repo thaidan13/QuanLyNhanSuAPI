@@ -1,0 +1,47 @@
+﻿@using QuanLyNhanSuAPI.Models.HoSoNhanSu;
+@model QuanLyNhanSuAPI.Models.HoSoNhanSu.TbPhongBan
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var responseNhanVien = ViewData["NhanVienResponse"] as List<TbThongTinNhanVien>;
+}
+
+<div class="container mt-3">
+    
+        <form asp-action="Create" class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Tên Phòng Ban</label>
+                    <input asp-for="TenPhongBan" class="form-control" />
+                    <span asp-validation-for="TenPhongBan" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Quản Lý</label>
+                    <select asp-for="QuanLy" class="form-control">
+                        <option value="">Chọn Nhân Viên</option>
+                        @foreach (var item in responseNhanVien)
+                        {
+                            <option value="@item.IdNv">@item.HoKhaiSinh @item.TenKhaiSinh</option>
+                        }
+                    </select>
+                    <span asp-validation-for="QuanLy" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Tạo Phòng Ban" class="btn btn-primary" />
+            </div>
+        </form>
+    
+
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

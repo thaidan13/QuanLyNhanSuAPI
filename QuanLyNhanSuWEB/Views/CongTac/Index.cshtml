@@ -1,0 +1,866 @@
+﻿@model QuanLyNhanSuWEB.DTO.HoSoNhanSuDTO.QuaTrinhCongTacDTO
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="m-4">
+    <h3 for="" class="fw-bold m-0"><i class="fa-solid fa-circle-info "></i> Thông Tin Quá Trình Công Tác</h3>
+    <hr class="mt-0">
+    <div class="col-md-12 p-0" style="border: 2px solid rgb(36, 92, 166);">
+        <div class="text-center pt-3 pb-3" style="font-size: 18px; background-color: rgb(36, 92, 166);">
+            <label class="fw-bold" style="color: white; margin-right: 10px;">Tóm Lược Nhân Viên</label>
+        </div>
+        <div class="profile p-4 d-md-flex">
+            <div class="employee-image mb-3 mb-md-0 me-md-4" style="width: 200px; height: 250px; border: 1px solid #ccc; border-radius:10px;">
+                <img src="~/uploads/@Model.NhanVien.HinhAnh" width="100%" height="100%" alt="Hình nhân viên">
+            </div>
+            <div class="text-center text-md-start ml-3">
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Họ và tên</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.HoKhaiSinh @Model.NhanVien.TenKhaiSinh</label>
+                    </div>
+                </div>
+                <!-- Các grid-col khác tương tự -->
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Mã Nhân Viên</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.IdNv</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Phòng Ban</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.IdPbNavigation.TenPhongBan</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Điện Thoại Nhà</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.DienThoaiNha</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Điện Thoại Di Động</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.Dtdd</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Email</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.Email</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 p-0 mt-2 tab-wrapper">
+        @*Tab Đào Tạo*@
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Quá Trình Công Tác Trong Công Ty</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Quá Trình Công Tác Ngoài Công Ty</button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="tab-content p-3" id="myTabContent" style="border: 2px solid rgb(36, 92, 166); border-radius: 0px 0px 15px 15px; ">
+        @*Công tác trong công ty*@
+        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+            <div class="d-flex justify-content-between align-items-center mt-3 mb-3" style="gap: 10px;">
+
+                <div>
+                    <a class="btn" href="@Url.Action("Details", "ThongTinNhanVien", new {  IdNV = @Model.NhanVien.IdNv })" style="background-color: rgb(36, 92, 166) !important; font-weight: bold; color: white;"><i class="fa-solid fa-arrow-left"></i> Trở về</a>
+                </div>
+
+                <div class="d-flex" style="gap: 10px;">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaltrongcongty">
+                        Thêm mới
+                    </button>
+
+                    <button type="button" class="btn btn-success update-trongcongty" data-bs-toggle="modal" data-bs-target="#modalcapnhattrongcongty">
+                        Cập Nhật
+                    </button>
+
+                    <button class="delete-button btn btn-danger delete-trongcongty">Xoá</button>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modaltrongcongty" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <form asp-action="Create" method="post" enctype="multipart/form-data">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Nhập Quá Trình Trong Công Ty</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center justify-content-center align-items-center ">
+                                <div class="row">
+                                    <input asp-for="@Model.CongTac.IdNv" hidden value="@Model.NhanVien.IdNv" class="form-control" />
+                                    <input asp-for="@Model.CongTac.Loai" hidden value="true" class="form-control" />
+
+                                    <div class="col-md-6">
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Từ Ngày</label>
+                                            <input type="date" asp-for="@Model.CongTac.TuNgay" min="1900-01-01" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.TuNgay" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Tên Công Ty</label>
+                                            <input type="text" asp-for="@Model.CongTac.TenCongTy" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.TenCongTy" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Tên Đội</label>
+                                            <input type="text" asp-for="@Model.CongTac.TenDoi" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.TenDoi" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Lý Do</label>
+                                            <input type="text" asp-for="@Model.CongTac.LyDo" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.LyDo" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Số HĐLĐ</label>
+                                            <input type="text" asp-for="@Model.CongTac.SoHdld" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.SoHdld" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Ngày Quyết Định</label>
+                                            <input type="date" asp-for="@Model.CongTac.NgayQuyetDinh" min="1900-01-01" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.NgayQuyetDinh" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Số Quyết Định</label>
+                                            <input type="text" asp-for="@Model.CongTac.SoQd" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.SoQd" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Đến Ngày</label>
+                                            <input type="date" asp-for="@Model.CongTac.DenNgay" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.DenNgay" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Tên Phòng Ban</label>
+                                            <input type="text" asp-for="@Model.CongTac.TenPhongBan" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.TenPhongBan" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Chức Danh</label>
+                                            <input type="text" asp-for="@Model.CongTac.ChucDanh" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.ChucDanh" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;"></label>
+                                            <select asp-for="@Model.CongTac.DangHoatDong" style="width: 70%; font-weight: bold;" class="form-control">
+                                                <option value="true">Đang Hoạt Động</option>
+                                                <option value="false">Ngừng Hoạt Động</option>
+                                            </select>
+                                            <span asp-validation-for="@Model.CongTac.DangHoatDong" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Loại HĐLĐ</label>
+                                            <input type="text" asp-for="@Model.CongTac.LoaiHdld" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.LoaiHdld" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Ngày Hiệu Lực</label>
+                                            <input type="date" asp-for="@Model.CongTac.NgayHieuLuc" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.NgayHieuLuc" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Người Ký</label>
+                                            <input type="text" asp-for="@Model.CongTac.NguoiKy" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.NguoiKy" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Đính Kèm</label>
+                                            <input type="file" name="File" asp-for="@Model.CongTac.FileQuyetDinh" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.FileQuyetDinh" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                               
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+                                <input type="submit" class="btn btn-primary" value="Lưu">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table id="trongcongtytable" class="table table-striped tabletrongcongty" style="cursor:pointer; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th hidden>
+                                Id
+                            </th>
+                            <th>
+                                Từ Ngày
+                            </th>
+                            <th>
+                                Đến Ngày
+                            </th>
+                            <th>
+                                Tên Công Ty
+                            </th>
+                            <th>
+                                Tên Phòng Ban
+                            </th>
+                            <th>
+                                Tên Đội
+                            </th>
+                            <th>
+                                Chức Danh
+                            </th>
+                            <th>
+                                File
+                            </th>
+                            <th>Tương Tác File </th>
+                            <th hidden>
+                                Lý Do
+                            </th>
+                            <th hidden>
+                                Trạng Thái
+                            </th>
+                            <th hidden>
+                                Số HĐLĐ
+                            </th>
+                            <th hidden>
+                                Loại HĐLĐ
+                            </th>
+                            <th hidden>
+                                Ngày Quyết Định
+                            </th>
+                            <th hidden>
+                                Ngày Hiệu Lực
+                            </th>
+                            <th hidden>
+                                Số Quyết Định
+                            </th>
+                            <th hidden>
+                                Người Ký
+                            </th>
+                            <th hidden>
+                                IdNV
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbodytrongcongty">
+                        @foreach (var item in Model.TrongCongTacs)
+                        {
+                            <tr class="selected-trongcongty trtrongcongty " data-id="@item.Id">
+                                <td hidden>@Html.DisplayFor(modelItem => item.Id)</td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TuNgay)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DenNgay)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenCongTy)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenPhongBan)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenDoi)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ChucDanh)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FileQuyetDinh)
+                                </td>
+                                <td>
+                                    <a class="p-0" href="\uploadfiles\@item.FileQuyetDinh">Xem</a> | <a class="p-0" href="@Url.Action("DownloadFile", "CongTac", new { fileName = item.FileQuyetDinh })">Tải về tệp tin</a>
+                                </td>
+                                <td hidden>
+                                    @Html.DisplayFor(modelItem => item.LyDo)
+                                </td>
+                                <td hidden>
+                                    @if (item.DangHoatDong == true)
+                                    {
+                                        <strong>Đang Hoạt Động</strong>
+                                    }
+                                    else
+                                    {
+                                        <strong>Ngừng Hoạt Động</strong>
+                                    }
+                                </td>
+                                <td hidden>
+                                    @Html.DisplayFor(modelItem => item.SoHdld)
+                                </td>
+                                <td hidden>
+                                    @Html.DisplayFor(modelItem => item.LoaiHdld)
+                                </td>
+                                <td hidden>
+                                    @Html.DisplayFor(modelItem => item.NgayQuyetDinh)
+                                </td>
+                                <td hidden>
+                                    @Html.DisplayFor(modelItem => item.NgayHieuLuc)
+                                </td>
+                                <td hidden>
+                                    @Html.DisplayFor(modelItem => item.SoQd)
+                                </td>
+                                <td hidden>
+                                    @Html.DisplayFor(modelItem => item.NguoiKy)
+                                </td>
+                                <td hidden>
+                                    @Html.DisplayFor(modelItem => item.IdNv)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+           
+        </div>
+
+        @*Công tác ngoài công ty*@
+        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+            <div class="d-flex justify-content-between align-items-center mt-3 mb-3" style="gap: 10px;">
+
+                <div>
+                    <a class="btn" href="@Url.Action("Details", "ThongTinNhanVien", new {  IdNV = @Model.NhanVien.IdNv })" style="background-color: rgb(36, 92, 166) !important; font-weight: bold; color: white;"><i class="fa-solid fa-arrow-left"></i> Trở về</a>
+                </div>
+
+                <div class="d-flex" style="gap: 10px;">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalngoaicongty">
+                        Thêm mới
+                    </button>
+
+                    <button type="button" class="btn btn-success update-trongcongty" data-bs-toggle="modal" data-bs-target="#modalcapnhattrongcongty">
+                        Cập Nhật
+                    </button>
+
+                    <button class="delete-button btn btn-danger delete-trongcongty">Xoá</button>
+                </div>
+
+                
+            </div>
+
+            <div class="modal fade" id="modalngoaicongty" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <form asp-action="Create" method="post" enctype="multipart/form-data">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Nhập Quá Trình Ngoài Công Ty</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center justify-content-center align-items-center ">
+                                <div class="row">
+                                    <input asp-for="@Model.CongTac.IdNv" hidden value="@Model.NhanVien.IdNv" class="form-control" />
+                                    <input asp-for="@Model.CongTac.Loai" hidden value="false" class="form-control" />
+
+                                    <div class="col-md-6">
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Từ Ngày</label>
+                                            <input type="date" asp-for="@Model.CongTac.TuNgay" min="1900-01-01" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.TuNgay" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Tên Công Ty</label>
+                                            <input type="text" asp-for="@Model.CongTac.TenCongTy" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.TenCongTy" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Tên Đội</label>
+                                            <input type="text" asp-for="@Model.CongTac.TenDoi" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.TenDoi" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Lý Do</label>
+                                            <input type="text" asp-for="@Model.CongTac.LyDo" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.LyDo" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Số HĐLĐ</label>
+                                            <input type="text" asp-for="@Model.CongTac.SoHdld" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.SoHdld" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Ngày Quyết Định</label>
+                                            <input type="date" asp-for="@Model.CongTac.NgayQuyetDinh" min="1900-01-01" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.NgayQuyetDinh" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Số Quyết Định</label>
+                                            <input type="text" asp-for="@Model.CongTac.SoQd" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.SoQd" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Đến Ngày</label>
+                                            <input type="date" asp-for="@Model.CongTac.DenNgay" style="width: 70%;" min="1900-01-01" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.DenNgay" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Tên Phòng Ban</label>
+                                            <input type="text" asp-for="@Model.CongTac.TenPhongBan" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.TenPhongBan" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Chức Danh</label>
+                                            <input type="text" asp-for="@Model.CongTac.ChucDanh" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.ChucDanh" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;"></label>
+                                            <select asp-for="@Model.CongTac.DangHoatDong" style="width: 70%; font-weight: bold;" class="form-control">
+                                                <option value="true">Đang Hoạt Động</option>
+                                                <option value="false">Ngừng Hoạt Động</option>
+                                            </select>
+                                            <span asp-validation-for="@Model.CongTac.DangHoatDong" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Loại HĐLĐ</label>
+                                            <input type="text" asp-for="@Model.CongTac.LoaiHdld" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.LoaiHdld" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Ngày Hiệu Lực</label>
+                                            <input type="date" asp-for="@Model.CongTac.NgayHieuLuc" min="1900-01-01" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.NgayHieuLuc" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Người Ký</label>
+                                            <input type="text" asp-for="@Model.CongTac.NguoiKy" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.NguoiKy" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Đính Kèm</label>
+                                            <input type="file" name="File" asp-for="@Model.CongTac.FileQuyetDinh" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.CongTac.FileQuyetDinh" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+                                <input type="submit" class="btn btn-primary" value="Lưu">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table id="ngoaicongtytable" class="table table-striped tabletrongcongty" style="cursor:pointer; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th hidden>
+                                Id
+                            </th>
+                            <th>
+                                Từ Ngày
+                            </th>
+                            <th>
+                                Đến Ngày
+                            </th>
+                            <th>
+                                Tên Công Ty
+                            </th>
+                            <th>
+                                Tên Phòng Ban
+                            </th>
+                            <th>
+                                Tên Đội
+                            </th>
+                            <th>
+                                Chức Danh
+                            </th>
+                            <th>
+                                File
+                            </th>
+                            <th>Tương Tác File </th>
+                            <th hidden>
+                                Lý Do
+                            </th>
+                            <th hidden>
+                                Trạng Thái
+                            </th>
+                            <th hidden>
+                                Số HĐLĐ
+                            </th>
+                            <th hidden>
+                                Loại HĐLĐ
+                            </th>
+                            <th hidden>
+                                Ngày Quyết Định
+                            </th>
+                            <th hidden>
+                                Ngày Hiệu Lực
+                            </th>
+                            <th hidden>
+                                Số Quyết Định
+                            </th>
+                            <th hidden>
+                                Người Ký
+                            </th>
+                            <th hidden>
+                                IdNV
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbodytrongcongty">
+                        @foreach (var item in Model.NgoaiCongTacs)
+                        {
+                            <tr class="selected-trongcongty trtrongcongty " data-id="@item.Id">
+                                <td hidden>@Html.DisplayFor(modelItem => item.Id)</td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TuNgay)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DenNgay)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenCongTy)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenPhongBan)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenDoi)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ChucDanh)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FileQuyetDinh)
+                                </td>
+                                <td>
+                                    <a class="p-0" href="\uploadfiles\@item.FileQuyetDinh">Xem</a> | <a class="p-0" href="@Url.Action("DownloadFile", "CongTac", new { fileName = item.FileQuyetDinh })">Tải về tệp tin</a>
+                                </td>
+                                <td hidden>
+                                    @Html.DisplayFor(modelItem => item.LyDo)
+                                </td>
+                                <td hidden>
+                                    @if (item.DangHoatDong == true)
+                                    {
+                                        <strong>Đang Hoạt Động</strong>
+                                    }
+                                    else
+                                    {
+                                        <strong>Ngừng Hoạt Động</strong>
+                                    }
+                                </td>
+                                <td hidden>
+                                    @Html.DisplayFor(modelItem => item.SoHdld)
+                                </td>
+                                <td hidden>
+                                    @Html.DisplayFor(modelItem => item.LoaiHdld)
+                                </td>
+                                <td hidden>
+                                    @Html.DisplayFor(modelItem => item.NgayQuyetDinh)
+                                </td>
+                                <td hidden>
+                                    @Html.DisplayFor(modelItem => item.NgayHieuLuc)
+                                </td>
+                                <td hidden>
+                                    @Html.DisplayFor(modelItem => item.SoQd)
+                                </td>
+                                <td hidden>
+                                    @Html.DisplayFor(modelItem => item.NguoiKy)
+                                </td>
+                                <td hidden>
+                                    @Html.DisplayFor(modelItem => item.IdNv)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+@*Cập nhật công tác trong công ty*@
+<div class="modal fade" id="modalcapnhattrongcongty" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <form asp-action="Update" method="post" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Nhập Quá Trình Trong Công Ty</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center justify-content-center align-items-center ">
+                    <div class="row">
+                        <input asp-for="@Model.CongTac.IdNv" name="IdNv" hidden value="@Model.NhanVien.IdNv" class="form-control" />
+                        
+                        <input asp-for="@Model.CongTac.Id" name="Id" hidden  class="form-control" />
+
+                        <div class="col-md-6">
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Từ Ngày</label>
+                                <input type="text" asp-for="@Model.CongTac.TuNgay" name="TuNgay"  style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.CongTac.TuNgay" class="text-danger"></span>
+                            </div>
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Tên Công Ty</label>
+                                <input type="text" asp-for="@Model.CongTac.TenCongTy" name="TenCongTy" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.CongTac.TenCongTy" class="text-danger"></span>
+                            </div>
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Tên Đội</label>
+                                <input type="text" asp-for="@Model.CongTac.TenDoi" name="TenDoi" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.CongTac.TenDoi" class="text-danger"></span>
+                            </div>
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Lý Do</label>
+                                <input type="text" asp-for="@Model.CongTac.LyDo" name="LyDo" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.CongTac.LyDo" class="text-danger"></span>
+                            </div>
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Số HĐLĐ</label>
+                                <input type="text" asp-for="@Model.CongTac.SoHdld" name="SoHdld" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.CongTac.SoHdld" class="text-danger"></span>
+                            </div>
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Ngày Quyết Định</label>
+                                <input type="text" asp-for="@Model.CongTac.NgayQuyetDinh" name="NgayQuyetDinh" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.CongTac.NgayQuyetDinh" class="text-danger"></span>
+                            </div>
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Số Quyết Định</label>
+                                <input type="text" asp-for="@Model.CongTac.SoQd" name="SoQD" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.CongTac.SoQd" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Đến Ngày</label>
+                                <input type="text" asp-for="@Model.CongTac.DenNgay" name="DenNgay" min="1900-01-01" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.CongTac.DenNgay" class="text-danger"></span>
+                            </div>
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Tên Phòng Ban</label>
+                                <input type="text" asp-for="@Model.CongTac.TenPhongBan" name="TenPhongBan" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.CongTac.TenPhongBan" class="text-danger"></span>
+                            </div>
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Chức Danh</label>
+                                <input type="text" asp-for="@Model.CongTac.ChucDanh" name="ChucDanh" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.CongTac.ChucDanh" class="text-danger"></span>
+                            </div>
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;"></label>
+                                <select asp-for="@Model.CongTac.DangHoatDong" name="DangHoatDong" style="width: 70%; font-weight: bold;" class="form-control">
+                                    <option value="true">Đang Hoạt Động</option>
+                                    <option value="false">Ngừng Hoạt Động</option>
+                                </select>
+                                <span asp-validation-for="@Model.CongTac.DangHoatDong" class="text-danger"></span>
+                            </div>
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Loại HĐLĐ</label>
+                                <input type="text" asp-for="@Model.CongTac.LoaiHdld" name="LoaiHDLD" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.CongTac.LoaiHdld" class="text-danger"></span>
+                            </div>
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Ngày Hiệu Lực</label>
+                                <input type="text" asp-for="@Model.CongTac.NgayHieuLuc" name="NgayHieuLuc" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.CongTac.NgayHieuLuc" class="text-danger"></span>
+                            </div>
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Người Ký</label>
+                                <input type="text" asp-for="@Model.CongTac.NguoiKy" name="NguoiKy" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.CongTac.NguoiKy" class="text-danger"></span>
+                            </div>
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">File Quyết Định</label>
+                                <input type="file" name="File" id="File" style="width: 70%;" class="form-control">
+                                <input asp-for="@Model.CongTac.FileQuyetDinh" hidden name="FileQuyetDinh" id="NhanFile" type="text" />
+                                <span asp-validation-for="@Model.CongTac.FileQuyetDinh" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+                    <input type="submit" class="btn btn-primary" value="Lưu">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+
+    <style>
+        .tab-wrapper ul {
+            overflow: hidden;
+            margin: 0px;
+            padding: 0px;
+        }
+
+            .tab-wrapper ul li .active {
+                background: none;
+                border-bottom: none;
+                border-top: 3px solid rgb(36, 92, 166) !important;
+            }
+
+                .tab-wrapper ul li .active button {
+                    color: rgb(36, 92, 166);
+                }
+
+            .tab-wrapper ul li button {
+                color: rgb(36, 92, 166);
+                text-decoration: none;
+            }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            // Khởi tạo DataTables
+            var table = $('#trongcongtytable').DataTable();
+            var table = $('#ngoaicongtytable').DataTable();
+        });
+
+        $(document).ready(function () {
+            var selectedRowTrongCongTy = null;
+
+            $('.tabletrongcongty .tbodytrongcongty .trtrongcongty').click(function () {
+                // Loại bỏ lựa chọn trước đó (nếu có)
+                if (selectedRowTrongCongTy != null) {
+                    selectedRowTrongCongTy.removeClass('selected-trongcongty');
+                }
+
+                // Đánh dấu dòng được chọn và lưu lại dòng đó
+                selectedRowTrongCongTy = $(this);
+                selectedRowTrongCongTy.addClass('selected-trongcongty');
+            });
+
+            $('.update-trongcongty').click(function () {
+                if (selectedRowTrongCongTy != null) {
+                    // Lấy thông tin từ dòng được chọn
+                    var id = selectedRowTrongCongTy.find('td:eq(0)').text();
+                    var tungay = selectedRowTrongCongTy.find('td:eq(1)').text().trim();
+                    var denngay = selectedRowTrongCongTy.find('td:eq(2)').text().trim();
+                    var tencongty = selectedRowTrongCongTy.find('td:eq(3)').text().trim();
+                    var tenphongban = selectedRowTrongCongTy.find('td:eq(4)').text().trim();
+                    var tendoi = selectedRowTrongCongTy.find('td:eq(5)').text().trim();
+                    var chucdanh = selectedRowTrongCongTy.find('td:eq(6)').text().trim();
+                    var filequyetdinh = selectedRowTrongCongTy.find('td:eq(7)').text().trim();
+                    var lydo = selectedRowTrongCongTy.find('td:eq(9)').text().trim();
+                    var trangthai = selectedRowTrongCongTy.find('td:eq(10)').text().trim();
+                    var sohdld = selectedRowTrongCongTy.find('td:eq(11)').text().trim();
+                    var loaihdld = selectedRowTrongCongTy.find('td:eq(12)').text().trim();
+                    var ngayquyetdinh = selectedRowTrongCongTy.find('td:eq(13)').text().trim();
+                    var ngayhieuluc = selectedRowTrongCongTy.find('td:eq(14)').text().trim();
+                    var soqd = selectedRowTrongCongTy.find('td:eq(15)').text().trim();
+                    var nguoiky = selectedRowTrongCongTy.find('td:eq(16)').text().trim();
+                    var idnv = selectedRowTrongCongTy.find('td:eq(17)').text().trim();
+
+                    // Điền thông tin vào modal
+                    $('#modalcapnhattrongcongty input[name="Id"]').val(id);
+                    $('#modalcapnhattrongcongty input[name="TuNgay"]').val(tungay);
+                    $('#modalcapnhattrongcongty input[name="DenNgay"]').val(denngay);
+                    $('#modalcapnhattrongcongty input[name="TenCongTy"]').val(tencongty);
+                    $('#modalcapnhattrongcongty input[name="TenPhongBan"]').val(tenphongban);
+                    $('#modalcapnhattrongcongty input[name="TenDoi"]').val(tendoi);
+                    $('#modalcapnhattrongcongty input[name="ChucDanh"]').val(chucdanh);
+                    $('#modalcapnhattrongcongty input[name="FileQuyetDinh"]').val(filequyetdinh);
+                    $('#modalcapnhattrongcongty input[name="LyDo"]').val(lydo);
+                    $('#modalcapnhatgiadinh select[name="DangHoatDong"] option').filter(function () {
+                        return $(this).text() === trangthai;
+                    }).prop('selected', true);
+                    $('#modalcapnhattrongcongty input[name="SoHdld"]').val(sohdld);
+                    $('#modalcapnhattrongcongty input[name="LoaiHDLD"]').val(loaihdld);
+                    $('#modalcapnhattrongcongty input[name="NgayQuyetDinh"]').val(ngayquyetdinh);
+                    $('#modalcapnhattrongcongty input[name="NgayHieuLuc"]').val(ngayhieuluc);
+                    $('#modalcapnhattrongcongty input[name="SoQD"]').val(soqd);
+                    $('#modalcapnhattrongcongty input[name="NguoiKy"]').val(nguoiky);
+                    $('#modalcapnhattrongcongty input[name="IdNv"]').val(idnv);
+
+                    // Hiển thị modal
+                    $('#modalcapnhatkhenthuong').modal('show');
+                }else{
+                    alert("Vui lòng chọn dòng để chỉnh sửa.");
+                }
+            });
+
+        });
+
+
+        $(document).ready(function () {
+            var selectedRowTrongCongTy = null;
+            var id = null;
+
+            $('.tabletrongcongty .tbodytrongcongty .trtrongcongty').click(function () {
+                if (selectedRowTrongCongTy != null) {
+                    selectedRowTrongCongTy.removeClass('selected-trongcongty');
+                }
+                id = $(this).data("id");
+                $(this).addClass('selected-trongcongty');
+                selectedRowTrongCongTy = $(this);
+            });
+
+            $(".delete-trongcongty").click(function () {
+                var confirmation = confirm("Bạn có chắc chắn muốn xóa thông tin này?");
+                if (selectedRowTrongCongTy != null) {
+                    if (confirmation) {
+                        // Nếu người dùng xác nhận xóa, hãy chuyển hướng đến hàm DeleteConfirmed của controller
+                        window.location.href = "/CongTac/DeleteCongTac?Id=" + id; // Thay ControllerName bằng tên của controller bạn đang sử dụng
+                    }
+                } else {
+                    alert("Vui lòng chọn dòng để chỉnh sửa.");
+                }
+            });
+        });
+
+
+
+
+
+        var inputSource = document.getElementById("File");
+        var inputDestination = document.getElementById("NhanFile");
+
+        inputSource.addEventListener("input", function () {
+            // Khi giá trị thay đổi, sao chép giá trị từ thẻ input nguồn sang thẻ input đích
+            NhanFile.value = File.value;
+        });
+    </script>
+
+
+}

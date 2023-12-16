@@ -1,0 +1,361 @@
+﻿@model QuanLyNhanSuAPI.Models.HoSoNhanSu.TbThongTinNhanVien
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="p-3" style="">
+    <div class="row ">
+        <form asp-action="Update" method="post" enctype="multipart/form-data">
+            <div class="btn text-start" style="border: 2px solid #8fcde1;border-radius: 15px; padding: 15px;">
+                <h5>Nhân viên/Chỉnh Sửa/@Model.IdNv</h5>
+                <div>
+                    <button type="submit" class="save" style=" font-size: 16px; font-weight: bold; padding: 10px 10px; color: white; background: rgb(36, 92, 166);border-radius: 4px;cursor: pointer; border: 1px solid rgb(36, 92, 166); outline: none;transition: 0.2s;">
+                        <i class="fa-solid fa-check"></i>Lưu
+                    </button>
+
+                    <button asp-action="Index" style="font-size: 16px; font-weight: bold; padding: 10px 10px; color: white; background: red; border-radius: 4px; cursor: pointer;  border: 1px solid red; outline: none; transition: 0.2s;" class="cancel"><i class="fa-solid fa-xmark"></i>Hủy bỏ</button>
+
+                </div>
+            </div>
+            <div class="">
+                <div class="row" style="padding-top: 15px; gap: 15px;">
+                    <h3 for="" class="fw-bold m-0"><i class="fa-solid fa-circle-info "></i>Cập nhật nhân viên</h3>
+                    <hr class="mt-0">
+                    <div class="text-center pt-3 pb-3" style="font-size: 18px; background-color: rgb(36, 92, 166);  ">
+                        <label class="fw-bold" style="color: white; margin-right: 10px;">Phòng ban</label>
+
+                        <select asp-for="IdPb" style="font-size: 16px; padding: 8px; border: 1px solid #ccc; background-color: #fff;" class="select">
+                            <option value="">Phòng Ban</option>
+                            @foreach (var item in ViewBag.TenPhongBan)
+                            {
+                                <option value="@item.Value">@item.Text</option>
+                            }
+                        </select>
+                        <span asp-validation-for="IdPb" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-5" style="padding: 1rem; gap: 1rem;  border: 2px solid #8fcde1;border-radius: 15px;">
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 30%; padding-right: 40px;">Họ Khai Sinh</label>
+                            <input type="text" asp-for="HoKhaiSinh" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="HoKhaiSinh" class="text-danger"></span>
+                        </div>
+
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 30%; padding-right: 40px;">Họ Thường Dùng</label>
+                            <input type="text" asp-for="HoThuongDung" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="HoThuongDung" class="text-danger"></span>
+                        </div>
+
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 30%; padding-right: 40px;">Mã Nhân Viên</label>
+                            <input type="text" asp-for="IdNv" readonly style="width: 70%;" class="form-control">
+                        </div>
+
+
+
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 30%; padding-right: 40px;">Ngày Sinh</label>
+                            <input type="text" asp-for="NgaySinh" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="NgaySinh" class="text-danger"></span>
+                        </div>
+
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 30%; padding-right: 40px;">Ngày Cấp CMND</label>
+                            <input type="text" asp-for="NgayCapCmnd" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="NgayCapCmnd" class="text-danger"></span>
+                        </div>
+
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 30%; padding-right: 40px;">Thẻ Căn Cước</label>
+                            <input type="text" asp-for="TheCanCuoc" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="TheCanCuoc" class="text-danger"></span>
+                        </div>
+
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 30%; padding-right: 40px;">Sổ Hộ Chiếu</label>
+                            <input type="number" asp-for="SoHoChieu" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="SoHoChieu" class="text-danger"></span>
+                        </div>
+
+                        @* <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 30%; padding-right: 40px;">Chức Vụ</label>
+                            <select asp-for="IdCv" class="form-control" style="font-size: 16px;
+                                                padding: 8px;
+                                                border: 1px solid #ccc;
+                                                border-radius: 4px;
+                                                background-color: #fff;
+                                                width: 70%;">
+                                <option value="">Chức Vụ</option>
+                                @foreach (var item in ViewBag.TenChucVu)
+                                {
+                                    <option value="@item.Value">@item.Text</option>
+                                }
+                            </select>
+                        </div>
+ *@
+                    </div>
+
+                    <div class="col-md-5" style="padding: 1rem; gap: 1rem;  border: 2px solid #8fcde1;border-radius: 15px;">
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 30%; padding-right: 40px;">Tên khai sinh</label>
+                            <input type="text" asp-for="TenKhaiSinh" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="TenKhaiSinh" class="text-danger"></span>
+                        </div>
+
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 30%; padding-right: 40px;">Tên Thường Dùng</label>
+                            <input type="text" asp-for="TenThuongDung" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="TenThuongDung" class="text-danger"></span>
+                        </div>
+
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 30%; padding-right: 40px;">Bí Danh</label>
+                            <input type="text" asp-for="BiDanh" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="BiDanh" class="text-danger"></span>
+                        </div>
+
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 30%; padding-right: 40px;">CMND</label>
+                            <input type="number" asp-for="Cmnd" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="Cmnd" class="text-danger"></span>
+                        </div>
+
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 30%; padding-right: 40px;">Nơi Cấp CMND</label>
+                            <input type="text" asp-for="NoiCapCmnd" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="NoiCapCmnd" class="text-danger"></span>
+                        </div>
+
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 30%; padding-right: 40px;">Ngày Cấp Thẻ Căn Cước</label>
+                            <input type="text" asp-for="NgayCapTheCanCuoc" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="NgayCapTheCanCuoc" class="text-danger"></span>
+                        </div>
+
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 30%; padding-right: 40px;">Ngày Cấp Hộ Chiếu</label>
+                            <input type="text" asp-for="NgayCapHoChieu" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="NgayCapHoChieu" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 text-center" style="padding: 1rem; gap: 1rem; border: 2px solid #8fcde1;border-radius: 15px;  width: 180px; height: 50%;">
+                        <img id="previewImage" src="~/uploads/@Model.HinhAnh" alt="Hình ảnh" width="100" height="100" class="gender-image img-thumbnail">
+                        <input name="imageFile" type="file" id="imageFile" accept="image/*" class="form-control mb-3" aria-label="file example" />
+
+                        <input asp-for="HinhAnh" id="NhanimageFile" type="text" hidden />
+                        <span asp-validation-for="HinhAnh" class="text-danger"></span>
+
+                        <div class="radio-container">
+                            <input type="radio" id="namRadio" name="GioiTinh" class="gender-radio" value="Nam" asp-for="GioiTinh">
+                            <label for="namRadio" class="radio-label">Nam</label>
+                            <input type="radio" id="nuRadio" name="GioiTinh" class="gender-radio" value="Nữ" asp-for="GioiTinh">
+                            <label for="nuRadio" class="radio-label">Nữ</label>
+                        </div>
+                        <span asp-validation-for="GioiTinh" class="text-danger"></span>
+                    </div>
+
+                    <div class="text-center pt-3 pb-3 " style="font-size: 18px; background-color: rgb(36, 92, 166); ">
+                        <label class="fw-bold" style="color: white; margin-right: 10px;">Quốc Tịch và Tôn Giáo</label>
+                    </div>
+
+                    <div class="col-md-6" style="padding: 1rem; gap: 1rem;  border: 2px solid #8fcde1;border-radius: 15px; ">
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Quốc Tịch</label>
+                            <input type="text" asp-for="QuocTich" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="QuocTich" class="text-danger"></span>
+                        </div>
+
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Thành Phần Gia Đình</label>
+                            <input type="text" asp-for="ThanhPhanGiaDinh" style="width: 70%;" class="form-control">
+                        </div>
+
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Chiều Cao</label>
+                            <input type="number" asp-for="ChieuCao" style="width: 70%;" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" style="padding: 1rem; gap: 1rem;  border: 2px solid #8fcde1;border-radius: 15px; width: 715px;">
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Dân Tộc</label>
+                            <input type="text" asp-for="DanToc" style="width: 70%;" class="form-control">
+                        </div>
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Tôn Giáo</label>
+                            <input type="text" asp-for="TonGiao" style="width: 70%;" class="form-control">
+                        </div>
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Nhân Dạng</label>
+                            <input type="text" asp-for="NhanDang" style="width: 70%;" class="form-control">
+                        </div>
+
+                    </div>
+
+                    <div class="text-center pt-3 pb-3 " style="font-size: 18px; background-color: rgb(36, 92, 166); ">
+                        <label class="fw-bold" style="color: white; margin-right: 10px;">Chức Danh và Nghỉ Việc</label>
+                    </div>
+
+                    <div class="col-md-6" style="padding: 1rem; gap: 1rem;  border: 2px solid #8fcde1;border-radius: 15px; ">
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Tên Chức Danh</label>
+                            <input type="text" asp-for="TenChucDanh" style="width: 70%;" class="form-control">
+                        </div>
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Bậc Lương</label>
+                            <input type="number" asp-for="BacLuong" style="width: 70%;" class="form-control">
+                        </div>
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Ngày Nghỉ Việc</label>
+                            <input type="text" asp-for="NgayNghiViec" style="width: 70%;" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" style="padding: 1rem; gap: 1rem;  border: 2px solid #8fcde1;border-radius: 15px; width: 715px;">
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 30%; padding-right: 40px;">Mô Tả Công Việc</label>
+                            <!-- <input type="text" style="width: 70%;" class="form-control"> -->
+                            <textarea asp-for="MoTaCongViec" style="width: 70%;" class="form-control" cols="10" rows="3"></textarea>
+                        </div>
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 30%; padding-right: 40px;">Lý Do</label>
+                            <textarea asp-for="LyDoNghiViec" style="width: 70%;" class="form-control" cols="10" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="text-center pt-3 pb-3 " style="font-size: 18px; background-color: rgb(36, 92, 166); ">
+                        <label class="fw-bold" style="color: white; margin-right: 10px;">Địa Chỉ và Thông Tin Liên Hệ</label>
+                    </div>
+
+                    <div class="col-md-6" style="padding: 1rem; gap: 1rem;  border: 2px solid #8fcde1;border-radius: 15px; ">
+                        <div class="text-center" style="font-size: 18px;  ">
+                            <label class="fw-bold" style="color: rgb(36, 92, 166); margin-right: 10px;">Quê Quán</label>
+                        </div>
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Phường/Xã</label>
+                            <input type="text" asp-for="QueQuanPhuongXa" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="QueQuanPhuongXa" class="text-danger"></span>
+                        </div>
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Quận Huyện</label>
+                            <input type="text" asp-for="QueQuanQuanHuyen" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="QueQuanQuanHuyen" class="text-danger"></span>
+                        </div>
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Thành Phố</label>
+                            <input type="text" asp-for="QueQuanThanhPho" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="QueQuanThanhPho" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" style="padding: 1rem; gap: 1rem;  border: 2px solid #8fcde1;border-radius: 15px; width: 715px;">
+                        <div class="text-center" style="font-size: 18px;">
+                            <label class="fw-bold" style="color: rgb(36, 92, 166); margin-right: 10px;">Liên Hệ</label>
+                        </div>
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Điện Thoại Nhà</label>
+                            <input type="text" asp-for="DienThoaiNha" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="DienThoaiNha" class="text-danger"></span>
+                        </div>
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">DTDD</label>
+                            <input type="text" asp-for="Dtdd" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="Dtdd" class="text-danger"></span>
+                        </div>
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Email</label>
+                            <input type="email" asp-for="Email" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" style="padding: 1rem; gap: 1rem;  border: 2px solid #8fcde1;border-radius: 15px; ">
+                        <div class="text-center" style="font-size: 18px;">
+                            <label class="fw-bold" style="color: rgb(36, 92, 166); margin-right: 10px;">Thường Trú</label>
+                        </div>
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Địa Chỉ</label>
+                            <input type="text" asp-for="DiaChiThuongTru" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="DiaChiThuongTru" class="text-danger"></span>
+                        </div>
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Phường/Xã</label>
+                            <input type="text" asp-for="PhuongXaThuongTru" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="PhuongXaThuongTru" class="text-danger"></span>
+                        </div>
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Quận Huyện</label>
+                            <input type="text" asp-for="QuanHuyenThuongTru" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="QuanHuyenThuongTru" class="text-danger"></span>
+                        </div>
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Thành Phố</label>
+                            <input type="text" asp-for="ThanhPhoThuongTru" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="ThanhPhoThuongTru" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" style="padding: 1rem; gap: 1rem;  border: 2px solid #8fcde1;border-radius: 15px; width: 715px;">
+                        <div class="text-center" style="font-size: 18px;">
+                            <label class="fw-bold" style="color: rgb(36, 92, 166); margin-right: 10px;">Tạm Trú</label>
+                        </div>
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Địa Chỉ</label>
+                            <input type="text" asp-for="DiaChiTamTru" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="DiaChiTamTru" class="text-danger"></span>
+                        </div>
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Phường/Xã</label>
+                            <input type="text" asp-for="PhuongXaTamTru" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="PhuongXaTamTru" class="text-danger"></span>
+                        </div>
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Quận Huyện</label>
+                            <input type="text" asp-for="QuanHuyenTamTru" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="QuanHuyenTamTru" class="text-danger"></span>
+                        </div>
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end" style="width: 20%; padding-right: 40px;">Thành Phố</label>
+                            <input type="text" asp-for="ThanhPhoTamTru" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="ThanhPhoTamTru" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+</div>
+
+@section Scripts {
+    
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        document.getElementById('imageFile').addEventListener('change', function (event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                var previewImage = document.getElementById('previewImage');
+                previewImage.src = e.target.result;
+                // previewImage.style.display = 'block';
+            };
+
+            reader.readAsDataURL(file);
+        });
+
+
+
+        var inputSource = document.getElementById("imageFile");
+        var inputDestination = document.getElementById("NhanimageFile");
+
+        inputSource.addEventListener("input", function () {
+            // Khi giá trị thay đổi, sao chép giá trị từ thẻ input nguồn sang thẻ input đích
+            NhanimageFile.value = imageFile.value;
+        });
+    </script>
+}

@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<section id="search-box">
+    <div class="input-group-timkiem">
+        <input type="search" id="search" class="timkiem" placeholder="Tìm kiếm menu" onkeyup="search()">
+        <img src="~/assets/img/search.png" alt="">
+    </div>
+</section>
+
+<section id="feature" class="section-p1" style="gap: 30px;">
+    <div class="fe-box">
+        <img src="~/assets/img/x/1.png" alt="">
+        <h6><a asp-controller="ThongTinNhanVien" asp-action="Index">Nhân viên</a></h6>
+    </div>
+    <div class="fe-box">
+        <img src="~/assets/img/x/2.png" alt="">
+        <h6><a asp-controller="PhongBan" asp-action="Index">Phòng ban</a></h6>
+    </div>
+    <div class="fe-box">
+        <img src="~/assets/img/x/3.png" alt="">
+        <h6><a asp-controller="OKR" asp-action="GetOKRsAdmin">OKRs</a></h6>
+    </div>
+    <div class="fe-box">
+        <img src="~/assets/img/x/4.png" alt="">
+        <h6><a asp-controller="Account" asp-action="Index">Thiết lập tài khoản nhân viên</a></h6>
+    </div>
+    
+    <div class="fe-box">
+        <img src="~/assets/img/x/6.png" alt="">
+        <h6><a asp-controller="OKR" asp-action="GetDiemThanhCong">Thiết lập</a></h6>
+    </div>
+</section>

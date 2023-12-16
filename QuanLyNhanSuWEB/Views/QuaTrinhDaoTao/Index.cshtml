@@ -1,0 +1,1970 @@
+﻿@model QuanLyNhanSuWEB.DTO.HoSoNhanSuDTO.QuaTrinhDaoTaoDTO
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //var thongTinNhanVien = ViewBag.ThongTinNhanVien;
+    
+}
+<head>
+    <style>
+        /* Add your styles here */
+        .trdaotao:hover {
+            background-color: #f5f5f5 !important; /* Hover color */
+        }
+
+        .trdaotao.selected {
+            background-color: #a3d2ff !important; /* Selected color */
+        }
+
+        .trdaotao {
+            color : white  !important; /* Selected color */
+        }
+    </style>
+</head>
+
+<div class="m-4">
+    <h3 for="" class="fw-bold m-0"><i class="fa-solid fa-circle-info "></i>Thông Tin Trình Độ</h3>
+    <hr class="mt-0">
+    <div class="col-md-12 p-0" style="border: 2px solid rgb(36, 92, 166);">
+        <div class="text-center pt-3 pb-3" style="font-size: 18px; background-color: rgb(36, 92, 166);">
+            <label class="fw-bold" style="color: white; margin-right: 10px;">Tóm Lược Nhân Viên</label>
+        </div>
+        <div class="profile p-4 d-md-flex">
+            <div class="employee-image mb-3 mb-md-0 me-md-4" style="width: 200px; height: 250px; border: 1px solid #ccc; border-radius:10px;">
+                <img src="~/uploads/@Model.NhanVien.HinhAnh" width="100%" height="100%" alt="Hình nhân viên">
+            </div>
+            <div class="text-center text-md-start ml-3">
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Họ và tên</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.HoKhaiSinh @Model.NhanVien.TenKhaiSinh</label>
+                    </div>
+                </div>
+                <!-- Các grid-col khác tương tự -->
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Mã Nhân Viên</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.IdNv</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Phòng Ban</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.IdPbNavigation.TenPhongBan</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Điện Thoại Nhà</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.DienThoaiNha</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Điện Thoại Di Động</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.Dtdd</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Email</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.Email</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-12 p-0 mt-2 tab-wrapper">
+        @*Tab Đào Tạo*@
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Quá Trình Đào Tạo</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Ngoại Ngữ</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Vi Tính</button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="chinhtri-tab" data-bs-toggle="tab" data-bs-target="#chinhtri-tab-pane" type="button" role="tab" aria-controls="chinhtri-tab-pane" aria-selected="false">Chính Trị</button>
+            </li>
+        </ul>
+    </div>
+    
+    @*Modal Đào Tạo*@
+    <div class="tab-content p-3" id="myTabContent" style="border: 2px solid rgb(36, 92, 166); border-radius: 0px 0px 15px 15px; ">
+        @*Quá Trình Đào Tạo*@
+        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+            <!-- Button trigger modal -->
+            <div class="d-flex justify-content-between align-items-center mt-3 mb-3" style="gap: 10px;">
+
+                <div>
+                    <a class="btn" href="@Url.Action("Details", "ThongTinNhanVien", new {  IdNV = @Model.NhanVien.IdNv })" style="background-color: rgb(36, 92, 166) !important; font-weight: bold; color: white;"><i class="fa-solid fa-arrow-left"></i> Trở về</a>
+                </div>
+
+                <div class="d-flex" style="gap: 10px;">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Thêm mới
+                    </button>
+
+                    <button type="button" class="btn btn-success update-button" data-bs-toggle="modal" data-bs-target="#exampleModal4">
+                        Cập Nhật
+                    </button>
+
+                    <button class="delete-button btn btn-danger delete-button">Xoá</button>
+                </div>
+                
+
+            </div>
+       
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <form asp-action="Create" method="post" data-ajax="true" data-ajax-method="POST">
+                        
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Quá Trình Đào Tạo</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                
+                                    <input asp-for="@Model.QuaTrinhDaoTao.IdNv" hidden value="@Model.NhanVien.IdNv" class="form-control" />
+                                
+                                    <div class="col-md-6">
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Từ Năm:
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input type="date" asp-for="@Model.QuaTrinhDaoTao.TuNam" min="1901-01-01" class="form-control" />
+                                                <span asp-validation-for="@Model.QuaTrinhDaoTao.TuNam" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Chế Độ Học:
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.QuaTrinhDaoTao.CheDoHoc" class="form-control" />
+                                                <span asp-validation-for="@Model.QuaTrinhDaoTao.CheDoHoc" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Trường Đào Tạo:
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.QuaTrinhDaoTao.TruongDaoTao" class="form-control" />
+                                                <span asp-validation-for="@Model.QuaTrinhDaoTao.TruongDaoTao" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Bằng Cấp:
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.QuaTrinhDaoTao.BangCap" class="form-control" />
+                                                <span asp-validation-for="@Model.QuaTrinhDaoTao.BangCap" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                   
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Kết Quả:
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.QuaTrinhDaoTao.KetQua" class="form-control" />
+                                                <span asp-validation-for="@Model.QuaTrinhDaoTao.KetQua" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Chuyên Môn:
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.QuaTrinhDaoTao.ChuyenMon" class="form-control" />
+                                                <span asp-validation-for="@Model.QuaTrinhDaoTao.ChuyenMon" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Ngày Cấp:
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input type="date" asp-for="@Model.QuaTrinhDaoTao.NgayCap" min="1901-01-01" class="form-control" />
+                                                <span asp-validation-for="@Model.QuaTrinhDaoTao.NgayCap" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                    </div>
+
+                                
+                                    <div class="col-md-6">
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Đến Năm:
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input type="date" asp-for="@Model.QuaTrinhDaoTao.DenNam" min="1901-01-01" class="form-control" />
+                                                <span asp-validation-for="@Model.QuaTrinhDaoTao.DenNam" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Loại Đào Tạo:
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.QuaTrinhDaoTao.LoaiDaoTao" class="form-control" />
+                                                <span asp-validation-for="@Model.QuaTrinhDaoTao.LoaiDaoTao" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Ngành Đào Tạo:
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.QuaTrinhDaoTao.NganhDaoTao" class="form-control" />
+                                                <span asp-validation-for="@Model.QuaTrinhDaoTao.NganhDaoTao" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Thời Gian:
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.QuaTrinhDaoTao.ThoiGian" class="form-control" />
+                                                <span asp-validation-for="@Model.QuaTrinhDaoTao.ThoiGian" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Số Băng
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.QuaTrinhDaoTao.SoBang" class="form-control" />
+                                                <span asp-validation-for="@Model.QuaTrinhDaoTao.SoBang" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Quốc Gia:
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.QuaTrinhDaoTao.QuocGia" class="form-control" />
+                                                <span asp-validation-for="@Model.QuaTrinhDaoTao.QuocGia" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                
+                                
+                                </div>
+                           
+                                <div class="row col-md-12">
+                                    <div class="col-md-12">
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Nội Dung:
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <textarea asp-for="@Model.QuaTrinhDaoTao.NoiDung" class="form-control"></textarea>
+                                                <span asp-validation-for="@Model.QuaTrinhDaoTao.NoiDung" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                           
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <input type="submit" class="btn btn-primary" value="Lưu">
+                            </div>
+                        </form>
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table id="daotaotable" class="table table-bordered" style="cursor:pointer;">
+                <thead>
+                    <tr>
+                        <th hidden>
+                            Id
+                        </th>
+                        <th class="test">
+                            Từ Năm
+                        </th>
+                        <th>
+                            Đến Năm
+                        </th>
+                        <th>
+                            Chế Độ Học
+                        </th>
+                        <th>
+                            Loại Đào Tạo
+                        </th>
+                        <th>
+                            Trường Đào Tạo
+                        </th>
+                        <th>
+                            Ngành Đào Tạo
+                        </th>
+                        <th>
+                            Bằng Cấp
+                        </th>
+
+                        <th>
+                            Kết Quả
+                        </th>
+
+                        <th>
+                            Chuyên Môn
+                        </th>
+                        <th>
+                            Số Bằng
+                        </th>
+                        <th hidden>
+                            Thời Gian
+                        </th>
+                        <th hidden>
+                            Ngày Cấp
+                        </th hidden>
+                        <th hidden>
+                            Quốc Gia
+                        </th>
+                        <th hidden>
+                            NoiDung
+                        </th>
+                         <th hidden>
+                            IdNV
+                        </th>
+                   
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.QuaTrinhDaoTaos)
+                    {
+                        <tr class="selected trdaotao" data-id="@item.Id">
+                       
+                            <td hidden>@Html.DisplayFor(modelItem => item.Id)</td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TuNam)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DenNam)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CheDoHoc)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LoaiDaoTao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TruongDaoTao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NganhDaoTao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BangCap)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.KetQua)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ChuyenMon)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SoBang)
+                            </td>
+                            <td hidden>
+                                @Html.DisplayFor(modelItem => item.ThoiGian)
+                            </td>
+                            <td hidden>
+                                @Html.DisplayFor(modelItem => item.NgayCap)
+                            </td>
+                            <td hidden>
+                                @Html.DisplayFor(modelItem => item.QuocGia)
+                            </td>
+                            <td hidden>
+                                @Html.DisplayFor(modelItem => item.NoiDung)
+                            </td>
+                             <td hidden>
+                                @Html.DisplayFor(modelItem => item.IdNv)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            </div>
+            
+
+        </div>
+        @*Thông Tin Ngoại Ngữ*@
+        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+
+            <div class="d-flex justify-content-between align-items-center mt-3 mb-3" style="gap: 10px;">
+
+                <div>
+                    <a class="btn" href="@Url.Action("Details", "ThongTinNhanVien", new {  IdNV = @Model.NhanVien.IdNv })" style="background-color: rgb(36, 92, 166) !important; font-weight: bold; color: white;"><i class="fa-solid fa-arrow-left"></i> Trở về</a>
+                </div>
+
+                <div class="d-flex" style="gap: 10px;">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                        Thêm mới
+                    </button>
+
+                     <button type="button" class="btn btn-success update-ngoaingu" data-bs-toggle="modal" data-bs-target="#modalupdatengoaingu">
+                        Cập Nhật
+                    </button>
+
+                     <button class="btn btn-danger delete-ngoaingu">Xoá</button>
+                </div>
+
+                
+            </div>
+
+            <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                          <form asp-action="Create" method="post" data-ajax="true" data-ajax-method="POST">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Thêm thông tin ngoại ngữ</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+
+                                <div class="row">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                                    <input hidden asp-for="@Model.NgoaiNgu.IdNv" value="@Model.NhanVien.IdNv" class="form-control" />
+
+                                    <div class="col-md-6">
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Ngoại Ngữ
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.NgoaiNgu.NgoaiNgu" class="form-control" />
+                                                <span asp-validation-for="@Model.NgoaiNgu.NgoaiNgu" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Kết Quả
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.NgoaiNgu.KetQua" class="form-control" />
+                                                <span asp-validation-for="@Model.NgoaiNgu.KetQua" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Kinh Phí:
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.NgoaiNgu.KinhPhi" class="form-control" />
+                                                <span asp-validation-for="@Model.NgoaiNgu.KinhPhi" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Nguồn Kinh Phí
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.NgoaiNgu.NguonKinhPhi" class="form-control" />
+                                                <span asp-validation-for="@Model.NgoaiNgu.NguonKinhPhi" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Ghi Chú
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.NgoaiNgu.GhiChu" class="form-control" />
+                                                <span asp-validation-for="@Model.NgoaiNgu.GhiChu" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                    </div>
+
+
+                                    <div class="col-md-6">
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Bằng Cấp
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.NgoaiNgu.BangCap" class="form-control" />
+                                                <span asp-validation-for="@Model.NgoaiNgu.BangCap" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Ngày Cấp
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input type="date" asp-for="@Model.NgoaiNgu.NgayCap" min="1901-01-01" class="form-control" />
+                                                <span asp-validation-for="@Model.NgoaiNgu.NgayCap" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Chính/Phụ
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <select asp-for="@Model.NgoaiNgu.ChinhPhu" class="form-control">
+                                                    <option value="true">Chính</option>
+                                                    <option value="false">Phụ</option>
+                                                </select>
+                                                <span asp-validation-for="@Model.NgoaiNgu.ChinhPhu" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+
+                                    </div>
+
+                                </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <input type="submit" class="btn btn-primary" value="Lưu">
+                                </div>
+                          </form>
+
+                    </div>
+                </div>
+            </div>
+
+            <table id="ngoaingutable" class="table table-striped tablengoaingu" width="100%">
+                <thead>
+                    <tr>
+                         <th hidden>
+                            Id
+                        </th>
+                        <th>
+                            Ngoại Ngữ
+                        </th>
+                        <th>
+                            Bằng Cấp
+                        </th>
+                        <th>
+                            Kết Quả
+                        </th>
+                        <th>
+                            Ngày Cấp
+                        </th>
+                        <th>
+                            Kinh Phí
+                        </th>
+                        <th>
+                            Chính/Phụ
+                        </th>
+                        <th>
+                            Nguồn Kinh Phí
+                        </th>
+                        <th>
+                           Ghi Chú
+                        </th>
+                        <th hidden>
+                            IdNv
+                        </th>
+                    
+                    </tr>
+                </thead>
+                <tbody class="tbodyngoaingu">
+                    @foreach (var item in Model.NgoaiNgus)
+                    {
+                        <tr class="selectedngoaingu trngoaingu" data-id="@item.Id">
+                            <td hidden>@Html.DisplayFor(modelItem => item.Id)</td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NgoaiNgu)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BangCap)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.KetQua)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NgayCap)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.KinhPhi)
+                            </td>
+                            <td>
+                                @if(item.ChinhPhu == true)
+                                {
+                                    <p>Chính</p>
+                                }
+                                else
+                                {
+                                    <p>Phụ</p>
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NguonKinhPhi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GhiChu)
+                            </td>
+                            <td hidden>
+                                @Html.DisplayFor(modelItem => item.IdNv)
+                            </td>
+                        
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+        @*Thông Tin Vi Tính*@
+        <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+
+            <div class="d-flex justify-content-between align-items-center mt-3 mb-3" style="gap: 10px;">
+
+                <div>
+                    <a class="btn" href="@Url.Action("Details", "ThongTinNhanVien", new {  IdNV = @Model.NhanVien.IdNv })" style="background-color: rgb(36, 92, 166) !important; font-weight: bold; color: white;"><i class="fa-solid fa-arrow-left"></i> Trở về</a>
+                </div>
+
+                <div class="d-flex" style="gap: 10px;">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                        Thêm mới
+                    </button>
+
+                     <button type="button" class="btn btn-success update-vitinh" data-bs-toggle="modal" data-bs-target="#modalupdatevitinh">
+                        Cập Nhật
+                    </button>
+
+                     <button class="btn btn-danger delete-vitinh">Xoá</button>
+                </div>
+
+                
+            </div>
+
+            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <form asp-action="Create" method="post" data-ajax="true" data-ajax-method="POST">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Thêm thông tin vi tính</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="row">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                                    <input hidden asp-for="@Model.ViTinh.IdNv" value="@Model.NhanVien.IdNv" class="form-control" />
+
+                                    <div class="col-md-6">
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Bằng Cấp
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.ViTinh.BangCap" class="form-control" />
+                                                <span asp-validation-for="@Model.ViTinh.BangCap" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Nội Dung
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.ViTinh.NoiDung" class="form-control" />
+                                                <span asp-validation-for="@Model.ViTinh.NoiDung" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Chế Độ Học
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.ViTinh.CheDoHoc" class="form-control" />
+                                                <span asp-validation-for="@Model.ViTinh.CheDoHoc" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Từ Ngày
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input type="date" asp-for="@Model.ViTinh.TuNgay" min="1900-01-01" class="form-control" />
+                                                <span asp-validation-for="@Model.ViTinh.TuNgay" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Kinh Phí
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.ViTinh.KinhPhi" class="form-control" />
+                                                <span asp-validation-for="@Model.ViTinh.KinhPhi" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                    </div>
+
+
+                                    <div class="col-md-6">
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Số Bằng
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.ViTinh.SoBang" class="form-control" />
+                                                <span asp-validation-for="@Model.ViTinh.SoBang" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Ngày Cấp
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input type="date" asp-for="@Model.ViTinh.NgayCap" min="1901-01-01" class="form-control" />
+                                                <span asp-validation-for="@Model.ViTinh.NgayCap" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Đến Ngày
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input type="date" asp-for="@Model.ViTinh.Denngay" min="1900-01-01" class="form-control" />
+                                                <span asp-validation-for="@Model.ViTinh.Denngay" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Nguồn Kinh Phí
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.ViTinh.NguonKinhPhi" class="form-control" />
+                                                <span asp-validation-for="@Model.ViTinh.NguonKinhPhi" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <input type="submit" class="btn btn-primary" value="Lưu">
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+            <table id="tablevitinh" class="table table-striped tablevitinh" width="100%">
+                <thead>
+                    <tr>
+                        <th hidden>
+                                Id
+                         </th>
+                        <th>
+                            Bằng Cấp
+                        </th>
+                        <th>
+                            Số Bằng
+                        </th>
+                        <th>
+                            Nội Dung
+                        </th>
+                        <th>
+                            Chế Độ Học
+                        </th>
+                        <th>
+                            Ngày Cấp
+                        </th>
+                        <th>
+                            Từ Ngày
+                        </th>
+                        <th>
+                            Đến Ngày
+                        </th>
+                        <th>
+                            Kinh Phí
+                        </th>
+                        <th>
+                            Nguồn Kinh Phí
+                        </th>
+                        <th hidden>
+                            IdNv
+                        </th>
+                      
+                    </tr>
+                </thead>
+                <tbody class="tbodyvitinh">
+                    @foreach (var item in Model.ViTinhs)
+                    {
+                        <tr class="selectedvitinh trvitinh" data-id="@item.Id">
+                            <td hidden>@Html.DisplayFor(modelItem => item.Id)</td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BangCap)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SoBang)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NoiDung)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CheDoHoc)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NgayCap)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TuNgay)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Denngay)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.KinhPhi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NguonKinhPhi)
+                            </td>
+                            <td hidden>
+                                @Html.DisplayFor(modelItem => item.IdNv)
+                            </td>
+                            
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+        @*Thông Tin Chính Trị*@
+        <div class="tab-pane fade" id="chinhtri-tab-pane" role="tabpanel" aria-labelledby="chinhtri-tab" tabindex="0">
+            <div class="d-flex justify-content-between align-items-center mt-3 mb-3" style="gap: 10px;">
+
+                 <div>
+                    <a class="btn" href="@Url.Action("Details", "ThongTinNhanVien", new {  IdNV = @Model.NhanVien.IdNv })" style="background-color: rgb(36, 92, 166) !important; font-weight: bold; color: white;"><i class="fa-solid fa-arrow-left"></i> Trở về</a>
+                </div>
+
+                <div class="d-flex" style="gap: 10px;">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                        Thêm mới
+                    </button>
+
+                     <button type="button" class="btn btn-success update-chinhtri" data-bs-toggle="modal" data-bs-target="#modalupdatechinhtri">
+                        Cập Nhật
+                    </button>
+
+                     <button class="btn btn-danger delete-chinhtri">Xoá</button>
+                </div>
+
+                
+            </div>
+
+            <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <form asp-action="Create" method="post" data-ajax="true" data-ajax-method="POST">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Thêm thông tin chính trị</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="row">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                                    <input hidden asp-for="@Model.ChinhTri.IdNv" value="@Model.NhanVien.IdNv" class="form-control" />
+
+                                    <div class="col-md-6">
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Trình Độ Chính Trị
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.ChinhTri.TrinhDoChinhTri" class="form-control" />
+                                                <span asp-validation-for="@Model.ChinhTri.TrinhDoChinhTri" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Từ Ngày
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input type="date" asp-for="@Model.ChinhTri.TuNgay" min="1900-01-01" class="form-control" />
+                                                <span asp-validation-for="@Model.ChinhTri.TuNgay" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Kinh Phí
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.ChinhTri.KinhPhi" class="form-control" />
+                                                <span asp-validation-for="@Model.ChinhTri.KinhPhi" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Ngày Cấp
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input type="date" asp-for="@Model.ChinhTri.NgayCap" min="1900-01-01" class="form-control" />
+                                                <span asp-validation-for="@Model.ChinhTri.NgayCap" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                    </div>
+
+
+                                    <div class="col-md-6">
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Chế Độ Học
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.ChinhTri.CheDoHoc" class="form-control" />
+                                                <span asp-validation-for="@Model.ChinhTri.CheDoHoc" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Đến Ngày
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input type="date" asp-for="@Model.ChinhTri.DenNgay" min="1900-01-01" class="form-control" />
+                                                <span asp-validation-for="@Model.ChinhTri.DenNgay" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal d-flex">
+                                            <dt style="display: inline; margin-right: 20px;">
+                                                Nguồn Kinh Phí
+                                            </dt>
+                                            <dd style="display: inline;">
+                                                <input asp-for="@Model.ChinhTri.NguonKinhPhi" class="form-control" />
+                                                <span asp-validation-for="@Model.ChinhTri.NguonKinhPhi" class="text-danger"></span>
+                                            </dd>
+                                        </dl>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <input type="submit" class="btn btn-primary" value="Lưu">
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+            <table id="tablechinhtri" class="table table-striped tablechinhtri"  width="100%">
+                <thead>
+                    <tr>
+                        <th hidden>
+                            Id
+                        </th>
+                        <th>
+                            Từ Ngày
+                        </th>
+                        <th>
+                            Đến Ngày
+                        </th>
+                        <th>
+                            Trình Độ Chính Trị
+                        </th>
+                        <th>
+                            Chế Độ Học
+                        </th>
+                        <th>
+                            Ngày Cấp
+                        </th>
+                        <th>
+                            Kinh Phí
+                        </th>
+                        <th>
+                            Nguồn Kinh Phí
+                        </th>
+                        <th hidden>
+                            IdNv
+                        </th>
+
+                       
+                    </tr>
+                </thead>
+                <tbody class="tbodychinhtri">
+                    @foreach (var item in Model.ChinhTris)
+                    {
+                        <tr class="selectedchinhtri trchinhtri" data-id="@item.Id">
+                            <td hidden>@Html.DisplayFor(modelItem => item.Id)</td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TuNgay)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DenNgay)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TrinhDoChinhTri)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CheDoHoc)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NgayCap)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.KinhPhi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NguonKinhPhi)
+                            </td>
+                            <td hidden>
+                                @Html.DisplayFor(modelItem => item.IdNv)
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+@*Cập nhật quá trình đào tạo*@
+<div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <form asp-action="Update" method="post" data-ajax="true" data-ajax-method="POST">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Quá Trình Đào Tạo</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <input asp-for="@Model.QuaTrinhDaoTao.Id" hidden name="Id" class="form-control" />
+                        <input asp-for="@Model.QuaTrinhDaoTao.IdNv" hidden name="IdNV" class="form-control" />
+                        
+                        <div class="col-md-6">
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Từ Năm:
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input type="text" asp-for="@Model.QuaTrinhDaoTao.TuNam" name="TuNam" class="form-control" />
+                                    <span asp-validation-for="@Model.QuaTrinhDaoTao.TuNam" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Chế Độ Học:
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.QuaTrinhDaoTao.CheDoHoc" name="CheDoHoc" class="form-control" />
+                                    <span asp-validation-for="@Model.QuaTrinhDaoTao.CheDoHoc" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Trường Đào Tạo:
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.QuaTrinhDaoTao.TruongDaoTao" name="TruongDaoTao" class="form-control" />
+                                    <span asp-validation-for="@Model.QuaTrinhDaoTao.TruongDaoTao" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Bằng Cấp:
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.QuaTrinhDaoTao.BangCap" name="BangCap" class="form-control" />
+                                    <span asp-validation-for="@Model.QuaTrinhDaoTao.BangCap" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Kết Quả:
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.QuaTrinhDaoTao.KetQua" name="KetQua" class="form-control" />
+                                    <span asp-validation-for="@Model.QuaTrinhDaoTao.KetQua" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Chuyên Môn:
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.QuaTrinhDaoTao.ChuyenMon" name="ChuyenMon" class="form-control" />
+                                    <span asp-validation-for="@Model.QuaTrinhDaoTao.ChuyenMon" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Ngày Cấp:
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input type="text" asp-for="@Model.QuaTrinhDaoTao.NgayCap" name="NgayCap" class="form-control" />
+                                    <span asp-validation-for="@Model.QuaTrinhDaoTao.NgayCap" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Đến Năm:
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input type="text" asp-for="@Model.QuaTrinhDaoTao.DenNam" name="DenNam" class="form-control" />
+                                    <span asp-validation-for="@Model.QuaTrinhDaoTao.DenNam" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Loại Đào Tạo:
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.QuaTrinhDaoTao.LoaiDaoTao" name="LoaiDaoTao" class="form-control" />
+                                    <span asp-validation-for="@Model.QuaTrinhDaoTao.LoaiDaoTao" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Ngành Đào Tạo:
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.QuaTrinhDaoTao.NganhDaoTao" name="NganhDaoTao" class="form-control" />
+                                    <span asp-validation-for="@Model.QuaTrinhDaoTao.NganhDaoTao" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Thời Gian:
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.QuaTrinhDaoTao.ThoiGian" name="ThoiGian" class="form-control" />
+                                    <span asp-validation-for="@Model.QuaTrinhDaoTao.ThoiGian" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Số Băng
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.QuaTrinhDaoTao.SoBang" name="SoBang" class="form-control" />
+                                    <span asp-validation-for="@Model.QuaTrinhDaoTao.SoBang" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Quốc Gia:
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.QuaTrinhDaoTao.QuocGia" name="QuocGia" class="form-control" />
+                                    <span asp-validation-for="@Model.QuaTrinhDaoTao.QuocGia" class="text-danger"></span>
+                                </dd>
+                            </dl>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row col-md-12">
+                        <div class="col-md-12">
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Nội Dung:
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.QuaTrinhDaoTao.NoiDung" name="NoiDung" class="form-control"/>
+                                    <span asp-validation-for="@Model.QuaTrinhDaoTao.NoiDung" class="text-danger"></span>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+                    <input type="submit" class="btn btn-primary" value="Lưu">
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+@*Cập nhật thông tin ngoại ngữ*@
+<div class="modal fade" id="modalupdatengoaingu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <form asp-action="UpdateNgoaiNgu" method="post" data-ajax="true" data-ajax-method="POST">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Thông Tin Ngoại Ngữ</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input hidden asp-for="@Model.NgoaiNgu.Id" name="Id" class="form-control" />
+                        <input hidden asp-for="@Model.NgoaiNgu.IdNv" name="IdNv" class="form-control" />
+
+                        <div class="col-md-6">
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Ngoại Ngữ
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.NgoaiNgu.NgoaiNgu" name="NgoaiNgu" class="form-control" />
+                                    <span asp-validation-for="@Model.NgoaiNgu.NgoaiNgu" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Kết Quả
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.NgoaiNgu.KetQua" name="KetQua" class="form-control" />
+                                    <span asp-validation-for="@Model.NgoaiNgu.KetQua" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Kinh Phí:
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.NgoaiNgu.KinhPhi" name="KinhPhi" class="form-control" />
+                                    <span asp-validation-for="@Model.NgoaiNgu.KinhPhi" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Nguồn Kinh Phí
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.NgoaiNgu.NguonKinhPhi" name="NguonKinhPhi" class="form-control" />
+                                    <span asp-validation-for="@Model.NgoaiNgu.NguonKinhPhi" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Ghi Chú
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.NgoaiNgu.GhiChu" name="GhiChu" class="form-control" />
+                                    <span asp-validation-for="@Model.NgoaiNgu.GhiChu" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Bằng Cấp
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.NgoaiNgu.BangCap" name="BangCap" class="form-control" />
+                                    <span asp-validation-for="@Model.NgoaiNgu.BangCap" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Ngày Cấp
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input type="text" asp-for="@Model.NgoaiNgu.NgayCap" name="NgayCap" class="form-control" />
+                                    <span asp-validation-for="@Model.NgoaiNgu.NgayCap" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Chính/Phụ
+                                </dt>
+                                <dd style="display: inline;">
+                                    <select asp-for="@Model.NgoaiNgu.ChinhPhu" name="ChinhPhu" class="form-control">
+                                        <option value="true">Chính</option>
+                                        <option value="false">Phụ</option>
+                                    </select>
+                                    <span asp-validation-for="@Model.NgoaiNgu.ChinhPhu" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" value="Lưu">
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+@*Cập nhật Thông Tin Vi Tính*@
+ <div class="modal fade" id="modalupdatevitinh" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <form asp-action="UpdateViTinh" method="post" data-ajax="true" data-ajax-method="POST">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Thông Tin Vi Tính</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input hidden  asp-for="@Model.ViTinh.Id" name="Id" class="form-control" />
+                        <input hidden asp-for="@Model.ViTinh.IdNv" name="IdNv" value="@Model.NhanVien.IdNv" class="form-control" />
+
+                        <div class="col-md-6">
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Bằng Cấp
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.ViTinh.BangCap" name="BangCap" class="form-control" />
+                                    <span asp-validation-for="@Model.ViTinh.BangCap" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Nội Dung
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.ViTinh.NoiDung" name="NoiDung" class="form-control" />
+                                    <span asp-validation-for="@Model.ViTinh.NoiDung" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Chế Độ Học
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.ViTinh.CheDoHoc" name="CheDoHoc" class="form-control" />
+                                    <span asp-validation-for="@Model.ViTinh.CheDoHoc" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Từ Ngày
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input type="text" asp-for="@Model.ViTinh.TuNgay" name="TuNgay" class="form-control" />
+                                    <span asp-validation-for="@Model.ViTinh.TuNgay" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Kinh Phí
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.ViTinh.KinhPhi" name="KinhPhi" class="form-control" />
+                                    <span asp-validation-for="@Model.ViTinh.KinhPhi" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Số Bằng
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.ViTinh.SoBang" name="SoBang" class="form-control" />
+                                    <span asp-validation-for="@Model.ViTinh.SoBang" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Ngày Cấp
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input type="text" asp-for="@Model.ViTinh.NgayCap" name="NgayCap" class="form-control" />
+                                    <span asp-validation-for="@Model.ViTinh.NgayCap" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Đến Ngày
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input type="text" asp-for="@Model.ViTinh.Denngay" name="DenNgay" class="form-control" />
+                                    <span asp-validation-for="@Model.ViTinh.Denngay" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Nguồn Kinh Phí
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.ViTinh.NguonKinhPhi" name="NguonKinhPhi" class="form-control" />
+                                    <span asp-validation-for="@Model.ViTinh.NguonKinhPhi" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" value="Lưu">
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+@*Cập nhật Thông Tin Chính Trị*@
+ <div class="modal fade" id="modalupdatechinhtri" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <form asp-action="UpdateChinhTri" method="post" data-ajax="true" data-ajax-method="POST">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Quá Trình Đào Tạo</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input hidden asp-for="@Model.ChinhTri.Id" name="Id" class="form-control" />
+                        <input hidden asp-for="@Model.ChinhTri.IdNv" value="@Model.NhanVien.IdNv" name="IdNv" class="form-control" />
+
+                        <div class="col-md-6">
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Trình Độ Chính Trị
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.ChinhTri.TrinhDoChinhTri" name="TrinhDoChinhTri" class="form-control" />
+                                    <span asp-validation-for="@Model.ChinhTri.TrinhDoChinhTri" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Từ Ngày
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input type="text" asp-for="@Model.ChinhTri.TuNgay" name="TuNgay" class="form-control" />
+                                    <span asp-validation-for="@Model.ChinhTri.TuNgay" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Kinh Phí
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.ChinhTri.KinhPhi" name="KinhPhi" class="form-control" />
+                                    <span asp-validation-for="@Model.ChinhTri.KinhPhi" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Ngày Cấp
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input type="text" asp-for="@Model.ChinhTri.NgayCap" name="NgayCap" class="form-control" />
+                                    <span asp-validation-for="@Model.ChinhTri.NgayCap" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Chế Độ Học
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.ChinhTri.CheDoHoc" name="CheDoHoc" class="form-control" />
+                                    <span asp-validation-for="@Model.ChinhTri.CheDoHoc" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Đến Ngày
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input type="text" asp-for="@Model.ChinhTri.DenNgay" name="DenNgay" class="form-control" />
+                                    <span asp-validation-for="@Model.ChinhTri.DenNgay" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+                            <dl class="dl-horizontal d-flex">
+                                <dt style="display: inline; margin-right: 20px;">
+                                    Nguồn Kinh Phí
+                                </dt>
+                                <dd style="display: inline;">
+                                    <input asp-for="@Model.ChinhTri.NguonKinhPhi" name="NguonKinhPhi" class="form-control" />
+                                    <span asp-validation-for="@Model.ChinhTri.NguonKinhPhi" class="text-danger"></span>
+                                </dd>
+                            </dl>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" value="Lưu">
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <link rel="stylesheet" href="~/css/Table.css" asp-append-version="true" />
+    <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    
+
+    <script>
+     
+        $(document).ready(function () {
+            $("#daotaotable tbody").on("click", "tr", function () {
+                $(this).toggleClass("selected").siblings().removeClass("selected");
+            });
+        });
+
+        //Khởi tạo table
+        $(document).ready(function () {
+            // Khởi tạo DataTables
+            var table = $('#daotaotable').DataTable();
+            var table = $('#ngoaingutable').DataTable();
+            var table = $('#tablevitinh').DataTable();
+            var table = $('#tablechinhtri').DataTable();
+        });
+
+        //Chỉnh sửa đào tạo
+        $(document).ready(function () {
+            // Biến lưu trữ dòng được chọn
+            var selectedRow = null;
+
+            // Lắng nghe sự kiện khi click vào dòng trong bảng
+            $('table tbody tr').click(function () {
+                // Loại bỏ lựa chọn trước đó (nếu có)
+                if (selectedRow != null) {
+                    selectedRow.removeClass('selected');
+                }
+
+                // Đánh dấu dòng được chọn và lưu lại dòng đó
+                selectedRow = $(this);
+                selectedRow.addClass('selected');
+
+                $("table tbody tr").removeClass("selected-row");
+
+                // Thêm class "selected-row" vào dòng được click
+                $(this).addClass("selected-row");
+
+                 
+            });
+
+            // Lắng nghe sự kiện khi click vào nút "Update"
+            $('.update-button').click(function () {
+                if (selectedRow != null) {
+                    // Lấy thông tin từ dòng được chọn
+                    var id = selectedRow.find('td:eq(0)').text();
+                    var tuNam = selectedRow.find('td:eq(1)').text().trim();
+                    var denNam = selectedRow.find('td:eq(2)').text().trim();
+                    var chedoHoc = selectedRow.find('td:eq(3)').text().trim();
+                    var loaidaoTao = selectedRow.find('td:eq(4)').text().trim();
+                    var truongdaoTao = selectedRow.find('td:eq(5)').text().trim();
+                    var nganhdaoTao = selectedRow.find('td:eq(6)').text().trim();
+                    var bangCap = selectedRow.find('td:eq(7)').text().trim();
+                    var ketQua = selectedRow.find('td:eq(8)').text().trim();
+                    var chuyenMon = selectedRow.find('td:eq(9)').text().trim();
+                    var soBang = selectedRow.find('td:eq(10)').text().trim();
+                    var thoiGian = selectedRow.find('td:eq(11)').text().trim();
+                    var ngayCap = selectedRow.find('td:eq(12)').text().trim();
+                    var quocGia = selectedRow.find('td:eq(13)').text().trim();
+                    var noiDung = selectedRow.find('td:eq(14)').text().trim();
+                    var idNV = selectedRow.find('td:eq(15)').text().trim();
+
+                    // Điền thông tin vào modal
+                    $('#exampleModal4 input[name="Id"]').val(id);
+                    $('#exampleModal4 input[name="TuNam"]').val(tuNam);
+                    $('#exampleModal4 input[name="DenNam"]').val(denNam);
+                    $('#exampleModal4 input[name="CheDoHoc"]').val(chedoHoc);
+                    $('#exampleModal4 input[name="LoaiDaoTao"]').val(loaidaoTao);
+                    $('#exampleModal4 input[name="TruongDaoTao"]').val(truongdaoTao);
+                    $('#exampleModal4 input[name="NganhDaoTao"]').val(nganhdaoTao);
+                    $('#exampleModal4 input[name="BangCap"]').val(bangCap);
+                    $('#exampleModal4 input[name="KetQua"]').val(ketQua);
+                    $('#exampleModal4 input[name="ChuyenMon"]').val(chuyenMon);
+                    $('#exampleModal4 input[name="SoBang"]').val(soBang);
+                    $('#exampleModal4 input[name="ThoiGian"]').val(thoiGian);
+                    $('#exampleModal4 input[name="NgayCap"]').val(ngayCap);
+                    $('#exampleModal4 input[name="QuocGia"]').val(quocGia);
+                    $('#exampleModal4 input[name="NoiDung"]').val(noiDung);
+                    $('#exampleModal4 input[name="IdNV"]').val(idNV);
+
+                    // Hiển thị modal
+                    $('#exampleModal4').modal('show');
+                } else {
+                    alert("Vui lòng chọn dòng để chỉnh sửa.");
+                }
+            });
+
+
+            var selectedRowForModalUpdateNgoaiNgu = null;
+
+            $('.tablengoaingu .tbodyngoaingu .trngoaingu').click(function () {
+                if (selectedRowForModalUpdateNgoaiNgu != null) {
+                    selectedRowForModalUpdateNgoaiNgu.removeClass('selectedngoaingu');
+                }
+                selectedRowForModalUpdateNgoaiNgu = $(this);
+                selectedRowForModalUpdateNgoaiNgu.addClass('selectedngoaingu');
+            });
+
+            $('.update-ngoaingu').click(function () {
+                if (selectedRowForModalUpdateNgoaiNgu != null) {
+                    var id = selectedRowForModalUpdateNgoaiNgu.find('td:eq(0)').text();
+                    var ngoaingu = selectedRowForModalUpdateNgoaiNgu.find('td:eq(1)').text().trim();
+                    var bangcap = selectedRowForModalUpdateNgoaiNgu.find('td:eq(2)').text().trim();
+                    var ketqua = selectedRowForModalUpdateNgoaiNgu.find('td:eq(3)').text().trim();
+                    var ngaycap = selectedRowForModalUpdateNgoaiNgu.find('td:eq(4)').text().trim();
+                    var kinhphi = selectedRowForModalUpdateNgoaiNgu.find('td:eq(5)').text().trim();
+                    var chinhphu = selectedRowForModalUpdateNgoaiNgu.find('td:eq(6)').text().trim();
+                    var nguonkinhphi = selectedRowForModalUpdateNgoaiNgu.find('td:eq(7)').text().trim();
+                    var ghichu = selectedRowForModalUpdateNgoaiNgu.find('td:eq(8)').text().trim();
+                    var idnv = selectedRowForModalUpdateNgoaiNgu.find('td:eq(9)').text().trim();
+
+                    // Điền thông tin vào modal "modalupdatengoaingu"
+                    $('#modalupdatengoaingu input[name="Id"]').val(id);
+                    $('#modalupdatengoaingu input[name="NgoaiNgu"]').val(ngoaingu);
+                    $('#modalupdatengoaingu input[name="BangCap"]').val(bangcap);
+                    $('#modalupdatengoaingu input[name="KetQua"]').val(ketqua);
+                    $('#modalupdatengoaingu input[name="NgayCap"]').val(ngaycap);
+                    $('#modalupdatengoaingu input[name="KinhPhi"]').val(kinhphi);
+                    $('#modalupdatengoaingu input[name="ChinhPhu"]').val(chinhphu);
+                    $('#modalupdatengoaingu input[name="NguonKinhPhi"]').val(nguonkinhphi);
+                    $('#modalupdatengoaingu input[name="GhiChu"]').val(ghichu);
+                    $('#modalupdatengoaingu input[name="IdNv"]').val(idnv);
+
+                    // Hiển thị modal "modalupdatengoaingu"
+                    $('#modalupdatengoaingu').modal('show');
+                }else {
+                    alert("Vui lòng chọn dòng để chỉnh sửa.");
+                }
+            
+            });
+
+
+            var selectedRowForModalUpdateViTinh = null;
+
+            $('.tablevitinh .tbodyvitinh .trvitinh').click(function () {
+                if (selectedRowForModalUpdateViTinh != null) {
+                    selectedRowForModalUpdateViTinh.removeClass('selectedvitinh');
+                }
+                selectedRowForModalUpdateViTinh = $(this);
+                selectedRowForModalUpdateViTinh.addClass('selectedvitinh');
+            });
+
+            $('.update-vitinh').click(function (){
+                if (selectedRowForModalUpdateViTinh != null) {
+                    var id = selectedRowForModalUpdateViTinh.find('td:eq(0)').text();
+                    var bangcap = selectedRowForModalUpdateViTinh.find('td:eq(1)').text().trim();
+                    var sobang = selectedRowForModalUpdateViTinh.find('td:eq(2)').text().trim();
+                    var noidung = selectedRowForModalUpdateViTinh.find('td:eq(3)').text().trim();
+                    var chedohoc = selectedRowForModalUpdateViTinh.find('td:eq(4)').text().trim();
+                    var ngaycap = selectedRowForModalUpdateViTinh.find('td:eq(5)').text().trim();
+                    var tungay = selectedRowForModalUpdateViTinh.find('td:eq(6)').text().trim();
+                    var denngay = selectedRowForModalUpdateViTinh.find('td:eq(7)').text().trim();
+                    var kinhphi = selectedRowForModalUpdateViTinh.find('td:eq(8)').text().trim();
+                    var nguonkinhphi = selectedRowForModalUpdateViTinh.find('td:eq(9)').text().trim();
+                    var idnv = selectedRowForModalUpdateViTinh.find('td:eq(10)').text().trim();
+
+                    // Điền thông tin vào modal "modalupdatengoaingu"
+                    $('#modalupdatevitinh input[name="Id"]').val(id);
+                    $('#modalupdatevitinh input[name="BangCap"]').val(bangcap);
+                    $('#modalupdatevitinh input[name="SoBang"]').val(sobang);
+                    $('#modalupdatevitinh input[name="NoiDung"]').val(noidung);
+                    $('#modalupdatevitinh input[name="CheDoHoc"]').val(chedohoc);
+                    $('#modalupdatevitinh input[name="NgayCap"]').val(ngaycap);
+                    $('#modalupdatevitinh input[name="TuNgay"]').val(tungay);
+                    $('#modalupdatevitinh input[name="DenNgay"]').val(denngay);
+                    $('#modalupdatevitinh input[name="KinhPhi"]').val(kinhphi);
+                    $('#modalupdatevitinh input[name="NguonKinhPhi"]').val(nguonkinhphi);
+                    $('#modalupdatevitinh input[name="IdNv"]').val(idnv);
+
+                    $('#modalupdatevitinh').modal('show');
+                }else {
+                    alert("Vui lòng chọn dòng để chỉnh sửa.");
+                }
+            });
+
+
+            var selectedRowForModalUpdateChinhTri = null;
+            $('.tablechinhtri .tbodychinhtri .trchinhtri').click(function () {
+                if (selectedRowForModalUpdateChinhTri != null) {
+                    selectedRowForModalUpdateChinhTri.removeClass('selectedchinhtri');
+                }
+                selectedRowForModalUpdateChinhTri = $(this);
+                selectedRowForModalUpdateChinhTri.addClass('selectedchinhtri');
+            });
+            $('.update-chinhtri').click(function (){
+                if (selectedRowForModalUpdateChinhTri != null) {
+                    var id = selectedRowForModalUpdateChinhTri.find('td:eq(0)').text();
+                    var tungay = selectedRowForModalUpdateChinhTri.find('td:eq(1)').text().trim();
+                    var denngay = selectedRowForModalUpdateChinhTri.find('td:eq(2)').text().trim();
+                    var trinhdochinhtri = selectedRowForModalUpdateChinhTri.find('td:eq(3)').text().trim();
+                    var chedohoc = selectedRowForModalUpdateChinhTri.find('td:eq(4)').text().trim();
+                    var ngaycap = selectedRowForModalUpdateChinhTri.find('td:eq(5)').text().trim();
+                    var kinhphi = selectedRowForModalUpdateChinhTri.find('td:eq(6)').text().trim();
+                    var nguonkinhphi = selectedRowForModalUpdateChinhTri.find('td:eq(7)').text().trim();
+                    var idnv = selectedRowForModalUpdateChinhTri.find('td:eq(8)').text().trim();
+
+                    // Điền thông tin vào modal "modalupdatengoaingu"
+                    $('#modalupdatechinhtri input[name="Id"]').val(id);
+                    $('#modalupdatechinhtri input[name="TuNgay"]').val(tungay);
+                    $('#modalupdatechinhtri input[name="DenNgay"]').val(denngay);
+                    $('#modalupdatechinhtri input[name="TrinhDoChinhTri"]').val(trinhdochinhtri);
+                    $('#modalupdatechinhtri input[name="CheDoHoc"]').val(chedohoc);
+                    $('#modalupdatechinhtri input[name="NgayCap"]').val(ngaycap);
+                    $('#modalupdatechinhtri input[name="KinhPhi"]').val(kinhphi);
+                    $('#modalupdatechinhtri input[name="NguonKinhPhi"]').val(nguonkinhphi);
+                    $('#modalupdatechinhtri input[name="IdNv"]').val(idnv);
+                }else{
+
+                }
+            });
+
+
+        });
+
+
+
+
+        $(document).ready(function () {
+            var selectedRow = null;
+            var id = null;
+
+             $('table tbody tr').click(function () {
+                if (selectedRow != null) {
+                    selectedRow.removeClass('selected');
+                }
+                id = $(this).data("id");
+                $(this).addClass('selected');
+                selectedRow = $(this);
+             });
+
+            $(".delete-button").click(function () {
+                 
+               var confirmation = confirm("Bạn có chắc chắn muốn xóa đào tạo này?");
+                if (confirmation) {
+                    // Nếu người dùng xác nhận xóa, hãy chuyển hướng đến hàm DeleteConfirmed của controller
+                    window.location.href = "/QuaTrinhDaoTao/Delete?Id=" + id; // Thay ControllerName bằng tên của controller bạn đang sử dụng
+                }
+            });
+
+
+            var selectedRowngoaingu = null;
+            var idngoaingu = null;
+
+            $('.tablengoaingu .tbodyngoaingu .trngoaingu').click(function () {
+                if (selectedRowngoaingu != null) {
+                    selectedRowngoaingu.removeClass('selected');
+                }
+                idngoaingu = $(this).data("id");
+                $(this).addClass('selected');
+                selectedRowngoaingu = $(this);
+             
+            });
+
+            $(".delete-ngoaingu").click(function () {
+                 
+               var confirmation = confirm("Bạn có chắc chắn muốn xóa thông tin này?");
+                if (confirmation) {
+                    // Nếu người dùng xác nhận xóa, hãy chuyển hướng đến hàm DeleteConfirmed của controller
+                    window.location.href = "/QuaTrinhDaoTao/DeleteNgoaiNgu?Id=" + idngoaingu; // Thay ControllerName bằng tên của controller bạn đang sử dụng
+                }
+            });
+
+            var selectedRowvitinh = null;
+            var idvitinh = null;
+
+            $('.tablevitinh .tbodyvitinh .trvitinh').click(function () {
+                if (selectedRowvitinh != null) {
+                    selectedRowvitinh.removeClass('selectedvitinh');
+                }
+                idvitinh = $(this).data("id");
+                $(this).addClass('selectedvitinh');
+                selectedRowvitinh = $(this);
+            });
+
+            $(".delete-vitinh").click(function () {
+                 
+               var confirmation = confirm("Bạn có chắc chắn muốn xóa thông tin này?");
+                if (confirmation) {
+                    // Nếu người dùng xác nhận xóa, hãy chuyển hướng đến hàm DeleteConfirmed của controller
+                    window.location.href = "/QuaTrinhDaoTao/DeleteViTinh?Id=" + idvitinh; // Thay ControllerName bằng tên của controller bạn đang sử dụng
+                }
+            });
+
+            var selectedRowchinhtri = null;
+            var idchinhtri = null;
+
+            $('.tablechinhtri .tbodychinhtri .trchinhtri').click(function () {
+                if (selectedRowchinhtri != null) {
+                    selectedRowchinhtri.removeClass('selectedchinhtri');
+                }
+                idchinhtri = $(this).data("id");
+                $(this).addClass('selectedchinhtri');
+                selectedRowchinhtri = $(this);
+            });
+            $(".delete-chinhtri").click(function () {
+               var confirmation = confirm("Bạn có chắc chắn muốn xóa thông tin này?");
+                if (confirmation) {
+                    // Nếu người dùng xác nhận xóa, hãy chuyển hướng đến hàm DeleteConfirmed của controller
+                    window.location.href = "/QuaTrinhDaoTao/DeleteChinhTri?Id=" + idchinhtri; // Thay ControllerName bằng tên của controller bạn đang sử dụng
+                }
+            });
+
+
+        });
+    </script>
+}

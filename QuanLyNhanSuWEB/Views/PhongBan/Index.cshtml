@@ -1,0 +1,102 @@
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+
+@*@model IEnumerable<QuanLyNhanSuAPI.Models.HoSoNhanSu.TbPhongBan>*@
+@model IPagedList<QuanLyNhanSuAPI.Models.HoSoNhanSu.TbPhongBan>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container mt-3">
+    <div class="justify-content-between d-flex mb-3">
+        @using (Html.BeginForm("Index", "PhongBan", FormMethod.Get))
+        {
+            <div class="input-group" style="padding-right: 15px;">
+                @Html.TextBox("searchString", ViewBag.SearchString as string, new { @class = "form-control", placeholder = "Tìm kiếm..." })
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-outline-secondary">Tìm kiếm</button>
+                </div>
+            </div>
+        }
+        <a class="btn btn-primary" asp-action="Create">Tạo Phòng Ban</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+
+                    <th>
+                        Tên Phòng Ban
+                    </th>
+                    
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TenPhongBan)
+                        </td>
+                        
+
+                        <td>
+                            @Html.ActionLink("Chỉnh Sửa", "Update", new {  phongbanId=item.IdPb  }, new {@class="btn btn-success"}) 
+                            @* @Html.ActionLink("Chi Tiết", "Details", new {  phongbanId=item.IdPb  }, new{ @class="btn btn-warning"}) |
+                            <button class="delete-button btn btn-danger" data-phongban-id="@item.IdPb">Xóa</button> *@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<nav aria-label="Page navigation example" class="text-end">
+    <ul class="pagination justify-content-center">
+        <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+            <a class="page-link" href="@Url.Action("Index", new { page = Model.PageNumber - 1 })" aria-label="Previous">
+                <span aria-hidden="true">Previous</span>
+            </a>
+        </li>
+
+        @for (int i = 1; i <= Model.PageCount; i++)
+        {
+            <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a>
+            </li>
+        }
+
+        <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+            <a class="page-link" href="@Url.Action("Index", new { page = Model.PageNumber + 1 })" aria-label="Next">
+                <span aria-hidden="true">Next</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+
+
+
+ @section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".delete-button").click(function () {
+                var phongbanId = $(this).data("phongban-id");
+                var confirmation = confirm("Bạn có chắc chắn muốn xóa chức vụ này?");
+                if (confirmation) {
+                    // Nếu người dùng xác nhận xóa, hãy chuyển hướng đến hàm DeleteConfirmed của controller
+                    window.location.href = "/PhongBan/Delete?phongbanId=" + phongbanId; // Thay ControllerName bằng tên của controller bạn đang sử dụng
+                }
+            });
+        });
+    </script>
+                
+}

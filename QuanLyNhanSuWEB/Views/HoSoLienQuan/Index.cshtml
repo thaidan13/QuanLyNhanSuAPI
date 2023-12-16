@@ -1,0 +1,302 @@
+﻿@model QuanLyNhanSuWEB.DTO.HoSoNhanSuDTO.HoSoDTO
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="m-4 row">
+    <h3 for="" class="fw-bold m-0"><i class="fa-solid fa-ribbon"></i> Hồ Sơ Liên Quan</h3>
+    <hr class="mt-0">
+    <div class="col-md-12 p-0" style="border: 2px solid rgb(36, 92, 166);">
+        <div class="text-center pt-3 pb-3" style="font-size: 18px; background-color: rgb(36, 92, 166);">
+            <label class="fw-bold" style="color: white; margin-right: 10px;">Tóm Lược Nhân Viên</label>
+        </div>
+        <div class="profile p-4 d-md-flex">
+            <div class="employee-image mb-3 mb-md-0 me-md-4" style="width: 200px; height: 250px; border: 1px solid #ccc; border-radius:10px;">
+                <img src="~/uploads/@Model.NhanVien.HinhAnh" width="100%" height="100%" alt="Hình nhân viên">
+            </div>
+            <div class="text-center text-md-start ml-3">
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Họ và tên</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.HoKhaiSinh @Model.NhanVien.TenKhaiSinh</label>
+                    </div>
+                </div>
+                <!-- Các grid-col khác tương tự -->
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Mã Nhân Viên</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.IdNv</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Phòng Ban</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.IdPbNavigation.TenPhongBan</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Điện Thoại Nhà</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.DienThoaiNha</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Điện Thoại Di Động</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.Dtdd</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Email</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.Email</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="border: 2px solid rgb(36, 92, 166); border-radius: 0px 0px 15px 15px; margin-top: 15px; padding: 10px;">
+        <div class="d-flex justify-content-between align-items-center mt-3 mb-3" style="gap: 10px;">
+
+            <div>
+                <a class="btn" href="@Url.Action("Details", "ThongTinNhanVien", new {  IdNV = @Model.NhanVien.IdNv })" style="background-color: rgb(36, 92, 166) !important; font-weight: bold; color: white;"><i class="fa-solid fa-arrow-left"></i> Trở về</a>
+            </div>
+
+
+            <div class="d-flex" style="gap: 10px;">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalhosotuyendung">
+                    Thêm mới
+                </button>
+
+                <button type="button" class="btn btn-success update-tuyendung" data-bs-toggle="modal" data-bs-target="#modalcapnhattuyendung">
+                    Cập Nhật
+                </button>
+
+                <button class="delete-button btn btn-danger delete-tuyendung">Xoá</button>
+            </div>
+
+            
+        </div>
+
+        <div class="modal fade" id="modalhosotuyendung" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <form asp-action="Create" method="post" enctype="multipart/form-data">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Hồ Sơ Tuyển Dụng</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center justify-content-center align-items-center ">
+                            <div class="row">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <input asp-for="@Model.HoSo.IdNv" hidden value="@Model.NhanVien.IdNv" class="form-control" />
+                                <input asp-for="@Model.HoSo.LoaiHoSo" hidden value="false" class="form-control" />
+
+                                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                    <label class="text-end fw-bold" style="width: 20%; padding-right: 40px;">Tên</label>
+                                    <input type="text" asp-for="@Model.HoSo.TenHoSo" style="width: 70%;" class="form-control">
+                                    <span asp-validation-for="@Model.HoSo.TenHoSo" class="text-danger"></span>
+                                </div>
+
+                                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                    <label class="text-end fw-bold" style="width: 20%; padding-right: 40px;">Đính Kèm</label>
+                                    <input type="file" name="File" asp-for="@Model.HoSo.TapTin" style="width: 70%;" class="form-control">
+                                    <span asp-validation-for="@Model.HoSo.TapTin" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+                            <input type="submit" class="btn btn-primary" value="Lưu">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table id="tuyendungtable" class="table table-striped tabletuyendung" style="cursor:pointer;">
+                <thead>
+                    <tr>
+                        <th hidden>
+                            Id
+                        </th>
+                        <th>
+                            Tên
+                        </th>
+                        <th>
+                            File
+                        </th>
+                        <th>Tương Tác File </th>
+                        <th hidden>
+                            IdNV
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="tbodytuyendung">
+                    @foreach (var item in Model.HoSos)
+                    {
+                        <tr class="selected-tuyendung trtuyendung " data-id="@item.Id">
+                            <td hidden>@Html.DisplayFor(modelItem => item.Id)</td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TenHoSo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TapTin)
+                            </td>
+                            <td>
+                                <a class="p-0" href="\uploadfiles\@item.TapTin">Xem</a> | <a class="p-0" href="@Url.Action("DownloadFile", "HoSo", new { fileName = item.TapTin })">Tải về tệp tin</a>
+                            </td>
+
+                            <td hidden>
+                                @Html.DisplayFor(modelItem => item.IdNv)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+       
+    </div>
+</div>
+
+@*Cập nhật hồ sơ *@
+<div class="modal fade" id="modalcapnhattuyendung" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <form asp-action="Update" method="post" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Hồ Sơ Tuyển Dụng</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center justify-content-center align-items-center ">
+                    <div class="row">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input asp-for="@Model.HoSo.Id" name="Id" hidden class="form-control" />
+                        <input asp-for="@Model.HoSo.IdNv" name="IdNv" hidden value="@Model.NhanVien.IdNv" class="form-control" />
+                        <input asp-for="@Model.HoSo.LoaiHoSo" hidden value="true" class="form-control" />
+
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end fw-bold" style="width: 20%; padding-right: 40px;">Tên</label>
+                            <input type="text" asp-for="@Model.HoSo.TenHoSo" name="TenHoSo" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="@Model.HoSo.TenHoSo" class="text-danger"></span>
+                        </div>
+
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end fw-bold" style="width: 20%; padding-right: 40px;">Tập Tin</label>
+                            <input type="file" name="File" id="File" style="width: 70%;" class="form-control">
+                            <input asp-for="@Model.HoSo.TapTin" hidden name="TapTin" id="NhanFile" type="text" />
+                            <span asp-validation-for="@Model.HoSo.TapTin" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+                    <input type="submit" class="btn btn-primary" value="Lưu">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Khởi tạo DataTables
+            var table = $('#tuyendungtable').DataTable();
+        });
+
+        $(document).ready(function () {
+            var selectedRowHoSo = null;
+
+            $('.tabletuyendung .tbodytuyendung .trtuyendung').click(function () {
+                // Loại bỏ lựa chọn trước đó (nếu có)
+                if (selectedRowHoSo != null) {
+                    selectedRowHoSo.removeClass('selected-tuyendung');
+                }
+
+                // Đánh dấu dòng được chọn và lưu lại dòng đó
+                selectedRowHoSo = $(this);
+                selectedRowHoSo.addClass('selected-tuyendung');
+            });
+
+            $('.update-tuyendung').click(function () {
+                if (selectedRowHoSo != null) {
+                    // Lấy thông tin từ dòng được chọn
+                    var id = selectedRowHoSo.find('td:eq(0)').text();
+                    var ten = selectedRowHoSo.find('td:eq(1)').text().trim();
+                    var taptin = selectedRowHoSo.find('td:eq(2)').text().trim();
+
+                    // Điền thông tin vào modal
+                    $('#modalcapnhattuyendung input[name="Id"]').val(id);
+                    $('#modalcapnhattuyendung input[name="TenHoSo"]').val(ten);
+                    $('#modalcapnhattuyendung input[name="TapTin"]').val(taptin);
+
+                    // Hiển thị modal
+                    $('#modalcapnhattuyendung').modal('show');
+                } else {
+                    alert("Vui lòng chọn dòng để chỉnh sửa.");
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            var selectedRowHoSo = null;
+            var id = null;
+
+            $('.tabletuyendung .tbodytuyendung .trtuyendung').click(function () {
+                if (selectedRowHoSo != null) {
+                    selectedRowHoSo.removeClass('selected-tuyendung');
+                }
+                id = $(this).data("id");
+                $(this).addClass('selected-tuyendung');
+                selectedRowHoSo = $(this);
+            });
+
+            $(".delete-tuyendung").click(function () {
+                var confirmation = confirm("Bạn có chắc chắn muốn xóa thông tin này?");
+                if (selectedRowHoSo != null) {
+                    if (confirmation) {
+                        // Nếu người dùng xác nhận xóa, hãy chuyển hướng đến hàm DeleteConfirmed của controller
+                        window.location.href = "/HoSoLienQuan/DeleteHoSo?Id=" + id; // Thay ControllerName bằng tên của controller bạn đang sử dụng
+                    }
+                } else {
+                    alert("Vui lòng chọn dòng để chỉnh sửa.");
+                }
+            });
+
+        });
+
+        var inputSource = document.getElementById("File");
+        var inputDestination = document.getElementById("NhanFile");
+
+        inputSource.addEventListener("input", function () {
+            // Khi giá trị thay đổi, sao chép giá trị từ thẻ input nguồn sang thẻ input đích
+            NhanFile.value = File.value;
+        });
+
+    </script>
+
+}

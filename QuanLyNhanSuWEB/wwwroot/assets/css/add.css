@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Barlow", sans-serif;
+} 
+#profile {
+    display: flex;
+    justify-content: space-between;
+}
+  
+.f-grid .f-grid-col{
+    display: flex;
+    flex-direction: column;
+}
+  
+.f-grid input,
+.f-grid select,
+.row input,
+.ktkl select,
+row select {
+    width: 100%;
+    height: 25px;
+    border-radius: 3px;
+    border: 1px solid;
+    margin: 5px 0;
+}
+  
+.f-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-left: -1rem;
+    flex-flow: row wrap;
+}
+  
+.f-grid-col {
+    flex: 1 0;
+    background-color: #fbfbfb;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+  
+.row{
+    text-align: end;
+}
+  
+.row button{
+    text-align: start;
+}
+  
+.row button:hover{
+    background-color: #66a5c9;
+    color: #fff;
+}
+  
+.row i{
+    padding:0 2px 0 0;
+}
+  
+.details{
+    padding: 5px;
+}
+  
+.normal:hover{
+    color: #0864f8;
+}

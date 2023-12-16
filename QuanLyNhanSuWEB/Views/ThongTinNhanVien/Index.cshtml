@@ -1,0 +1,165 @@
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+
+@*@model IEnumerable<QuanLyNhanSuAPI.Models.HoSoNhanSu.TbThongTinNhanVien>*@
+@model IPagedList<QuanLyNhanSuAPI.Models.HoSoNhanSu.TbThongTinNhanVien>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container mt-3">
+    <div class="justify-content-between d-flex mb-3">
+        @using (Html.BeginForm("Index", "ThongTinNhanVien", FormMethod.Get))
+        {
+            <div class="input-group" style="padding-right: 15px;">
+                @Html.TextBox("searchString", ViewBag.SearchString as string, new { @class = "form-control", placeholder = "Tìm kiếm..." })
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-outline-secondary">Tìm kiếm</button>
+                </div>
+            </div>
+        }
+        <a class="btn btn-primary fw-bold" asp-action="Create"><i class="fa-solid fa-plus"></i>Tạo mới nhân viên</a>
+    </div>
+    <div class="table-responsive">
+        <table @*id="nhanvien"*@ class="table table-bordered">
+            <thead>
+                <tr>
+                    <th> Hình Ảnh </th>
+                    <th> Nhân Viên</th>
+                    <th> Giới Tính </th>
+                    <th> Liên Hệ </th>
+                    <th> Email </th>
+                    <th> Ngày Sinh </th>
+                    <th> Thao tác </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="lazyload">
+                        <td>
+                            <img class="avatar-img rounded-circle" width="50" height="50" src="~/uploads/@item.HinhAnh" alt="User Image">
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HoKhaiSinh)
+
+                            @Html.DisplayFor(modelItem => item.TenKhaiSinh)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GioiTinh)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dtdd)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NgaySinh)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Cập Nhật", "Update", new { nhanvienId = item.IdNv }, new { @class = "btn btn-success" }) |
+                            @Html.ActionLink("Chi Tiết", "Details", new {  IdNV=item.IdNv  }, new{ @class="btn btn-warning"}) |
+                            <button class="delete-button btn btn-danger" data-nhanvien-id="@item.IdNv">Xóa</button>
+                        </td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+
+@*<div class="pagination-container">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>*@
+<!-- Hiển thị thanh phân trang sử dụng Bootstrap -->
+<nav aria-label="Page navigation example" class="text-end">
+    <ul class="pagination justify-content-center">
+        <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+            <a class="page-link" href="@Url.Action("Index", new { page = Model.PageNumber - 1 })" aria-label="Previous">
+                <span aria-hidden="true">Previous</span>
+            </a>
+        </li>
+
+        @for (int i = 1; i <= Model.PageCount; i++)
+        {
+            <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a>
+            </li>
+        }
+
+        <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+            <a class="page-link" href="@Url.Action("Index", new { page = Model.PageNumber + 1 })" aria-label="Next">
+                <span aria-hidden="true">Next</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+@section Scripts {
+    <script src="~/js/lazysizes.min.js" async=""></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <style>
+        .input-group-nhansu {
+            width: 35%;
+            height: 40px;
+            background-color: #fff5;
+            padding: 0 .8rem;
+            border-radius: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: .2s;
+            box-shadow: 0 .1rem #0002;
+        }
+
+            .input-group-nhansu:hover {
+                width: 45%;
+                background-color: #fff8;
+                box-shadow: 0 .1rem .4rem #0002;
+            }
+
+            .input-group-nhansu img {
+                width: 1.2rem;
+                height: 1.2rem;
+            }
+
+            .input-group-nhansu input {
+                width: 100%;
+                padding: 0 .5rem 0 .3rem;
+                background-color: transparent;
+                border: none;
+                outline: none;
+            }
+    </style>
+
+    <script src="~/assets/js/main.js"></script>
+   
+    <script>
+        $(document).ready(function () {
+            $(".delete-button").click(function () {
+                var nhanvienId = $(this).data("nhanvien-id");
+                var confirmation = confirm("Bạn có chắc chắn muốn xóa chức vụ này?");
+                if (confirmation) {
+                    // Nếu người dùng xác nhận xóa, hãy chuyển hướng đến hàm DeleteConfirmed của controller
+                    window.location.href = "/ThongTinNhanVien/Delete?nhanvienId=" + nhanvienId; // Thay ControllerName bằng tên của controller bạn đang sử dụng
+                }
+            });
+        });
+
+
+        $(document).ready(function () {
+            // Khởi tạo DataTables
+            var table = $('#nhanvien').DataTable();
+        });
+    </script>
+
+}

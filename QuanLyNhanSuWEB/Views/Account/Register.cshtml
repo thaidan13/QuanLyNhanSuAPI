@@ -1,0 +1,81 @@
+﻿@using QuanLyNhanSuAPI.Models.HoSoNhanSu;
+@model QuanLyNhanSuWEB.Models.RegisterTaiKhoan
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var responseNhanVien = ViewData["NhanVienResponse"] as List<TbThongTinNhanVien>;
+}
+
+
+<div class="container mt-3">
+    <form asp-action="Register" class="row">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Nhân Viên</label>
+                <select asp-for="IdNv" id="NhanVienSelect" class="form-control">
+                    <option value="">Chọn Nhân Viên</option>
+                    @foreach (var item in responseNhanVien)
+                    {
+                        <option value="@item.IdNv" data-email="@item.Email">@item.HoKhaiSinh @item.TenKhaiSinh</option>
+                    }
+                </select>
+                <span asp-validation-for="IdNv" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" id="EmailInput" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="ConfirmPassword" class="control-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="Role" class="control-label"></label>
+                <select asp-for="Role" class="form-control">
+                    <option value="">Quyền</option>
+                    <option value="Admin">Admin</option>
+                    <option value="NhanVien">Nhân Viên</option>
+                </select>
+                <span asp-validation-for="Role" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <input type="submit" value="Tạo Tài Khoản" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+
+            $("#NhanVienSelect").change(function () {
+                var selectedOption = $(this).find(":selected");
+                var email = selectedOption.data("email");
+
+                // Gán giá trị idNv cho trường input NhanVien
+                $("#EmailInput").val(email);
+                
+            });
+
+        });
+    </script>
+}

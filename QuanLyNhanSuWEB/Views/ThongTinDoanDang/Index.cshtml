@@ -1,0 +1,382 @@
+﻿@model QuanLyNhanSuWEB.DTO.HoSoNhanSuDTO.TbThongTinDoanDangDTO
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="m-4 row">
+    <h3 for="" class="fw-bold m-0"><i class="fa-solid fa-circle-info "></i>Thông Tin Đoàn Đảng</h3>
+    <hr class="mt-0">
+    <div class="col-md-12 p-0" style="border: 2px solid rgb(36, 92, 166);">
+        <div class="text-center pt-3 pb-3" style="font-size: 18px; background-color: rgb(36, 92, 166);">
+            <label class="fw-bold" style="color: white; margin-right: 10px;">Tóm Lược Nhân Viên</label>
+        </div>
+        <div class="profile p-4 d-md-flex">
+            <div class="employee-image mb-3 mb-md-0 me-md-4" style="width: 200px; height: 250px; border: 1px solid #ccc; border-radius:10px;">
+                <img src="~/uploads/@Model.NhanVien.HinhAnh" width="100%" height="100%" alt="Hình nhân viên">
+            </div>
+            <div class="text-center text-md-start ml-3">
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Họ và tên</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.HoKhaiSinh @Model.NhanVien.TenKhaiSinh</label>
+                    </div>
+                </div>
+                <!-- Các grid-col khác tương tự -->
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Mã Nhân Viên</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.IdNv</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Phòng Ban</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.IdPbNavigation.TenPhongBan</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Điện Thoại Nhà</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.DienThoaiNha</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Điện Thoại Di Động</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.Dtdd</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Email</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.Email</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (Model.DoanDang != null)
+    {
+        <form asp-action="Update" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row p-0 d-flex mt-3" style="gap: 15px;">
+                <div class="col-md-6 p-0" style="border: 2px solid rgb(36, 92, 166);  margin-right: 17px;">
+                    <div class="text-center pt-3 pb-3 " style="font-size: 18px; background-color: rgb(36, 92, 166);">
+                        <label class="fw-bold" style="color: white; margin-right: 10px;">Đảng</label>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Số Thẻ Đảng</strong>
+                        <input type="number" asp-for="@Model.DoanDang.SoTheDang" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.SoTheDang" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Ngày Cấp Thẻ</strong>
+                        <input type="text" asp-for="@Model.DoanDang.NgayCapThe" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.NgayCapThe" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;"></strong>
+                        <select asp-for="@Model.DoanDang.DaVaoDang" style="width: 70%;" class="form-control fw-bold">
+                            <option value="true">Đã Vào Đảng</option>
+                            <option value="false">Chưa Vào Đảng</option>
+                        </select>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Ngày Vào Đảng Lần 1</strong>
+                        <input type="text" asp-for="@Model.DoanDang.NgayVaoDang1" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.NgayVaoDang1" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Ngày Chính Thức Lần 1</strong>
+                        <input type="text" asp-for="@Model.DoanDang.NgayChinhThuc1" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.NgayChinhThuc1" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Ngày Vào Đảng Lần 2</strong>
+                        <input type="text" asp-for="@Model.DoanDang.NgayVaoDang2" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.NgayVaoDang2" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Ngày Chính Thức Lần 2</strong>
+                        <input type="text" asp-for="@Model.DoanDang.NgayChinhThuc2" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.NgayChinhThuc2" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 p-0" style="border: 2px solid rgb(36, 92, 166);  height:85%; width: 680px;">
+                    <div class="text-center pt-3 pb-3 " style="font-size: 18px; background-color: rgb(36, 92, 166);">
+                        <label class="fw-bold" style="color: white; margin-right: 10px;">Người Giới Thiệu Vào Đảng</label>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Người Thứ Nhất</strong>
+                        <input type="text" asp-for="@Model.DoanDang.NguoiThuNhat" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.NguoiThuNhat" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Chức Vụ</strong>
+                        <input type="text" asp-for="@Model.DoanDang.ChucVu1" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.ChucVu1" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Địa Chỉ</strong>
+                        <input type="text" asp-for="@Model.DoanDang.DiaChi1" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.DiaChi1" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Người Thứ Hai</strong>
+                        <input type="text" asp-for="@Model.DoanDang.NguoiThuHai" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.NguoiThuHai" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Chức Vụ</strong>
+                        <input type="text" asp-for="@Model.DoanDang.ChucVu2" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.ChucVu2" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Địa Chỉ</strong>
+                        <input type="text" asp-for="@Model.DoanDang.DiaChi2" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.DiaChi2" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="row p-0 d-flex mt-3" style="gap: 15px;">
+                <div class="col-md-6 p-0" style="border: 2px solid rgb(36, 92, 166); margin-right: 17px; height: 45%;">
+                    <div class="text-center pt-3 pb-3 " style="font-size: 18px; background-color: rgb(36, 92, 166);">
+                        <label class="fw-bold" style="color: white; margin-right: 10px;">Đoàn</label>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Ngày Vào Đoàn</strong>
+                        <input type="text" asp-for="@Model.DoanDang.NgayVaoDoan" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.NgayVaoDoan" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;"></strong>
+                        <select asp-for="@Model.DoanDang.DaVaoDoan" style="width: 70%; font-weight: bold;" class="form-control">
+                            <option value="true">Đã Vào Đoàn</option>
+                            <option value="false">Chưa Vào Đoàn</option>
+                        </select>
+                        <span asp-validation-for="@Model.DoanDang.NgayCapThe" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Mã Nhân Viên</strong>
+                        <input type="text" asp-for="@Model.DoanDang.IdNv" style="width: 70%;" class="form-control">
+                    </div>
+                </div>
+
+                <div class="col-md-6 p-0" style="border: 2px solid rgb(36, 92, 166); width: 680px; height:100%;">
+                    <div class="text-center pt-3 pb-3 " style="font-size: 18px; background-color: rgb(36, 92, 166);">
+                        <label class="fw-bold" style="color: white; margin-right: 10px;">Bộ Đội</label>
+                    </div>
+
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Ngày Nhập Ngũ</strong>
+                        <input type="text" asp-for="@Model.DoanDang.NgayNhapNgu" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.NgayNhapNgu" class="text-danger"></span>
+                    </div>
+
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Ngày Xuất Ngũ</strong>
+                        <input type="text" asp-for="@Model.DoanDang.NgayXuatNgu" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.NgayXuatNgu" class="text-danger"></span>
+                    </div>
+
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Quân Hàm Chức Vụ Cao Nhất</strong>
+                        <input type="text" asp-for="@Model.DoanDang.QuanHamChucVuCaoNhat" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.QuanHamChucVuCaoNhat" class="text-danger"></span>
+                    </div>
+
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Danh Hiệu Được Phong</strong>
+                        <input type="text" asp-for="@Model.DoanDang.DanhHieuDuocPhong" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.DanhHieuDuocPhong" class="text-danger"></span>
+                    </div>
+
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Sở Trường</strong>
+                        <input type="text" asp-for="@Model.DoanDang.SoTruong" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.SoTruong" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-end mt-3 p-0">
+                <input type="submit" value="Cập Nhật" class="btn btn-info" style="color: white; font-weight: bold;" />
+            </div>
+        </form>
+    }
+    else
+    {
+        <form method="post" asp-action="Create">
+            
+
+            <div class="row p-0 d-flex mt-3" style="gap: 15px;">
+                <div class="col-md-6 p-0" style="border: 2px solid rgb(36, 92, 166); margin-right: 17px;">
+                    <div class="text-center pt-3 pb-3 " style="font-size: 18px; background-color: rgb(36, 92, 166);">
+                        <label class="fw-bold" style="color: white; margin-right: 10px;">Đảng</label>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Số Thẻ Đảng</strong>
+                        <input type="text" asp-for="@Model.DoanDang.SoTheDang" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.SoTheDang" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Ngày Cấp Thẻ</strong>
+                        <input type="text" asp-for="@Model.DoanDang.NgayCapThe" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.NgayCapThe" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;"></strong>
+                        <select asp-for="@Model.DoanDang.DaVaoDoan" style="width: 70%;" class="form-control fw-bold">
+                            <option value="true">Đã Vào Đảng</option>
+                            <option value="false">Chưa Vào Đảng</option>
+                        </select>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Ngày Vào Đảng Lần 1</strong>
+                        <input type="text" asp-for="@Model.DoanDang.NgayVaoDang1" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.NgayVaoDang1" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Ngày Chính Thức Lần 1</strong>
+                        <input type="text" asp-for="@Model.DoanDang.NgayChinhThuc1" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.NgayChinhThuc1" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Ngày Vào Đảng Lần 2</strong>
+                        <input type="text" asp-for="@Model.DoanDang.NgayVaoDang2" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.NgayVaoDang2" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Ngày Chính Thức Lần 2</strong>
+                        <input type="text" asp-for="@Model.DoanDang.NgayChinhThuc2" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.NgayChinhThuc2" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 p-0" style="border: 2px solid rgb(36, 92, 166); width: 680px; height:85%;">
+                    <div class="text-center pt-3 pb-3 " style="font-size: 18px; background-color: rgb(36, 92, 166);">
+                        <label class="fw-bold" style="color: white; margin-right: 10px;">Người Giới Thiệu Vào Đảng</label>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Người Thứ Nhất</strong>
+                        <input type="text" asp-for="@Model.DoanDang.NguoiThuNhat" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.NguoiThuNhat" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Chức Vụ</strong>
+                        <input type="text" asp-for="@Model.DoanDang.ChucVu1" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.ChucVu1" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Địa Chỉ</strong>
+                        <input type="text" asp-for="@Model.DoanDang.DiaChi1" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.DiaChi1" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Người Thứ Hai</strong>
+                        <input type="text" asp-for="@Model.DoanDang.NguoiThuHai" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.NguoiThuHai" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Chức Vụ</strong>
+                        <input type="text" asp-for="@Model.DoanDang.ChucVu2" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.ChucVu2" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Địa Chỉ</strong>
+                        <input type="text" asp-for="@Model.DoanDang.DiaChi2" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.DiaChi2" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="row p-0 d-flex mt-3" style="gap: 15px;">
+                <div class="col-md-6 p-0" style="border: 2px solid rgb(36, 92, 166);  margin-right: 17px; height: 45%;">
+                    <div class="text-center pt-3 pb-3 " style="font-size: 18px; background-color: rgb(36, 92, 166);">
+                        <label class="fw-bold" style="color: white; margin-right: 10px;">Đoàn</label>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Ngày Vào Đoàn</strong>
+                        <input type="text" asp-for="@Model.DoanDang.NgayVaoDoan" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.NgayVaoDoan" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;"></strong>
+                        <select asp-for="@Model.DoanDang.DaVaoDoan" style="width: 70%; font-weight: bold;" class="form-control">
+                            <option value="true">Đã Vào Đoàn</option>
+                            <option value="false">Chưa Vào Đoàn</option>
+                        </select>
+                        <span asp-validation-for="@Model.DoanDang.NgayCapThe" class="text-danger"></span>
+                    </div>
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Mã Nhân Viên</strong>
+                        <input type="text" asp-for="@Model.DoanDang.IdNv" value="@Model.NhanVien.IdNv" style="width: 70%;" class="form-control">
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 p-0" style="border: 2px solid rgb(36, 92, 166); width: 680px; height:100%;">
+                    <div class="text-center pt-3 pb-3 " style="font-size: 18px; background-color: rgb(36, 92, 166);">
+                        <label class="fw-bold" style="color: white; margin-right: 10px;">Bộ Đội</label>
+                    </div>
+
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Ngày Nhập Ngũ</strong>
+                        <input type="text" asp-for="@Model.DoanDang.NgayNhapNgu" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.NgayNhapNgu" class="text-danger"></span>
+                    </div>
+
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Ngày Xuất Ngũ</strong>
+                        <input type="text" asp-for="@Model.DoanDang.NgayXuatNgu" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.NgayXuatNgu" class="text-danger"></span>
+                    </div>
+
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Quân Hàm Chức Vụ Cao Nhất</strong>
+                        <input type="text" asp-for="@Model.DoanDang.QuanHamChucVuCaoNhat" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.QuanHamChucVuCaoNhat" class="text-danger"></span>
+                    </div>
+
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Danh Hiệu Được Phong</strong>
+                        <input type="text" asp-for="@Model.DoanDang.DanhHieuDuocPhong" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.DanhHieuDuocPhong" class="text-danger"></span>
+                    </div>
+
+                    <div class="details d-flex p-3" style="padding: 5px; width: 100%; align-items: center;">
+                        <strong class="text-end" style="width: 20%; padding-right: 40px;">Sở Trường</strong>
+                        <input type="text" asp-for="@Model.DoanDang.SoTruong" style="width: 70%;" class="form-control">
+                        <span asp-validation-for="@Model.DoanDang.SoTruong" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-end mt-3 p-0">
+                <button type="submit" class="btn btn-info" style="color: white; font-weight: bold;">Thêm Mới</button>
+            </div>
+        </form>
+    }
+
+   
+</div>

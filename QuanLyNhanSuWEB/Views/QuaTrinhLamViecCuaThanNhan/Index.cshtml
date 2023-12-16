@@ -1,0 +1,476 @@
+﻿@model QuanLyNhanSuWEB.DTO.HoSoNhanSuDTO.QuaTrinhLamViecCuaThanNhanDTO
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="m-4 row">
+    <h3 for="" class="fw-bold m-0"><i class="fa-solid fa-people-roof"></i> Thông Tin Quá Trình Làm Việc</h3>
+    <hr class="mt-0">
+    <div class="col-md-12 p-0" style="border: 2px solid rgb(36, 92, 166);">
+        <div class="text-center pt-3 pb-3" style="font-size: 18px; background-color: rgb(36, 92, 166);">
+            <label class="fw-bold" style="color: white; margin-right: 10px;">Tóm Lược Nhân Viên</label>
+        </div>
+        <div class="profile p-4 d-md-flex">
+            <div class="employee-image mb-3 mb-md-0 me-md-4" style="width: 200px; height: 250px; border: 1px solid #ccc; border-radius:10px;">
+                <img src="~/uploads/@Model.NhanVien.HinhAnh" width="100%" height="100%" alt="Hình nhân viên">
+            </div>
+            <div class="text-center text-md-start ml-3">
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Họ và tên</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.HoKhaiSinh @Model.NhanVien.TenKhaiSinh</label>
+                    </div>
+                </div>
+                <!-- Các grid-col khác tương tự -->
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Mã Nhân Viên</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.IdNv</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Phòng Ban</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.IdPbNavigation.TenPhongBan</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Điện Thoại Nhà</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.DienThoaiNha</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Điện Thoại Di Động</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.Dtdd</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Email</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.Email</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="border: 2px solid rgb(36, 92, 166); border-radius: 0px 0px 15px 15px; margin-top: 15px; padding: 10px;">
+        <div class=" mt-3 mb-3" style="gap: 10px;">
+           @*  <div class="d-flex justify-content-around align-items-center mt-3 mb-3">
+                <div>
+                    <a class="btn btn-success" href="@Url.Action("Index", "ThongTinGiaDinh", new {  nhanvienId = @Model.NhanVien.IdNv })" style="background-color: rgb(36, 92, 166) !important; font-weight: bold;"><i class="fa-solid fa-arrow-left"></i> Trở về</a>
+                </div>
+
+                <div class="grid-col d-flex">
+                    <div class="str" style="margin-right: 15px;">
+                        <strong>Họ Tên: </strong>
+                    </div>
+                    <div class="lab">
+                        <label style="color:  rgb(36, 92, 166) ; font-weight: bold;"> @Model.GiaDinh.HoTen</label>
+                    </div>
+                </div>
+
+                <div class="grid-col d-flex">
+                    <div class="str" style="margin-right: 15px;">
+                        <strong>Quan Hệ: </strong>
+                    </div>
+                    <div class="lab">
+                        <label style="color:  rgb(36, 92, 166) ; font-weight: bold;"> @Model.GiaDinh.QuanHe</label>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modallamviec">
+                        Thêm mới
+                    </button>
+
+                    <button type="button" class="btn btn-success update-lamviec" data-bs-toggle="modal" data-bs-target="#modalcapnhatlamviec">
+                        Cập Nhật
+                    </button>
+
+                    
+                        
+                    <button class="delete-button btn btn-danger delete-lamviec">Xoá</button>
+                    
+                </div>
+            </div> *@
+            <div class="d-flex flex-wrap justify-content-between align-items-center mt-3 mb-3">
+                <div class="mb-3">
+                    <a class="btn btn-success" href="@Url.Action("Index", "ThongTinGiaDinh", new { nhanvienId = @Model.NhanVien.IdNv })" style="background-color: rgb(36, 92, 166) !important; font-weight: bold;">
+                        <i class="fa-solid fa-arrow-left"></i> Trở về
+                    </a>
+                </div>
+
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Họ Tên: </strong>
+                    </div>
+                    <div class="lab">
+                        <label style="color: rgb(36, 92, 166); font-weight: bold;">@Model.GiaDinh.HoTen</label>
+                    </div>
+                </div>
+
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Quan Hệ: </strong>
+                    </div>
+                    <div class="lab">
+                        <label style="color: rgb(36, 92, 166); font-weight: bold;">@Model.GiaDinh.QuanHe</label>
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modallamviec">
+                        Thêm mới
+                    </button>
+
+                    <button type="button" class="btn btn-success update-lamviec" data-bs-toggle="modal" data-bs-target="#modalcapnhatlamviec">
+                        Cập Nhật
+                    </button>
+
+                    <button class="delete-button btn btn-danger delete-lamviec">Xoá</button>
+                </div>
+            </div>
+
+            
+            <div class="modal fade" id="modallamviec" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <form asp-action="Create" method="post">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Thông Tin Làm Việc</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center justify-content-center align-items-center ">
+                                <div class="row">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <input asp-for="@Model.LamViec.IdThanNhan" hidden value="@Model.GiaDinh.Id" class="form-control" />
+                                    <input asp-for="@Model.NhanVien.IdNv" hidden value="@Model.GiaDinh.IdNv" class="form-control" />
+                                    <div class="col-md-6">
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Từ Năm</label>
+                                            <input type="date" asp-for="@Model.LamViec.TuNam" min="1900-01-01" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.LamViec.TuNam" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Công Việc</label>
+                                            <input type="text" asp-for="@Model.LamViec.CongViec" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.LamViec.CongViec" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Cấp Bậc</label>
+                                            <input type="text" asp-for="@Model.LamViec.CapBac" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.LamViec.CapBac" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Loại Chức Vụ</label>
+                                            <input type="text" asp-for="@Model.LamViec.LoaiChucVu" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.LamViec.LoaiChucVu" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Đến Năm</label>
+                                            <input type="date" asp-for="@Model.LamViec.DenNam" min="1900-01-01" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.LamViec.DenNam" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Đơn Vị</label>
+                                            <input type="text" asp-for="@Model.LamViec.DonVi" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.LamViec.DonVi" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Chức Vụ</label>
+                                            <input type="text" asp-for="@Model.LamViec.ChucVu" style="width: 70%;" class="form-control">
+                                            <span asp-validation-for="@Model.LamViec.ChucVu" class="text-danger"></span>
+                                        </div>
+                                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                            <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Trọng Ngành</label>
+                                            <select asp-for="@Model.LamViec.TrongNganh" style="width: 70%; font-weight: bold;" class="form-control">
+                                                <option value="true">Trọng Ngành</option>
+                                                <option value="false">Ngành Phụ</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+                                <input type="submit" class="btn btn-primary" value="Lưu">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table id="lamviectable" class="table table-striped tablelamviec" style="cursor:pointer;">
+                    <thead>
+                        <tr>
+                            <th hidden>
+                                Id
+                            </th>
+                            <th>
+                                Từ Năm
+                            </th>
+                            <th>
+                                Đến Năm
+                            </th>
+                            <th>
+                                Công Việc
+                            </th>
+                            <th>
+                                Đơn Vị
+                            </th>
+                            <th>
+                                Cấp Bậc
+                            </th>
+                            <th>
+                                Chức Vụ
+                            </th>
+                            <th>
+                                Loại Chức Vụ
+                            </th>
+                            <th>
+                                Ngành
+                            </th>
+                            <th hidden>
+                                IdNv
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbodylamviec">
+                        @foreach (var item in Model.LamViecs)
+                        {
+                            <tr class="selected-lamviec trlamviec" data-id="@item.Id" data-idnv="@Model.NhanVien.IdNv">
+                                <td hidden>@Html.DisplayFor(modelItem => item.Id)</td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TuNam)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DenNam)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CongViec)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DonVi)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CapBac)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ChucVu)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LoaiChucVu)
+                                </td>
+                                <td>
+                                    @if (item.TrongNganh == true)
+                                    {
+                                        <strong>Trọng Ngành</strong>
+                                    }
+                                    else
+                                    {
+                                        <strong>Ngành Phụ</strong>
+                                    }
+                                </td>
+                                <td hidden>
+                                    @Model.GiaDinh.IdNv
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+@*Cập nhật làm việc*@
+<div class="modal fade" id="modalcapnhatlamviec" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <form asp-action="Update" method="post">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Thông Tin Làm Việc</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center justify-content-center align-items-center ">
+                    <div class="row">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input asp-for="@Model.LamViec.IdThanNhan" name="IdThanNhan" hidden value="@Model.GiaDinh.Id" class="form-control" />
+                        <input asp-for="@Model.NhanVien.IdNv" name="IdNv" hidden value="@Model.GiaDinh.IdNv" class="form-control" />
+                        <input asp-for="@Model.LamViec.Id" name="Id" hidden class="form-control" />
+                        <div class="col-md-6">
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Từ Năm</label>
+                                <input type="text" asp-for="@Model.LamViec.TuNam" name="TuNam" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.LamViec.TuNam" class="text-danger"></span>
+                            </div>
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Công Việc</label>
+                                <input type="text" asp-for="@Model.LamViec.CongViec" name="CongViec" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.LamViec.CongViec" class="text-danger"></span>
+                            </div>
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Cấp Bậc</label>
+                                <input type="text" asp-for="@Model.LamViec.CapBac" name="CapBac" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.LamViec.CapBac" class="text-danger"></span>
+                            </div>
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Loại Chức Vụ</label>
+                                <input type="text" asp-for="@Model.LamViec.LoaiChucVu" name="LoaiChucVu" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.LamViec.LoaiChucVu" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Đến Năm</label>
+                                <input type="text" asp-for="@Model.LamViec.DenNam" name="DenNam" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.LamViec.DenNam" class="text-danger"></span>
+                            </div>
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Đơn Vị</label>
+                                <input type="text" asp-for="@Model.LamViec.DonVi" name="DonVi" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.LamViec.DonVi" class="text-danger"></span>
+                            </div>
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Chức Vụ</label>
+                                <input type="text" asp-for="@Model.LamViec.ChucVu" name="ChucVu" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.LamViec.ChucVu" class="text-danger"></span>
+                            </div>
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Trọng Ngành</label>
+                                <select asp-for="@Model.LamViec.TrongNganh" name="TrongNganh" style="width: 70%; font-weight: bold;" class="form-control">
+                                    <option value="true">Trọng Ngành</option>
+                                    <option value="false">Ngành Phụ</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+                    <input type="submit" class="btn btn-primary" value="Lưu">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Khởi tạo DataTables
+            var table = $('#lamviectable').DataTable();
+        });
+
+        $(document).ready(function () {
+            var selectedRowLamViec = null;
+
+            $('.tablelamviec .tbodylamviec .trlamviec').click(function () {
+                // Loại bỏ lựa chọn trước đó (nếu có)
+                if (selectedRowLamViec != null) {
+                    selectedRowLamViec.removeClass('selected-lamviec');
+                }
+
+                // Đánh dấu dòng được chọn và lưu lại dòng đó
+                selectedRowLamViec = $(this);
+                selectedRowLamViec.addClass('selected-lamviec');
+            });
+
+            $('.update-lamviec').click(function () {
+                if (selectedRowLamViec != null) {
+                    // Lấy thông tin từ dòng được chọn
+                    var id = selectedRowLamViec.find('td:eq(0)').text();
+                    var tunam = selectedRowLamViec.find('td:eq(1)').text().trim();
+                    var dennam = selectedRowLamViec.find('td:eq(2)').text().trim();
+                    var congviec = selectedRowLamViec.find('td:eq(3)').text().trim();
+                    var donvi = selectedRowLamViec.find('td:eq(4)').text().trim();
+                    var capbac = selectedRowLamViec.find('td:eq(5)').text().trim();
+                    var chucvu = selectedRowLamViec.find('td:eq(6)').text().trim();
+                    var loaichucvu = selectedRowLamViec.find('td:eq(7)').text().trim();
+                    var trongnganh = selectedRowLamViec.find('td:eq(8)').text().trim();
+                    var idnv = selectedRowLamViec.find('td:eq(9)').text().trim();
+                    
+                    // Điền thông tin vào modal
+                    $('#modalcapnhatlamviec input[name="Id"]').val(id);
+                    $('#modalcapnhatlamviec input[name="TuNam"]').val(tunam);
+                    $('#modalcapnhatlamviec input[name="DenNam"]').val(dennam);
+                    $('#modalcapnhatlamviec input[name="CongViec"]').val(congviec);
+                    $('#modalcapnhatlamviec input[name="DonVi"]').val(donvi);
+                    $('#modalcapnhatlamviec input[name="CapBac"]').val(capbac);
+                    $('#modalcapnhatlamviec input[name="ChucVu"]').val(chucvu);
+                    $('#modalcapnhatlamviec input[name="LoaiChucVu"]').val(loaichucvu);
+                    $('#modalcapnhatlamviec select[name="TrongNganh"] option').filter(function () {
+                        return $(this).text() === trongnganh;
+                    }).prop('selected', true);
+                    $('#modalcapnhatlamviec input[name="IdNv"]').val(idnv);
+
+                    // Hiển thị modal
+                    $('#modalcapnhatlamviec').modal('show');
+                }else{
+                    alert("Vui lòng chọn dòng để chỉnh sửa.");
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            var selectedRowLamViec = null;
+            var id = null;
+
+            $('.tablelamviec .tbodylamviec .trlamviec').click(function () {
+                if (selectedRowLamViec != null) {
+                    selectedRowLamViec.removeClass('selected-lamviec');
+                }
+                id = $(this).data("id");
+                idnv = $(this).data("idnv");
+                $(this).addClass('selected-lamviec');
+                selectedRowLamViec = $(this);
+            });
+
+            $(".delete-lamviec").click(function () {
+                var confirmation = confirm("Bạn có chắc chắn muốn xóa thông tin này?");
+                if (selectedRowLamViec != null) {
+                    if (confirmation) {
+                        // Nếu người dùng xác nhận xóa, hãy chuyển hướng đến hàm DeleteConfirmed của controller
+                        window.location.href = "/QuaTrinhLamViecCuaThanNhan/DeleteLamViec?Id=" + id + "&nhanvienId=" + idnv; // Thay ControllerName bằng tên của controller bạn đang sử dụng
+                    }
+                } else {
+                    alert("Vui lòng chọn dòng để chỉnh sửa.");
+                }
+            });
+        });
+    </script>
+}

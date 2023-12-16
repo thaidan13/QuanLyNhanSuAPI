@@ -1,0 +1,386 @@
+﻿@using QuanLyNhanSuAPI.Models.HoSoNhanSu;
+@model QuanLyNhanSuAPI.Models.HoSoNhanSu.TbOkr
+@{
+    ViewData["Title"] = "UpdateOKrAdmin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var responseData = ViewData["PhongBanResponse"] as List<PhongBanModelView>;
+    var responseNhanVien = ViewData["NhanVienResponse"] as List<TbThongTinNhanVien>;
+    var responseDiem = ViewData["DiemResponse"] as DiemThanhCongCuaOkr;
+    var responseOkr = ViewData["OkrResponse"] as List<TbOkr>;
+}
+
+<div class="container mt-3">
+    <form class="row g-3" asp-action="UpdateOKrAdmin">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <input type="submit" value="Chỉnh Sửa OKR" class="btn btn-primary" />
+        </div>
+        <div class="form-group" hidden>
+            <label asp-for="IdOkr" class="control-label"></label>
+            <input asp-for="IdOkr" class="form-control" />
+            <span asp-validation-for="IdOkr" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label class="control-label">Năm</label>
+            <input asp-for="Nam" type="text" class="form-control" />
+            <span asp-validation-for="Nam" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label class="control-label">Quý</label>
+            @*<input asp-for="Quy" class="form-control" />*@
+            <select asp-for="Quy" class="form-control">
+                <option value="Q1">Q1</option>
+                <option value="Q2">Q2</option>
+                <option value="Q3">Q3</option>
+                <option value="Q4">Q4</option>
+            </select>
+            <span asp-validation-for="Quy" class="text-danger"></span>
+        </div>
+        <div class="col-12">
+            <label class="control-label">Tiêu Đề</label>
+            <input asp-for="TieuDe" class="form-control" />
+            <span asp-validation-for="TieuDe" class="text-danger"></span>
+        </div>
+        <div class="col-12">
+            <label class="control-label">Mô Tả</label>
+            <input asp-for="MoTa" class="form-control" />
+            <span asp-validation-for="MoTa" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label class="control-label">Mục Tiêu</label>
+            @*<input asp-for="MucTieu" id="MucTieu" class="form-control" value="Công Ty" readonly />*@
+            <select asp-for="MucTieu" id="MucTieu" class="form-control" onchange="MucTieuChange()">
+                <option value="false" style="display: none;"></option>
+                <option value="Công Ty">Công Ty</option>
+                <option value="Phòng Ban">Phòng Ban</option>
+                <option value="Nhân Viên">Nhân Viên</option>
+            </select>
+            <span asp-validation-for="MucTieu" class="text-danger"></span>
+        </div>
+        <div class="col-md-4">
+            <label class="control-label">Kiểu OKR</label>
+            <select asp-for="KieuOkr" id="KieuOkr" class="form-control" onchange="handleKieuOkrChange()">
+                @* <option value="false" style="display: none;"></option> *@
+                <option value="Cam Kết">Cam Kết</option>
+                <option value="Khát Vọng">Khát Vọng</option>
+
+            </select>
+            <span asp-validation-for="KieuOkr" class="text-danger"></span>
+        </div>
+        <div class="col-md-2">
+            <label class="control-label">Điểm</label>
+            <input asp-for="Diem" type="number" id="Diem" class="form-control" onchange="handleDiemChange()" />
+            <span asp-validation-for="Diem" class="text-danger"></span>
+        </div>
+
+
+
+
+
+        @if(Model.MucTieu == "Phòng Ban")
+        {
+            <div class="col-md-6" id="PhongBanform">
+                <label  class="control-label">Phòng Ban</label>
+                <select id="PhongBanSelect" asp-for="PhongBan" class="form-control">
+                    @if (responseData != null)
+                    {
+                        <option value="">Chọn Phòng Ban</option>
+                        @foreach (var item in responseData)
+                        {
+                            <option value="@item.IdPb" data-phongban="@item.IdPb" data-idnv="@item.IdNv" data-quanly="@item.QuanLy"> @item.TenPhongBan</option>
+
+                        }
+                    }
+                </select>
+                <span asp-validation-for="PhongBan" class="text-danger"></span>
+            </div>
+        }
+        
+
+
+
+
+
+
+        <div class="form-group" id="nhanvienForm" style="display: none;">
+            <label asp-for="NhanVien" class="control-label"></label>
+            <input asp-for="NhanVien" id="NhanVienInput" class="form-control" />
+            <span asp-validation-for="NhanVien" class="text-danger"></span>
+        </div>
+
+
+
+
+
+
+        <div class="form-group" style="display: none;">
+            <label asp-for="PhongBan" class="control-label"></label>
+            <input id="PhongBanInput" asp-for="PhongBan" class="form-control" />
+            <span asp-validation-for="PhongBan" class="text-danger"></span>
+        </div>
+
+
+        @if (Model.MucTieu == "Nhân Viên")
+        {
+            <div class="col-md-6" id="nhanvienform" >
+                <label class="control-label">Nhân Viên</label>
+                <select id="NhanVienSelect" asp-for="NhanVien" class="form-control">
+                    @if (responseNhanVien != null)
+                    {
+                        <option value="">Chọn Nhân Viên</option>
+                        @foreach (var item in responseNhanVien)
+                        {
+                            <option value="@item.IdNv" data-idpb="@item.IdPb" data-idnv="@item.IdNv" data-chusohuu="@item.HoKhaiSinh @item.TenKhaiSinh">@item.HoKhaiSinh @item.TenKhaiSinh</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="NhanVien" class="text-danger"></span>
+            </div>
+        }
+
+        <div class="col-md-6" id="nhanvienform" style="display: none;">
+            <label asp-for="NhanVien" class="control-label"></label>
+            <select id="NhanVienSelect" asp-for="NhanVien" class="form-control">
+                @if (responseNhanVien != null)
+                {
+                    <option value="">Chọn Nhân Viên</option>
+                    @foreach (var item in responseNhanVien)
+                    {
+                        <option value="@item.IdNv" data-idpb="@item.IdPb" data-idnv="@item.IdNv" data-chusohuu="@item.HoKhaiSinh @item.TenKhaiSinh">@item.HoKhaiSinh @item.TenKhaiSinh</option>
+                    }
+                }
+            </select>
+            <span asp-validation-for="NhanVien" class="text-danger"></span>
+        </div>
+        
+
+        @if(Model.PhongBan != null || Model.NhanVien != null)
+        {
+            <div class="col-md-6" id="chusohuuForm" >
+                <div class="form-group">
+                    <label class="control-label">Chủ Sở Hữu</label>
+                    <input asp-for="ChuSoHuu" readonly id="ChuSoHuuInput" class="form-control" />
+                    <span asp-validation-for="ChuSoHuu" class="text-danger"></span>
+                </div>
+            </div>
+        }
+        
+
+
+
+        <div class="col-md-12">
+            <label class="control-label">Là Kết Quả Then Chốt</label>
+            <select asp-for="LaKetQuaThenChot" id="KieuOkr" class="form-control">
+                <option value="">Chọn OKR Cha</option>
+                @foreach (var item in responseOkr)
+                {
+                    <option value="@item.IdOkr">@item.TieuDe</option>
+                }
+            </select>
+            <span asp-validation-for="LaKetQuaThenChot" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-12">
+            <label class="control-label">Tiến Trình</label>
+            <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                <div id="progress-bar" class="progress-bar progress-bar-striped bg-success" style="width: @(Model.Diem.Value.ToString("P0"));">@(Model.Diem.Value.ToString("P0"));</div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <label class="control-label">Trọng Số</label>
+            <input asp-for="TrongSo" type="number" class="form-control" />
+            <span asp-validation-for="TrongSo" class="text-danger"></span>
+        </div>
+
+        @*<div class="form-group">
+        <label asp-for="KetQua" class="control-label"></label>
+        <input type="radio" id="thatbaiRadio" name="KetQua" class="gender-radio" value="false" asp-for="KetQua" />
+        <label for="thatbaiRadio" class="radio-label">Thất Bại</label>
+        <input type="radio" id="thanhcongRadio" name="KetQua" class="gender-radio" value="true" asp-for="KetQua" />
+        <label for="thatbaiRadio" class="radio-label">Thành Công</label>
+        <span asp-validation-for="KetQua" class="text-danger"></span>
+        </div>*@
+
+        <div id="diemthanhcongDiv" style="display: none;" class="col-md-12">
+            <label class="control-label">Điểm Thành Công</label>
+
+            <input type="text" hidden id="DiemOkr" asp-for="DiemThanhCong" value="@responseDiem.Id" />
+            <input id="DiemSelect" readonly type="text" data-diem="@responseDiem.Diem" value="@responseDiem.Diem" class="form-control" />
+
+            <span asp-validation-for="DiemThanhCong" class="text-danger"></span>
+        </div>
+
+        <fieldset class="col-md-12">
+            <label  class="control-label">Kết Quả</label>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input type="radio" id="thatbaiRadio" name="KetQua" class="gender-radio form-check-input" value="false" asp-for="KetQua" />
+                    <label for="thatbaiRadio" class="radio-label">Thất Bại</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="thanhcongRadio" name="KetQua" class="gender-radio form-check-input" value="true" asp-for="KetQua" />
+                    <label for="thatbaiRadio" class="radio-label">Thành Công</label>
+                </div>
+            </div>
+        </fieldset>
+
+
+
+
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+
+        var diemthanhcong = $("#DiemSelect").data("diem");
+
+        var selectElement = null;
+        function handleKieuOkrChange() {
+            selectElement = document.getElementById("KieuOkr");
+            var diemthanhcongDiv = document.getElementById("diemthanhcongDiv");
+            var diemOkr = document.getElementById("DiemSelect");
+
+
+            var diem = parseFloat(document.getElementById("Diem").value.replace(",", "."));
+            var diemThanhCong = parseFloat(document.getElementById("DiemSelect").value.replace(",", "."));
+
+            if (selectElement.value === "Khát Vọng") {
+                diemOkr.value = diemthanhcong;
+                diemthanhcongDiv.style.display = "block";
+                document.getElementById("DiemOkr").disabled = false;
+                var diem = parseFloat(document.getElementById("Diem").value.replace(",", "."));
+                var diemThanhCong = parseFloat(document.getElementById("DiemSelect").value.replace(",", "."));
+                if (diem >= diemThanhCong) {
+                    document.getElementById("thatbaiRadio").checked = false;
+                    document.getElementById("thanhcongRadio").checked = true;
+                } else if (diem < diemThanhCong) {
+                    document.getElementById("thatbaiRadio").checked = true;
+                    document.getElementById("thanhcongRadio").checked = false;
+                }
+            } else {
+                if (diem >= 1) {
+                    document.getElementById("thatbaiRadio").checked = false;
+                    document.getElementById("thanhcongRadio").checked = true;
+                } else if (diem < 1) {
+                    document.getElementById("thatbaiRadio").checked = true;
+                    document.getElementById("thanhcongRadio").checked = false;
+                }
+                // Nếu chọn "Cam Kết" hoặc không chọn gì cả, ẩn thẻ div
+                diemthanhcongDiv.style.display = "none";
+                document.getElementById("DiemOkr").disabled = true;
+                diemOkr.value = null;
+            }
+        }
+
+
+        function handleDiemChange() {
+            var diemInput = document.getElementById("Diem");
+            var diemValue = diemInput.value;
+
+            var progressBar = document.getElementById("progress-bar");
+
+            progressBar.style.width = (diemValue * 100) + "%";
+            progressBar.innerText = (diemValue * 100) + "%";
+
+            if (selectElement.value === "Cam Kết") {
+                var diem = parseFloat(document.getElementById("Diem").value.replace(",", "."));
+                if (diem >= 1) {
+                    document.getElementById("thatbaiRadio").checked = false;
+                    document.getElementById("thanhcongRadio").checked = true;
+                } else if (diem < 1) {
+                    document.getElementById("thatbaiRadio").checked = true;
+                    document.getElementById("thanhcongRadio").checked = false;
+                }
+            } else if (selectElement.value === "Khát Vọng") {
+                var diem = parseFloat(document.getElementById("Diem").value.replace(",", "."));
+                var diemThanhCong = parseFloat(document.getElementById("DiemSelect").value.replace(",", "."));
+                if (diem >= diemThanhCong) {
+                    document.getElementById("thatbaiRadio").checked = false;
+                    document.getElementById("thanhcongRadio").checked = true;
+                } else if (diem < diemThanhCong) {
+                    document.getElementById("thatbaiRadio").checked = true;
+                    document.getElementById("thanhcongRadio").checked = false;
+                }
+            }
+
+        }
+
+        function MucTieuChange() {
+            var selectMutieu = document.getElementById("MucTieu");
+
+            if (selectMutieu.value === "Công Ty") {
+                document.getElementById("PhongBanform").style.display = "none";
+                document.getElementById("PhongBanSelect").disabled = true;
+                document.getElementById("chusohuuForm").style.display = "none";
+                document.getElementById("ChuSoHuuInput").disabled = true;
+                document.getElementById("nhanvienForm").style.display = "none";
+                document.getElementById("NhanVienInput").disabled = true;
+                document.getElementById("nhanvienform").style.display = "none";
+                document.getElementById("NhanVienSelect").disabled = true;
+
+                document.getElementById("PhongBanInput").disabled = true;
+
+            } else if (selectMutieu.value === "Phòng Ban") {
+                document.getElementById("PhongBanform").style.display = "block";
+                document.getElementById("PhongBanSelect").disabled = false;
+                document.getElementById("chusohuuForm").style.display = "block";
+                document.getElementById("ChuSoHuuInput").disabled = false;
+                document.getElementById("nhanvienForm").style.display = "none";
+                document.getElementById("NhanVienInput").disabled = false;
+
+                document.getElementById("nhanvienform").style.display = "none";
+                document.getElementById("NhanVienSelect").disabled = true;
+                document.getElementById("PhongBanInput").disabled = true;
+            } else if (selectMutieu.value === "Nhân Viên") {
+                document.getElementById("PhongBanform").style.display = "none";
+                document.getElementById("PhongBanform").disabled = true;
+                document.getElementById("PhongBanSelect").disabled = true;
+                document.getElementById("nhanvienform").style.display = "block";
+                document.getElementById("NhanVienSelect").disabled = false;
+                document.getElementById("NhanVienInput").disabled = true;
+                document.getElementById("chusohuuForm").style.display = "block";
+                document.getElementById("ChuSoHuuInput").disabled = false;
+
+
+                document.getElementById("PhongBanInput").disabled = false;
+            }
+        }
+
+        $(document).ready(function () {
+            // Lắng nghe sự kiện thay đổi trên dropdown
+            $("#PhongBanSelect").change(function () {
+                var selectedOption = $(this).find(":selected");
+                var idNv = selectedOption.data("idnv");
+                var chusohuu = selectedOption.data("quanly");
+                var phongban = selectedOption.data("phongban");
+
+                // Gán giá trị idNv cho trường input NhanVien
+                $("#NhanVienInput").val(idNv);
+                $("#ChuSoHuuInput").val(chusohuu);
+                $("#PhongBanInput").val(phongban);
+            });
+        });
+
+        $(document).ready(function () {
+            // Lắng nghe sự kiện thay đổi trên dropdown
+            $("#NhanVienSelect").change(function () {
+                var selectedOption = $(this).find(":selected");
+                var phongban = selectedOption.data("idpb");
+                var chusohuu = selectedOption.data("chusohuu");
+                var idnv = selectedOption.data("idnv");
+
+                // Gán giá trị idNv cho trường input NhanVien
+                $("#PhongBanInput").val(phongban);
+                $("#ChuSoHuuInput").val(chusohuu);
+                $("#NhanVienInput").val(idnv);
+            });
+        });
+    </script>
+}

@@ -1,0 +1,92 @@
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@*@model IEnumerable<QuanLyNhanSuAPI.Models.HoSoNhanSu.TbTaiKhoan>
+*@
+@model IPagedList<QuanLyNhanSuAPI.Models.HoSoNhanSu.TbTaiKhoan>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-3">
+    <div class="justify-content-between d-flex mb-3">
+        @using (Html.BeginForm("Index", "Account", FormMethod.Get))
+        {
+            <div class="input-group">
+                @Html.TextBox("searchString", ViewBag.SearchString as string, new { @class = "form-control", placeholder = "Tìm kiếm..." })
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-outline-secondary">Tìm kiếm</button>
+                </div>
+            </div>
+        }
+        <a class="btn btn-primary" asp-action="Register">Tạo Tài Khoản</a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+
+                    <th>
+                        Email
+                    </th>
+
+                    <th>
+                        Ngày Tạo
+                    </th>
+                    <th>
+                        Quyền
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateCreated)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Role)
+                        </td>
+
+                        <td>
+                            
+                            @* <button class="delete-button btn btn-danger" data-id="@item.Id">Xóa</button> *@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<nav aria-label="Page navigation example" class="text-end">
+    <ul class="pagination justify-content-center">
+        <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+            <a class="page-link" href="@Url.Action("Index", new { page = Model.PageNumber - 1 })" aria-label="Previous">
+                <span aria-hidden="true">Previous</span>
+            </a>
+        </li>
+
+        @for (int i = 1; i <= Model.PageCount; i++)
+        {
+            <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a>
+            </li>
+        }
+
+        <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+            <a class="page-link" href="@Url.Action("Index", new { page = Model.PageNumber + 1 })" aria-label="Next">
+                <span aria-hidden="true">Next</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+

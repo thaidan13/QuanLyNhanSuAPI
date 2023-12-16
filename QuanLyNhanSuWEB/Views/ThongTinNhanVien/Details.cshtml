@@ -1,0 +1,288 @@
+﻿@model QuanLyNhanSuAPI.Models.HoSoNhanSu.TbThongTinNhanVien
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="p-3 row" style="">
+    <h3 for="" class="fw-bold m-0"><i class="fa-solid fa-circle-info "></i> Chi tiết nhân viên</h3>
+    <hr class="mt-0">
+    <div class="col-md-2">
+        <ul class="list-group">
+            <li class="list-group-item"><a class="text-decoration-none fw-bold" style="color: rgb(36, 92, 166);" href="@Url.Action("Index", "QuaTrinhDaoTao", new{nhanvienId = Model.IdNv})">Quá Trình Đào Tạo</a></li>
+            <li class="list-group-item"><a class="text-decoration-none fw-bold" style="color: rgb(36, 92, 166);" href="@Url.Action("Index", "ThongTinDoanDang", new{nhanvienId = Model.IdNv})"> Thông Tin Đoàn Đảng</a></li>
+            <li class="list-group-item"><a class="text-decoration-none fw-bold" style="color: rgb(36, 92, 166);" href="@Url.Action("Index", "DiNuocNgoai", new{nhanvienId = Model.IdNv})"> Đi Nước Ngoài</a></li>
+            <li class="list-group-item"><a class="text-decoration-none fw-bold" style="color: rgb(36, 92, 166);" href="@Url.Action("Index", "DaoTaoCuMoi", new{nhanvienId = Model.IdNv})"> Quá Trình Đào Tạo Đã Có</a></li>
+            <li class="list-group-item"><a class="text-decoration-none fw-bold" style="color: rgb(36, 92, 166);" href="@Url.Action("Index", "DaoTaoMoi", new{nhanvienId = Model.IdNv})"> Quá Trình Đào Tạo Mới</a></li>
+            <li class="list-group-item"><a class="text-decoration-none fw-bold" style="color: rgb(36, 92, 166);" href="@Url.Action("Index", "KhenThuong", new{nhanvienId = Model.IdNv})">Khen Thưởng</a></li>
+            <li class="list-group-item"><a class="text-decoration-none fw-bold" style="color: rgb(36, 92, 166);" href="@Url.Action("Index", "KyLuat", new{nhanvienId = Model.IdNv})">Kỷ Luật</a></li>
+            <li class="list-group-item"><a class="text-decoration-none fw-bold" style="color: rgb(36, 92, 166);" href="@Url.Action("Index", "HoSo", new{nhanvienId = Model.IdNv})">Chi Tiết Hồ Sơ Tuyển Dụng</a></li>
+            <li class="list-group-item"><a class="text-decoration-none fw-bold" style="color: rgb(36, 92, 166);" href="@Url.Action("Index", "HoSoLienQuan", new{nhanvienId = Model.IdNv})">Chi Tiết Hồ Sơ Liên Quan</a></li>
+            <li class="list-group-item"><a class="text-decoration-none fw-bold" style="color: rgb(36, 92, 166);" href="@Url.Action("Index", "ThongTinGiaDinh", new{nhanvienId = Model.IdNv})">Thông Tin Gia Đình</a></li>
+            <li class="list-group-item"><a class="text-decoration-none fw-bold" style="color: rgb(36, 92, 166);" href="@Url.Action("Index", "LichSuBanThanNhanVien", new{nhanvienId = Model.IdNv})">Lịch Sử Nhân Viên</a></li>
+            <li class="list-group-item"><a class="text-decoration-none fw-bold" style="color: rgb(36, 92, 166);" href="@Url.Action("Index", "HopDongLaoDong", new{nhanvienId = Model.IdNv})">Hợp Đồng Lao Động</a></li>
+            <li class="list-group-item"><a class="text-decoration-none fw-bold" style="color: rgb(36, 92, 166);" href="@Url.Action("Index", "CongTac", new{nhanvienId = Model.IdNv})">Quá Trình Công Tác</a></li>
+        </ul>
+    </div>
+
+
+    <div class="col-md-10 p-3">
+        <div class="btn text-start" style="border: 2px solid #8fcde1;border-radius: 15px; padding: 15px;">
+            <h5>Nhân viên/Chi Tiết</h5>
+            <div class="d-flex align-items-center" style="gap: 10px;">
+                <button class="save" style="font-size: 16px; font-weight: bold; padding: 10px 10px; color: white; background: rgb(36, 92, 166); border-radius: 4px; cursor: pointer; border: 1px solid rgb(36, 92, 166); outline: none; transition: 0.2s;" onclick="location.href='@Url.Action("Update", new { nhanvienId = Model.IdNv })'">
+                    <i class="fa-regular fa-pen-to-square"></i>Cập nhật
+                </button>
+
+                <a asp-action="Index" style="font-size: 16px; font-weight: bold; padding: 10px 10px; color: white; border-radius: 4px; cursor: pointer;  outline: none; transition: 0.2s;" class="btn btn-info"><i class="fa-solid fa-people-pulling"></i>Trở về</a>
+
+            </div>
+        </div>
+        <div class="pt-2 row p-lg-2" style="padding-top: 15px; gap: 10px;">
+            <div class="text-center pt-3 pb-3" style="font-size: 18px; background-color: rgb(36, 92, 166);  ">
+                <label class="fw-bold" style="color: white; margin-right: 10px;">Phòng ban</label>
+
+                <select asp-for="IdPb" style="font-size: 16px; padding: 8px; border: 1px solid #ccc; background-color: #fff;" class="select">
+                    <option value="">Phòng Ban</option>
+                    @foreach (var item in ViewBag.TenPhongBan)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+                </select>
+                <span asp-validation-for="IdPb" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-5" style="padding: 1rem; gap: 1rem;  border: 2px solid #8fcde1;border-radius: 15px;">
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Họ Khai Sinh</label>
+                    <p class="m-0" style="font-weight: bold;">@Model.HoKhaiSinh</p>
+                </div>
+
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Họ Thường Dùng</label>
+                    <p class="m-0" style="font-weight: bold;">@Model.HoThuongDung</p>
+                </div>
+
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Ngày Sinh</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.NgaySinh)</p>
+                </div>
+
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Ngày Cấp CMND</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.NgayCapCmnd)</p>
+                </div>
+
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Thẻ Căn Cước</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.TheCanCuoc)</p>
+                </div>
+
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Sổ Hộ Chiếu</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.SoHoChieu)</p>
+                </div>
+
+                @* <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Chức Vụ</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.IdCvNavigation.TenChucVu)</p>
+                </div> *@
+            </div>
+
+            <div class="col-md-5" style="padding: 1rem; gap: 1rem;  border: 2px solid #8fcde1;border-radius: 15px;">
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Tên Khai Sinh</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.TenKhaiSinh)</p>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Tên Thường Dùng</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.TenThuongDung)</p>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Bí Danh</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.BiDanh)</p>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">CMND</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.Cmnd)</p>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Nơi Cấp CMND</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.NoiCapCmnd)</p>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Ngày Cấp Thẻ Căn Cước</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.NgayCapTheCanCuoc)</p>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Ngày Cấp Hộ Chiếu</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.NgayCapHoChieu)</p>
+                </div>
+            </div>
+
+            <div class="col-md-2 text-center" style="padding: 1rem; gap: 1rem; border: 2px solid #8fcde1;border-radius: 15px;  width: 179px;height: 50%;">
+                <img src="~/uploads/@Model.HinhAnh" alt="Hình ảnh" width="100" height="100" class="gender-image img-thumbnail">
+                <label>Nạp Hình Nhân Viên</label>
+                <div class="radio-container">
+                    <input type="radio" id="namRadio" name="gender" class="gender-radio" value="Nam" @(Model.GioiTinh == "Nam" ? "checked" : "")>
+                    <label for="namRadio" class="radio-label">Nam</label>
+                    <input type="radio" id="nuRadio" name="gender" class="gender-radio" value="Nữ" @(Model.GioiTinh == "Nữ" ? "checked" : "")>
+                    <label for="nuRadio" class="radio-label">Nữ</label>
+                </div>
+            </div>
+
+            <div class="text-center pt-3 pb-3 " style="font-size: 18px; background-color: rgb(36, 92, 166); ">
+                <label class="fw-bold" style="color: white; margin-right: 10px;">Quốc Tịch và Tôn Giáo</label>
+            </div>
+
+            <div class="col-md-6" style="padding: 1rem; gap: 1rem;  border: 2px solid #8fcde1;border-radius: 15px; ">
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Quốc Tịch</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.QuocTich)</p>
+                </div>
+
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Thành Phần Gia Đình</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.ThanhPhanGiaDinh)</p>
+                </div>
+
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Chiều Cao</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.ChieuCao) Cm</p>
+                </div>
+            </div>
+
+            <div class="col-md-6" style="padding: 1rem; gap: 1rem;  border: 2px solid #8fcde1;border-radius: 15px; width: 588px;">
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Dân Tộc</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.DanToc)</p>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Tôn Giáo</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.TonGiao)</p>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Nhân Dạng</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.NhanDang)</p>
+                </div>
+            </div>
+
+            <div class="text-center pt-3 pb-3 " style="font-size: 18px; background-color: rgb(36, 92, 166); ">
+                <label class="fw-bold" style="color: white; margin-right: 10px;">Chức Danh và Nghỉ Việc</label>
+            </div>
+
+            <div class="col-md-6" style="padding: 1rem; gap: 1rem;  border: 2px solid #8fcde1;border-radius: 15px; ">
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Tên Chức Danh</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.TenChucDanh)</p>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Bậc Lương</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.BacLuong)</p>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Ngày Nghỉ Việc</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.NgayNghiViec)</p>
+                </div>
+            </div>
+
+            <div class="col-md-6" style="padding: 1rem; gap: 1rem;  border: 2px solid #8fcde1;border-radius: 15px; width: 588px;">
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Mô Tả Công Việc</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.MoTaCongViec)</p>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Lý Do</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.LyDoNghiViec)</p>
+                </div>
+            </div>
+
+            <div class="text-center pt-3 pb-3 " style="font-size: 18px; background-color: rgb(36, 92, 166); ">
+                <label class="fw-bold" style="color: white; margin-right: 10px;">Địa Chỉ và Thông Tin Liên Hệ</label>
+            </div>
+
+            <div class="col-md-6" style="padding: 1rem; gap: 1rem;  border: 2px solid #8fcde1;border-radius: 15px;">
+                <div class="text-center" style="font-size: 18px;  ">
+                    <label class="fw-bold" style="color: rgb(36, 92, 166); margin-right: 10px;">Quê Quán</label>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Phường/Xã</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.QueQuanPhuongXa)</p>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Quận Huyện</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.QueQuanQuanHuyen)</p>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Thành Phố</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.QueQuanThanhPho)</p>
+                </div>
+            </div>
+
+            <div class="col-md-6" style="padding: 1rem; gap: 1rem;  border: 2px solid #8fcde1;border-radius: 15px; width: 588px;">
+                <div class="text-center" style="font-size: 18px;">
+                    <label class="fw-bold" style="color: rgb(36, 92, 166); margin-right: 10px;">Liên Hệ</label>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Điện Thoại Nhà</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.DienThoaiNha)</p>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">DTDD</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.Dtdd)</p>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Email</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.Email)</p>
+                </div>
+            </div>
+
+            <div class="col-md-6" style="padding: 1rem; gap: 1rem;  border: 2px solid #8fcde1;border-radius: 15px; ">
+                <div class="text-center" style="font-size: 18px;">
+                    <label class="fw-bold" style="color: rgb(36, 92, 166); margin-right: 10px;">Thường Trú</label>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Địa Chỉ</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.DiaChiThuongTru)</p>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Phường/Xã</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.PhuongXaThuongTru)</p>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Quận Huyện</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.QuanHuyenThuongTru)</p>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Thành Phố</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.ThanhPhoThuongTru)</p>
+                </div>
+            </div>
+
+            <div class="col-md-6" style="padding: 1rem; gap: 1rem;  border: 2px solid #8fcde1;border-radius: 15px; width: 588px;">
+                <div class="text-center" style="font-size: 18px;">
+                    <label class="fw-bold" style="color: rgb(36, 92, 166); margin-right: 10px;">Tạm Trú</label>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Địa Chỉ</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.DiaChiTamTru)</p>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Phường/Xã</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.PhuongXaTamTru)</p>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Quận Huyện</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.QuanHuyenTamTru)</p>
+                </div>
+                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                    <label class="text-end" style="width: 30%; padding-right: 40px;">Thành Phố</label>
+                    <p class="m-0" style="font-weight: bold;">@Html.DisplayFor(model => model.ThanhPhoTamTru)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,559 @@
+﻿@model QuanLyNhanSuWEB.DTO.HoSoNhanSuDTO.DaoTaoCuMoiDTO
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="m-4 row">
+    <h3 for="" class="fw-bold m-0"><i class="fa-solid fa-clock"></i> Đào Tạo Mới</h3>
+    <hr class="mt-0">
+    <div class="col-md-12 p-0" style="border: 2px solid rgb(36, 92, 166);">
+        <div class="text-center pt-3 pb-3" style="font-size: 18px; background-color: rgb(36, 92, 166);">
+            <label class="fw-bold" style="color: white; margin-right: 10px;">Tóm Lược Nhân Viên</label>
+        </div>
+        <div class="profile p-4 d-md-flex">
+            <div class="employee-image mb-3 mb-md-0 me-md-4" style="width: 200px; height: 250px; border: 1px solid #ccc; border-radius:10px;">
+                <img src="~/uploads/@Model.NhanVien.HinhAnh" width="100%" height="100%" alt="Hình nhân viên">
+            </div>
+            <div class="text-center text-md-start ml-3">
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Họ và tên</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.HoKhaiSinh @Model.NhanVien.TenKhaiSinh</label>
+                    </div>
+                </div>
+                <!-- Các grid-col khác tương tự -->
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Mã Nhân Viên</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.IdNv</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Phòng Ban</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.IdPbNavigation.TenPhongBan</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Điện Thoại Nhà</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.DienThoaiNha</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Điện Thoại Di Động</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.Dtdd</label>
+                    </div>
+                </div>
+                <div class="grid-col d-flex mb-2">
+                    <div class="str me-3">
+                        <strong>Email</strong>
+                    </div>
+                    <div class="lab">
+                        <label> @Model.NhanVien.Email</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="border: 2px solid rgb(36, 92, 166); border-radius: 0px 0px 15px 15px; margin-top: 15px; padding: 10px;">
+
+        <div class="d-flex justify-content-between align-items-center mt-3 mb-3" style="gap: 10px;">
+
+            <div>
+                <a class="btn" href="@Url.Action("Details", "ThongTinNhanVien", new {  IdNV = @Model.NhanVien.IdNv })" style="background-color: rgb(36, 92, 166) !important; font-weight: bold; color: white;"><i class="fa-solid fa-arrow-left"></i> Trở về</a>
+            </div>
+
+            <div class="d-flex" style="gap: 10px;">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaldaotaocu">
+                    Thêm mới
+                </button>
+
+                <button type="button" class="btn btn-success update-daotao" data-bs-toggle="modal" data-bs-target="#modalcapnhatdaotaocu">
+                    Cập Nhật
+                </button>
+
+                <button class="delete-button btn btn-danger delete-daotaocu">Xoá</button>
+            </div>
+            
+        </div>
+
+        <div class="modal fade" id="modaldaotaocu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <form asp-action="Create" method="post">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Đào Tạo Mới</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center justify-content-center align-items-center ">
+                            <div class="row">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <input asp-for="@Model.DaoTao.IdNv" hidden value="@Model.NhanVien.IdNv" class="form-control" />
+                                <input asp-for="@Model.DaoTao.LoaiDaoTao" hidden value="false" class="form-control" />
+                                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                    <label class="text-end fw-bold" style=" padding-right: 40px;">Nhân Viên</label>
+                                    <strong style="color: rgb(36, 92, 166);">@Model.NhanVien.HoKhaiSinh @Model.NhanVien.TenKhaiSinh</strong>
+                                </div>
+                                <hr />
+
+                                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                    <label class="text-end fw-bold" style="width: 20%; padding-right: 40px;">Khoá Học</label>
+                                    <input type="text" asp-for="@Model.DaoTao.KhoaHoc" style="width: 70%;" class="form-control">
+                                    <span asp-validation-for="@Model.DaoTao.KhoaHoc" class="text-danger"></span>
+                                </div>
+
+                                <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                    <label class="text-end fw-bold" style="width: 20%; padding-right: 40px;">Trường/Đơn vị</label>
+                                    <input type="text" asp-for="@Model.DaoTao.TruongDonVi" style="width: 70%;" class="form-control">
+                                    <span asp-validation-for="@Model.DaoTao.TruongDonVi" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                        <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Ngày Bắt Đầu</label>
+                                        <input type="date" asp-for="@Model.DaoTao.NgayBatDau" style="width: 70%;" min="1900-01-01" class="form-control">
+                                        <span asp-validation-for="@Model.DaoTao.NgayBatDau" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                        <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Số Quyết Định</label>
+                                        <input type="text" asp-for="@Model.DaoTao.SoQuyetDinh" style="width: 70%;" class="form-control">
+                                        <span asp-validation-for="@Model.DaoTao.SoQuyetDinh" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                        <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Tên Bằng</label>
+                                        <input type="text" asp-for="@Model.DaoTao.TenBang" style="width: 70%;" class="form-control">
+                                        <span asp-validation-for="@Model.DaoTao.TenBang" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                        <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Dạng Bằng</label>
+                                        <input type="text" asp-for="@Model.DaoTao.DangBang" style="width: 70%;" class="form-control">
+                                        <span asp-validation-for="@Model.DaoTao.DangBang" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                        <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Ngày Cấp</label>
+                                        <input type="date" asp-for="@Model.DaoTao.NgayCap" style="width: 70%;" min="1900-01-01" class="form-control">
+                                        <span asp-validation-for="@Model.DaoTao.NgayCap" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                        <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Ghi Chú</label>
+                                        <input type="text" asp-for="@Model.DaoTao.GhiChu" style="width: 70%;" class="form-control">
+                                        <span asp-validation-for="@Model.DaoTao.GhiChu" class="text-danger"></span>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                        <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Ngày Kết Thúc</label>
+                                        <input type="date" asp-for="@Model.DaoTao.NgayKetThuc" style="width: 70%;" class="form-control">
+                                        <span asp-validation-for="@Model.DaoTao.NgayKetThuc" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                        <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Hình Thức</label>
+                                        <input type="text" asp-for="@Model.DaoTao.HinhThuc" style="width: 70%;" class="form-control">
+                                        <span asp-validation-for="@Model.DaoTao.HinhThuc" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                        <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Số Bằng</label>
+                                        <input type="number" asp-for="@Model.DaoTao.SoBang" style="width: 70%;" class="form-control">
+                                        <span asp-validation-for="@Model.DaoTao.SoBang" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                        <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;"></label>
+                                        <select asp-for="@Model.DaoTao.HoanTat" style="width: 70%;" class="form-control">
+                                            <option value="true">Đã hoàn tất</option>
+                                            <option value="false">Chưa hoàn tất</option>
+                                        </select>
+                                        <span asp-validation-for="@Model.DaoTao.DangBang" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                        <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Hết Hạn</label>
+                                        <input type="date" asp-for="@Model.DaoTao.HetHan" style="width: 70%;" min="1900-01-01" class="form-control">
+                                        <span asp-validation-for="@Model.DaoTao.HetHan" class="text-danger"></span>
+                                    </div>
+
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <input type="submit" class="btn btn-primary" value="Lưu">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table id="daotaocutable" class="table table-striped tabledaotaocu" style="cursor:pointer;">
+                <thead>
+                    <tr>
+                        <th hidden>
+                            Mã Đào Tạo
+                        </th>
+                        <th>
+                            Họ tên
+                        </th>
+                        <th>
+                            Khoá học
+                        </th>
+                        <th>
+                            Trường/Đơn vị
+                        </th>
+                        <th>
+                            Hoàn Tất
+                        </th>
+                        <th>
+                            Bằng
+                        </th>
+                        <th>
+                            Từ ngày
+                        </th>
+                        <th>
+                            Đến Ngày
+                        </th>
+                        <th hidden>
+                            Số quyết định
+                        </th>
+                        <th hidden>
+                            Hình thức
+                        </th>
+                        <th hidden>
+                            Số bằng
+                        </th>
+                        <th hidden>
+                            Dạng bằng
+                        </th>
+                        <th hidden>
+                            Ngày cấp
+                        </th>
+                        <th hidden>
+                            Hết hạn
+                        </th>
+                        <th hidden>
+                            Ghi chú
+                        </th>
+                        <th hidden>
+                            IdNV
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="tbodydaotaocu">
+                    @foreach (var item in Model.DaoTaos)
+                    {
+                        <tr class="selected-daotao trdaotaocu" data-id="@item.Id">
+                            <td hidden>@Html.DisplayFor(modelItem => item.Id)</td>
+                            <td>
+                                @Model.NhanVien.HoKhaiSinh @Model.NhanVien.TenKhaiSinh
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.KhoaHoc)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TruongDonVi)
+                            </td>
+                            <td>
+                                @if (item.HoanTat == true)
+                                {
+                                    <p>Đã Hoàn Tất</p>
+                                }
+                                else
+                                {
+                                    <p>Chưa Hoàn Tất</p>
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TenBang)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NgayBatDau)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NgayKetThuc)
+                            </td>
+                            <td hidden>
+                                @Html.DisplayFor(modelItem => item.SoQuyetDinh)
+                            </td>
+                            <td hidden>
+                                @Html.DisplayFor(modelItem => item.HinhThuc)
+                            </td>
+                            <td hidden>
+                                @Html.DisplayFor(modelItem => item.SoBang)
+                            </td>
+                            <td hidden>
+                                @Html.DisplayFor(modelItem => item.DangBang)
+                            </td>
+                            <td hidden>
+                                @Html.DisplayFor(modelItem => item.NgayCap)
+                            </td>
+                            <td hidden>
+                                @Html.DisplayFor(modelItem => item.HetHan)
+                            </td>
+                            <td hidden>
+                                @Html.DisplayFor(modelItem => item.GhiChu)
+                            </td>
+                            <td hidden>
+                                @Html.DisplayFor(modelItem => item.IdNv)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+       
+    </div>
+</div>
+
+@*Cập nhật đào tạo*@
+<div class="modal fade" id="modalcapnhatdaotaocu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <form asp-action="Update" method="post">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Đào Tạo Cũ</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center justify-content-center align-items-center ">
+                    <div class="row">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input asp-for="@Model.DaoTao.IdNv" name="IdNv" hidden value="@Model.NhanVien.IdNv" class="form-control" />
+                        <input asp-for="@Model.DaoTao.Id" name="Id" hidden class="form-control" />
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end fw-bold" style=" padding-right: 40px;">Nhân Viên</label>
+                            <strong style="color: rgb(36, 92, 166);">@Model.NhanVien.HoKhaiSinh @Model.NhanVien.TenKhaiSinh</strong>
+                        </div>
+                        <hr />
+
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end fw-bold" style="width: 20%; padding-right: 40px;">Khoá Học</label>
+                            <input type="text" asp-for="@Model.DaoTao.KhoaHoc" name="KhoaHoc" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="@Model.DaoTao.KhoaHoc" class="text-danger"></span>
+                        </div>
+
+                        <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                            <label class="text-end fw-bold" style="width: 20%; padding-right: 40px;">Trường/Đơn vị</label>
+                            <input type="text" asp-for="@Model.DaoTao.TruongDonVi" name="TruongDonVi" style="width: 70%;" class="form-control">
+                            <span asp-validation-for="@Model.DaoTao.TruongDonVi" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Ngày Bắt Đầu</label>
+                                <input type="text" asp-for="@Model.DaoTao.NgayBatDau" name="NgayBatDau" min="1900-01-01" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.DaoTao.NgayBatDau" class="text-danger"></span>
+                            </div>
+
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Số Quyết Định</label>
+                                <input type="text" asp-for="@Model.DaoTao.SoQuyetDinh" name="SoQuyetDinh" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.DaoTao.SoQuyetDinh" class="text-danger"></span>
+                            </div>
+
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Tên Bằng</label>
+                                <input type="text" asp-for="@Model.DaoTao.TenBang" name="TenBang" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.DaoTao.TenBang" class="text-danger"></span>
+                            </div>
+
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Dạng Bằng</label>
+                                <input type="text" asp-for="@Model.DaoTao.DangBang" name="DangBang" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.DaoTao.DangBang" class="text-danger"></span>
+                            </div>
+
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Ngày Cấp</label>
+                                <input type="text" asp-for="@Model.DaoTao.NgayCap" name="NgayCap" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.DaoTao.NgayCap" class="text-danger"></span>
+                            </div>
+
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Ghi Chú</label>
+                                <input type="text" asp-for="@Model.DaoTao.GhiChu" name="GhiChu" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.DaoTao.GhiChu" class="text-danger"></span>
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Ngày Kết Thúc</label>
+                                <input type="text" asp-for="@Model.DaoTao.NgayKetThuc" name="NgayKetThuc" min="1900-01-01" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.DaoTao.NgayKetThuc" class="text-danger"></span>
+                            </div>
+
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Hình Thức</label>
+                                <input type="text" asp-for="@Model.DaoTao.HinhThuc" name="HinhThuc" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.DaoTao.HinhThuc" class="text-danger"></span>
+                            </div>
+
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Số Bằng</label>
+                                <input type="number" asp-for="@Model.DaoTao.SoBang" name="SoBang" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.DaoTao.SoBang" class="text-danger"></span>
+                            </div>
+
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;"></label>
+                                <select asp-for="@Model.DaoTao.HoanTat" name="HoanTat" style="width: 70%; font-weight: bold;" class="form-control">
+                                    <option value="true">Đã Hoàn Tất</option>
+                                    <option value="false">Chưa Hoàn Tất</option>
+                                </select>
+                                <span asp-validation-for="@Model.DaoTao.HoanTat" class="text-danger"></span>
+                            </div>
+
+                            <div class="details d-flex" style="padding: 5px; width: 100%; align-items: center;">
+                                <label class="text-end fw-bold" style="width: 30%; padding-right: 40px;">Hết Hạn</label>
+                                <input type="text" asp-for="@Model.DaoTao.HetHan" name="HetHan" style="width: 70%;" class="form-control">
+                                <span asp-validation-for="@Model.DaoTao.HetHan" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" value="Lưu">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Khởi tạo DataTables
+            var table = $('#daotaocutable').DataTable();
+        });
+
+        $(document).ready(function () {
+            var selectedRowDaoTaoCu = null;
+
+            $('.tabledaotaocu .tbodydaotaocu .trdaotaocu').click(function () {
+                // Loại bỏ lựa chọn trước đó (nếu có)
+                if (selectedRowDaoTaoCu != null) {
+                    selectedRowDaoTaoCu.removeClass('selected-daotao');
+                }
+
+                // Đánh dấu dòng được chọn và lưu lại dòng đó
+                selectedRowDaoTaoCu = $(this);
+                selectedRowDaoTaoCu.addClass('selected-daotao');
+            });
+
+            $('.update-daotao').click(function () {
+                if (selectedRowDaoTaoCu != null) {
+                    // Lấy thông tin từ dòng được chọn
+                    var id = selectedRowDaoTaoCu.find('td:eq(0)').text();
+                    var khoahoc = selectedRowDaoTaoCu.find('td:eq(2)').text().trim();
+                    var truongdonvi = selectedRowDaoTaoCu.find('td:eq(3)').text().trim();
+                    var hoantat = selectedRowDaoTaoCu.find('td:eq(4)').text().trim();
+                    var bang = selectedRowDaoTaoCu.find('td:eq(5)').text().trim();
+                    var tungay = selectedRowDaoTaoCu.find('td:eq(6)').text().trim();
+                    var denngay = selectedRowDaoTaoCu.find('td:eq(7)').text().trim();
+                    var soquyetdinh = selectedRowDaoTaoCu.find('td:eq(8)').text().trim();
+                    var hinhthuc = selectedRowDaoTaoCu.find('td:eq(9)').text().trim();
+                    var sobang = selectedRowDaoTaoCu.find('td:eq(10)').text().trim();
+                    var dangbang = selectedRowDaoTaoCu.find('td:eq(11)').text().trim();
+                    var ngaycap = selectedRowDaoTaoCu.find('td:eq(12)').text().trim();
+                    var hethan = selectedRowDaoTaoCu.find('td:eq(13)').text().trim();
+                    var ghichu = selectedRowDaoTaoCu.find('td:eq(14)').text().trim();
+                    var idnv = selectedRowDaoTaoCu.find('td:eq(15)').text().trim();
+
+                    // Điền thông tin vào modal
+                    $('#modalcapnhatdaotaocu input[name="Id"]').val(id);
+                    $('#modalcapnhatdaotaocu input[name="KhoaHoc"]').val(khoahoc);
+                    $('#modalcapnhatdaotaocu input[name="TruongDonVi"]').val(truongdonvi);
+                    $('#modalcapnhatdaotaocu select[name="HoanTat"] option').filter(function () {
+                        return $(this).text() === hoantat;
+                    }).prop('selected', true);
+                    $('#modalcapnhatdaotaocu input[name="TenBang"]').val(bang);
+                    $('#modalcapnhatdaotaocu input[name="NgayBatDau"]').val(tungay);
+                    $('#modalcapnhatdaotaocu input[name="NgayKetThuc"]').val(denngay);
+                    $('#modalcapnhatdaotaocu input[name="SoQuyetDinh"]').val(soquyetdinh);
+                    $('#modalcapnhatdaotaocu input[name="HinhThuc"]').val(hinhthuc);
+                    $('#modalcapnhatdaotaocu input[name="SoBang"]').val(sobang);
+                    $('#modalcapnhatdaotaocu input[name="DangBang"]').val(dangbang);
+                    $('#modalcapnhatdaotaocu input[name="NgayCap"]').val(ngaycap);
+                    $('#modalcapnhatdaotaocu input[name="HetHan"]').val(hethan);
+                    $('#modalcapnhatdaotaocu input[name="GhiChu"]').val(ghichu);
+                    $('#modalcapnhatdaotaocu input[name="IdNv"]').val(idnv);
+
+                    // Hiển thị modal
+                    $('#modalcapnhatdaotaocu').modal('show');
+                } else {
+                    alert("Vui lòng chọn dòng để chỉnh sửa.");
+                }
+            });
+
+        });
+
+
+        $(document).ready(function () {
+            var selectedRow = null;
+            var id = null;
+
+            $('.tabledaotaocu .tbodydaotaocu .trdaotaocu').click(function () {
+                if (selectedRow != null) {
+                    selectedRow.removeClass('selected');
+                }
+                id = $(this).data("id");
+                $(this).addClass('selected');
+                selectedRow = $(this);
+            });
+
+            $(".delete-daotaocu").click(function () {
+                var confirmation = confirm("Bạn có chắc chắn muốn xóa đào tạo này?");
+                if (selectedRow != null) {
+                    if (confirmation) {
+                        // Nếu người dùng xác nhận xóa, hãy chuyển hướng đến hàm DeleteConfirmed của controller
+                        window.location.href = "/DaoTaoCuMoi/DeleteDaoTao?Id=" + id; // Thay ControllerName bằng tên của controller bạn đang sử dụng
+                    }
+                } else {
+                    alert("Vui lòng chọn dòng để chỉnh sửa.");
+                }
+            });
+        });
+    </script>
+
+}

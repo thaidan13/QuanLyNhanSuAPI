@@ -1,0 +1,180 @@
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@*@model IEnumerable<QuanLyNhanSuAPI.Models.HoSoNhanSu.TbOkr>*@
+@model IPagedList<QuanLyNhanSuAPI.Models.HoSoNhanSu.TbOkr>
+
+@{
+    ViewData["Title"] = "GetOKRsAdmin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-flex justify-content-between mb-2 m-3" style="gap: 20px;">
+    @using (Html.BeginForm("GetOKRsAdmin", "OKR", FormMethod.Get))
+    {
+        <div class="input-group">
+            @Html.TextBox("searchString", ViewBag.SearchStringOkr as string, new { @class = "form-control", placeholder = "Tìm kiếm..." })
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-outline-secondary">Tìm kiếm</button>
+            </div>
+        </div>
+    }
+
+    <a class="btn btn-primary fw-bold" asp-action="Create" asp-controller="OKR">Khởi Tạo OKR</a>
+</div>
+
+@* <div class="o_list_view o_renderer_with_searchpanel o_list_optional_columns p-3" style="width: 100%"> *@
+    <div class="table-responsive">
+        <table @*id="okr"*@ class="table table-bordered" @* style="table-layout: fixed;" *@>
+            <thead>
+                <tr class="table-secondary">
+                    <th data-name="name" tabindex="-1" aria-sort="descending" title="Tiêu đề" @*style="max-width: 300px; width: 300px;"*@>
+                        Tiêu đề
+                    </th>
+                    <th data-name="parent_id" tabindex="-1" title="Mục tiêu"@* style="max-width: 122px; width: 122px;"*@>
+                        Mục tiêu
+                    </th>
+                    <th data-name="time_frame" tabindex="-1" title="Khung thời gian" @*style="width: 106px;"*@>
+                        Khung thời gian
+                    </th>
+                    <th data-name="owner" tabindex="-1" title="Chủ sở hữu" @*style="width: 150px;"*@>
+                        Chủ sở hữu
+                    </th>
+                    <th data-name="mode" tabindex="-1" title="Mục tiêu" @*style="width: 87px;"*@>
+                        Mục tiêu
+                    </th>
+                    <th data-name="department_id" tabindex="-1" title="Phòng ban"@* style="width: 90px;"*@>
+                        Phòng ban
+                    </th>
+                    <th data-name="progress" tabindex="-1" title="Tiến trình" @*style="min-width: 92px; max-width: 122px; width: 122px;"*@>
+                        Tiến trình
+                    </th>
+                    <th data-name="type" tabindex="-1" title="Kiểu" @*style="width: 81px;"*@>
+                        Kiểu
+                    </th>
+                    <th data-name="key_results_count" tabindex="-1" title="SL Kết quả then chốt" @*style="min-width: 74px; max-width: 122px; width: 122px;"*@>
+                        SL Kết quả then chốt
+                    </th>
+                    <th data-name="result" tabindex="-1" title="Đạt/Không đạt"@* style="width: 115px;"*@>
+                        Đạt/Không đạt
+                    </th>
+                    <th>
+                        Thao Tác
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    string nam = item.Nam.ToString("yyyy");
+                    <tr class="o_data_row">
+                        <td class="text-truncate" tabindex="-1" title="@Html.DisplayFor(modelItem => item.TieuDe)" name="name">
+                            @Html.DisplayFor(modelItem => item.TieuDe)
+                        </td>
+                        <td class="text-truncate" tabindex="-1" title="@Html.DisplayFor(modelItem => item.MucTieu)" name="parent_id">
+                            @Html.DisplayFor(modelItem => item.LaKetQuaThenChotNavigation.TieuDe)
+                        </td>
+                        <td class="o_data_cell o_field_cell o_list_char o_readonly_modifier" tabindex="-1" title="@Html.DisplayFor(modelItem => item.Nam)/@Html.DisplayFor(modelItem => item.Quy)" name="time_frame">
+                            @nam/@Html.DisplayFor(modelItem => item.Quy)
+                        </td>
+                        <td class="text-truncate" tabindex="-1" title="@Html.DisplayFor(modelItem => item.ChuSoHuu)" name="owner">
+                            @Html.DisplayFor(modelItem => item.ChuSoHuu)
+                        </td>
+                        <td class="o_data_cell o_field_cell o_readonly_modifier" tabindex="-1" title="@Html.DisplayFor(modelItem => item.MucTieu)" name="mode">
+                            @Html.DisplayFor(modelItem => item.MucTieu)
+                        </td>
+                        <td class="text-truncate" tabindex="-1" title="" name="department_id">
+                            @Html.DisplayFor(modelItem => item.PhongBanNavigation.TenPhongBan)
+                        </td>
+                        <td class="o_data_cell o_field_cell o_list_number o_progressbar_cell o_readonly_modifier" tabindex="-1">
+                            
+                            <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar bg-success" style="width: @(item.Diem.Value.ToString("P0"));">@(item.Diem.Value.ToString("P0"))</div>
+                            </div>
+                        </td>
+
+                        <td class="o_data_cell o_field_cell o_required_modifier" tabindex="-1" title=" @Html.DisplayFor(modelItem => item.KieuOkr)" name="type">
+                            @Html.DisplayFor(modelItem => item.KieuOkr)
+
+                        </td>
+
+                        <td class="o_data_cell o_field_cell o_list_number o_readonly_modifier" tabindex="-1" title="0" name="key_results_count">
+                            @{
+                                int okrChaId = item.IdOkr; // Thay thế giá trị này bằng giá trị thích hợp
+                                int childOKRsCount = await CountChildOKRs(okrChaId);
+                            }
+
+                            @childOKRsCount
+
+                        </td>
+                        <td class="o_data_cell o_field_cell o_readonly_modifier" tabindex="-1" name="result">
+                            @if (item.KetQua == false)
+                            {
+                                <p class="m-0">Thất Bại</p>
+                            }
+                            else
+                            {
+                                <p class="m-0">Thành Công</p>
+                            }
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("Cập Nhật", "UpdateOKrAdmin", new {  okrid=item.IdOkr  }, new {@class="btn btn-success"})
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+@* </div> *@
+
+<nav aria-label="Page navigation example" class="text-end">
+    <ul class="pagination justify-content-center">
+        <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+            <a class="page-link" href="@Url.Action("GetOKRsAdmin", new { page = Model.PageNumber - 1 })" aria-label="Previous">
+                <span aria-hidden="true">Previous</span>
+            </a>
+        </li>
+
+        @for (int i = 1; i <= Model.PageCount; i++)
+        {
+            <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                <a class="page-link" href="@Url.Action("GetOKRsAdmin", new { page = i })">@i</a>
+            </li>
+        }
+
+        <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+            <a class="page-link" href="@Url.Action("GetOKRsAdmin", new { page = Model.PageNumber + 1 })" aria-label="Next">
+                <span aria-hidden="true">Next</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Khởi tạo DataTables
+            var table = $('#okr').DataTable();
+        });
+    </script>
+
+    @functions {
+    //HttpClient _http;
+    [HttpGet]
+    public async Task<int> CountChildOKRs(int okrChaId)
+    {
+        using (var httpClient = new HttpClient())
+        {
+            var result = await httpClient.GetFromJsonAsync<int>($"http://10.0.0.4:5259/api/OKR/soluongokrcon?okrChaId={okrChaId}");
+            return result;
+        }
+
+    }
+}
+}

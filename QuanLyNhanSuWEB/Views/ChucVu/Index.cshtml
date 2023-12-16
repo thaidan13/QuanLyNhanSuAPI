@@ -1,0 +1,58 @@
+﻿@model IEnumerable<QuanLyNhanSuAPI.Models.HoSoNhanSu.TbChucVu>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.TenChucVu)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.TenChucVu)
+            </td>
+           
+            <td>
+                @Html.ActionLink("Update", "Update", new {  chucvuId=item.IdCv  }) |
+                @Html.ActionLink("Details", "Details", new {  chucvuId=item.IdCv  }) |
+                @Html.ActionLink("Delete", "Delete", new {  chucvuId=item.IdCv  }) |
+                @Html.ActionLink("Xoá", "Delete", new { chucvuId = item.IdCv }, new { @class = "btn btn-danger" })|
+                    <button class="delete-button" data-chucvu-id="@item.IdCv">Xóa</button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".delete-button").click(function () {
+                var chucvuId = $(this).data("chucvu-id");
+                var confirmation = confirm("Bạn có chắc chắn muốn xóa chức vụ này?");
+                if (confirmation) {
+                    // Nếu người dùng xác nhận xóa, hãy chuyển hướng đến hàm DeleteConfirmed của controller
+                    window.location.href = "/ChucVu/Delete?chucvuId=" + chucvuId; // Thay ControllerName bằng tên của controller bạn đang sử dụng
+                }
+            });
+        });
+    </script>
+}

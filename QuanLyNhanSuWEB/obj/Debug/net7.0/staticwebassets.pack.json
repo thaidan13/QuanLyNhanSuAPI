@@ -1,0 +1,865 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\QuanLyNhanSuWEB.bundle.scp.css",
+      "PackagePath": "staticwebassets\\QuanLyNhanSuWEB.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\css\\add.css",
+      "PackagePath": "staticwebassets\\assets\\css\\add.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\css\\card.css",
+      "PackagePath": "staticwebassets\\assets\\css\\card.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\css\\chart.css",
+      "PackagePath": "staticwebassets\\assets\\css\\chart.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\css\\login.css",
+      "PackagePath": "staticwebassets\\assets\\css\\login.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\css\\main.css",
+      "PackagePath": "staticwebassets\\assets\\css\\main.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\css\\nhan-su.css",
+      "PackagePath": "staticwebassets\\assets\\css\\nhan-su.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\css\\nhan-vien.css",
+      "PackagePath": "staticwebassets\\assets\\css\\nhan-vien.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\css\\okr.css",
+      "PackagePath": "staticwebassets\\assets\\css\\okr.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\css\\style.css",
+      "PackagePath": "staticwebassets\\assets\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\css\\thong-tin-nhan-vien.css",
+      "PackagePath": "staticwebassets\\assets\\css\\thong-tin-nhan-vien.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\css\\tieubieu.css",
+      "PackagePath": "staticwebassets\\assets\\css\\tieubieu.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\css\\trinh-do.css",
+      "PackagePath": "staticwebassets\\assets\\css\\trinh-do.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\add.png",
+      "PackagePath": "staticwebassets\\assets\\img\\add.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\avt1.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\avt1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\banner.png",
+      "PackagePath": "staticwebassets\\assets\\img\\banner.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\banner1.png",
+      "PackagePath": "staticwebassets\\assets\\img\\banner1.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\bg.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\bg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\bg1.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\bg1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\bg2.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\bg2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\csv.png",
+      "PackagePath": "staticwebassets\\assets\\img\\csv.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\excel.png",
+      "PackagePath": "staticwebassets\\assets\\img\\excel.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\export.png",
+      "PackagePath": "staticwebassets\\assets\\img\\export.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\icon\\bangluong.png",
+      "PackagePath": "staticwebassets\\assets\\img\\icon\\bangluong.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\icon\\caidat.png",
+      "PackagePath": "staticwebassets\\assets\\img\\icon\\caidat.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\icon\\chamcong.png",
+      "PackagePath": "staticwebassets\\assets\\img\\icon\\chamcong.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\icon\\ktkl.png",
+      "PackagePath": "staticwebassets\\assets\\img\\icon\\ktkl.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\icon\\nhansu.png",
+      "PackagePath": "staticwebassets\\assets\\img\\icon\\nhansu.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\icon\\phucloi.png",
+      "PackagePath": "staticwebassets\\assets\\img\\icon\\phucloi.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\img.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\img.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\json.png",
+      "PackagePath": "staticwebassets\\assets\\img\\json.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\logo.png",
+      "PackagePath": "staticwebassets\\assets\\img\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\logo1.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\logo1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\nhalinh.png",
+      "PackagePath": "staticwebassets\\assets\\img\\nhalinh.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\pdf.png",
+      "PackagePath": "staticwebassets\\assets\\img\\pdf.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\search.png",
+      "PackagePath": "staticwebassets\\assets\\img\\search.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\x\\1.png",
+      "PackagePath": "staticwebassets\\assets\\img\\x\\1.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\x\\2.png",
+      "PackagePath": "staticwebassets\\assets\\img\\x\\2.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\x\\3.png",
+      "PackagePath": "staticwebassets\\assets\\img\\x\\3.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\x\\4.png",
+      "PackagePath": "staticwebassets\\assets\\img\\x\\4.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\x\\5.png",
+      "PackagePath": "staticwebassets\\assets\\img\\x\\5.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\img\\x\\6.png",
+      "PackagePath": "staticwebassets\\assets\\img\\x\\6.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\js\\add.js",
+      "PackagePath": "staticwebassets\\assets\\js\\add.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\js\\chart.js",
+      "PackagePath": "staticwebassets\\assets\\js\\chart.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\js\\doan-dang.js",
+      "PackagePath": "staticwebassets\\assets\\js\\doan-dang.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\js\\main.js",
+      "PackagePath": "staticwebassets\\assets\\js\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\js\\nhan-su.js",
+      "PackagePath": "staticwebassets\\assets\\js\\nhan-su.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\js\\nhan-vien.js",
+      "PackagePath": "staticwebassets\\assets\\js\\nhan-vien.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\js\\nuoc-ngoai.js",
+      "PackagePath": "staticwebassets\\assets\\js\\nuoc-ngoai.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\js\\ork.js",
+      "PackagePath": "staticwebassets\\assets\\js\\ork.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\assets\\js\\trinh-do.js",
+      "PackagePath": "staticwebassets\\assets\\js\\trinh-do.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\css\\Table.css",
+      "PackagePath": "staticwebassets\\css\\Table.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\css\\style.css.map",
+      "PackagePath": "staticwebassets\\css\\style.css.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\js\\lazysizes.min.js",
+      "PackagePath": "staticwebassets\\js\\lazysizes.min.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\04.121-BMĐTHDCVFE-Bao-cao-thuc-tap-co-xac-nhan-cua-doanh-nghiep.docx",
+      "PackagePath": "staticwebassets\\uploadfiles\\04.121-BMĐTHDCVFE-Bao-cao-thuc-tap-co-xac-nhan-cua-doanh-nghiep.docx"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\0fc7a040-c9c8-4a0a-9505-d402b5ae79e7_2.jpg",
+      "PackagePath": "staticwebassets\\uploadfiles\\0fc7a040-c9c8-4a0a-9505-d402b5ae79e7_2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\1aff7f5f-b1cc-4ce3-acf9-beb0e1fc4dbe_dessert-01.png",
+      "PackagePath": "staticwebassets\\uploadfiles\\1aff7f5f-b1cc-4ce3-acf9-beb0e1fc4dbe_dessert-01.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\1f1df7c9-48e9-4981-a966-ab3d0aae81e7_add66b10604cbe12e75d.jpg",
+      "PackagePath": "staticwebassets\\uploadfiles\\1f1df7c9-48e9-4981-a966-ab3d0aae81e7_add66b10604cbe12e75d.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\2a0eaa9e-f3c1-4566-b482-a1b0a518095c_abt-1.jpg",
+      "PackagePath": "staticwebassets\\uploadfiles\\2a0eaa9e-f3c1-4566-b482-a1b0a518095c_abt-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\2de06bcd-e521-4c10-b61a-d3e5fe94062b_7f3824a55b588506dc49.jpg",
+      "PackagePath": "staticwebassets\\uploadfiles\\2de06bcd-e521-4c10-b61a-d3e5fe94062b_7f3824a55b588506dc49.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\45cdbe6a-ba87-430a-8d0f-6984f5ebc345_chicken_ga_tuyet_vang.png",
+      "PackagePath": "staticwebassets\\uploadfiles\\45cdbe6a-ba87-430a-8d0f-6984f5ebc345_chicken_ga_tuyet_vang.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\5a6361ee-2790-4628-9be4-6ae1990c94e9_MenuBG1.jpg",
+      "PackagePath": "staticwebassets\\uploadfiles\\5a6361ee-2790-4628-9be4-6ae1990c94e9_MenuBG1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\65ba14f4-f3b0-44db-afda-ca78d6b3e5f5_burger_l-chicken_burger.png",
+      "PackagePath": "staticwebassets\\uploadfiles\\65ba14f4-f3b0-44db-afda-ca78d6b3e5f5_burger_l-chicken_burger.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\95cc7d8a-fe32-40fa-a82b-2a5447ee9fad_dessert-04.png",
+      "PackagePath": "staticwebassets\\uploadfiles\\95cc7d8a-fe32-40fa-a82b-2a5447ee9fad_dessert-04.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\C#6-Lab1.docx",
+      "PackagePath": "staticwebassets\\uploadfiles\\C#6-Lab1.docx"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\C#6-Lab2.docx",
+      "PackagePath": "staticwebassets\\uploadfiles\\C#6-Lab2.docx"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\C#6-Lab3.docx",
+      "PackagePath": "staticwebassets\\uploadfiles\\C#6-Lab3.docx"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\C#6-Lab6.docx",
+      "PackagePath": "staticwebassets\\uploadfiles\\C#6-Lab6.docx"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\C#6-Lab7.docx",
+      "PackagePath": "staticwebassets\\uploadfiles\\C#6-Lab7.docx"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\C#6-Lab8.docx",
+      "PackagePath": "staticwebassets\\uploadfiles\\C#6-Lab8.docx"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\C6-Lab8.docx",
+      "PackagePath": "staticwebassets\\uploadfiles\\C6-Lab8.docx"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\CV Ngô văn quỳnh - CV Lập trình viên-TopCV.vn - Copy.pdf",
+      "PackagePath": "staticwebassets\\uploadfiles\\CV Ngô văn quỳnh - CV Lập trình viên-TopCV.vn - Copy.pdf"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\CV Ngô văn quỳnh - CV Lập trình viên-TopCV.vn.pdf",
+      "PackagePath": "staticwebassets\\uploadfiles\\CV Ngô văn quỳnh - CV Lập trình viên-TopCV.vn.pdf"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\Dân Tộc X-Tieng-DoiTen.docx",
+      "PackagePath": "staticwebassets\\uploadfiles\\Dân Tộc X-Tieng-DoiTen.docx"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\Dân Tộc X-Tieng.docx",
+      "PackagePath": "staticwebassets\\uploadfiles\\Dân Tộc X-Tieng.docx"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\In Thẻ - Huỳnh Thái Dân.pdf",
+      "PackagePath": "staticwebassets\\uploadfiles\\In Thẻ - Huỳnh Thái Dân.pdf"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\Linh Trần's facebook 2023-8-2 story.mp4",
+      "PackagePath": "staticwebassets\\uploadfiles\\Linh Trần's facebook 2023-8-2 story.mp4"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\NET106_Lap trinh C#6_Assignment-.pdf",
+      "PackagePath": "staticwebassets\\uploadfiles\\NET106_Lap trinh C#6_Assignment-.pdf"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\NET106_Lap trinh C6_Assignment-.pdf",
+      "PackagePath": "staticwebassets\\uploadfiles\\NET106_Lap trinh C6_Assignment-.pdf"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\Nhân viên (hr.employee).xlsx",
+      "PackagePath": "staticwebassets\\uploadfiles\\Nhân viên (hr.employee).xlsx"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\OIP.jfif",
+      "PackagePath": "staticwebassets\\uploadfiles\\OIP.jfif"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\QUẢN LÝ ĐÁNH GIÁ NHÂN VIÊN.docx",
+      "PackagePath": "staticwebassets\\uploadfiles\\QUẢN LÝ ĐÁNH GIÁ NHÂN VIÊN.docx"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\Test-WW#.docx",
+      "PackagePath": "staticwebassets\\uploadfiles\\Test-WW#.docx"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\Test-WW.docx",
+      "PackagePath": "staticwebassets\\uploadfiles\\Test-WW.docx"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\Test.pdf",
+      "PackagePath": "staticwebassets\\uploadfiles\\Test.pdf"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\Test.png",
+      "PackagePath": "staticwebassets\\uploadfiles\\Test.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\TestWW.docx",
+      "PackagePath": "staticwebassets\\uploadfiles\\TestWW.docx"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\Testss.pdf",
+      "PackagePath": "staticwebassets\\uploadfiles\\Testss.pdf"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\anh-the-dep-nu.jpg",
+      "PackagePath": "staticwebassets\\uploadfiles\\anh-the-dep-nu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\d6d9de50964a77142e5b.jpg",
+      "PackagePath": "staticwebassets\\uploadfiles\\d6d9de50964a77142e5b.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploadfiles\\ec0e428b-c757-4c9a-80a9-6b5e418a4966_dessert-02.png",
+      "PackagePath": "staticwebassets\\uploadfiles\\ec0e428b-c757-4c9a-80a9-6b5e418a4966_dessert-02.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\019b8f2e-e5b3-466c-85d4-6db5c604936e_2303119a-4038-47e5-b8f8-66e7edf233fb_GiaHanne.jpg",
+      "PackagePath": "staticwebassets\\uploads\\019b8f2e-e5b3-466c-85d4-6db5c604936e_2303119a-4038-47e5-b8f8-66e7edf233fb_GiaHanne.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\03e7a2c9-5d49-48e3-bedb-333383c87bb9_Tiến Đạt.jpg",
+      "PackagePath": "staticwebassets\\uploads\\03e7a2c9-5d49-48e3-bedb-333383c87bb9_Tiến Đạt.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\07780527-4199-4d5e-bfc3-9bd247b30c59_anh-the-dep-nu.jpg",
+      "PackagePath": "staticwebassets\\uploads\\07780527-4199-4d5e-bfc3-9bd247b30c59_anh-the-dep-nu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\12f8ad4b-8ad2-478a-84f0-eb70c4b9a714_anh-the-dep-nu.jpg",
+      "PackagePath": "staticwebassets\\uploads\\12f8ad4b-8ad2-478a-84f0-eb70c4b9a714_anh-the-dep-nu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\1594fdb9-db7d-4bc8-b05d-c6d4083985b5_BacBooVN.png",
+      "PackagePath": "staticwebassets\\uploads\\1594fdb9-db7d-4bc8-b05d-c6d4083985b5_BacBooVN.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\1a1bfb7b-4ec7-4bce-887d-ae34d377cdbb_nhalinh.png",
+      "PackagePath": "staticwebassets\\uploads\\1a1bfb7b-4ec7-4bce-887d-ae34d377cdbb_nhalinh.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\204acd74-c29f-46a0-8387-2ef617906b40_0a942be6-1ae6-431b-bb85-4f19ce60580f_add66b10604cbe12e75d.jpg",
+      "PackagePath": "staticwebassets\\uploads\\204acd74-c29f-46a0-8387-2ef617906b40_0a942be6-1ae6-431b-bb85-4f19ce60580f_add66b10604cbe12e75d.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\23e52d83-edf8-4695-af39-4029eb1c93ae_OIP.jfif",
+      "PackagePath": "staticwebassets\\uploads\\23e52d83-edf8-4695-af39-4029eb1c93ae_OIP.jfif"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\24432326-503d-450d-b458-5edf21dff52b_img.jpg",
+      "PackagePath": "staticwebassets\\uploads\\24432326-503d-450d-b458-5edf21dff52b_img.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\29338d06-4332-4178-9bd9-ab95a9be3eeb_0545f11db85969073048.jpg",
+      "PackagePath": "staticwebassets\\uploads\\29338d06-4332-4178-9bd9-ab95a9be3eeb_0545f11db85969073048.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\2ad16101-b1e6-4cdd-9371-ae40453ae01d_bg.jpg",
+      "PackagePath": "staticwebassets\\uploads\\2ad16101-b1e6-4cdd-9371-ae40453ae01d_bg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\2d3dc8d0-eb05-4ec9-8a3f-3bb538389bcb_0545f11db85969073048.jpg",
+      "PackagePath": "staticwebassets\\uploads\\2d3dc8d0-eb05-4ec9-8a3f-3bb538389bcb_0545f11db85969073048.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\2d5db233-0882-4e00-a6cc-b2e9b3c3ff9a_27083dbfffaa2cf475bb.jpg",
+      "PackagePath": "staticwebassets\\uploads\\2d5db233-0882-4e00-a6cc-b2e9b3c3ff9a_27083dbfffaa2cf475bb.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\2efc7f34-7878-4b9b-bac5-b18627651ba8_anh-the-dep-nu.jpg",
+      "PackagePath": "staticwebassets\\uploads\\2efc7f34-7878-4b9b-bac5-b18627651ba8_anh-the-dep-nu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\311100de-ba0d-4d45-8870-1a495e2fc774_trangphucvn.png",
+      "PackagePath": "staticwebassets\\uploads\\311100de-ba0d-4d45-8870-1a495e2fc774_trangphucvn.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\322d2b67-fa0d-4269-940b-3c64e627be59_anh-the-dep-nu.jpg",
+      "PackagePath": "staticwebassets\\uploads\\322d2b67-fa0d-4269-940b-3c64e627be59_anh-the-dep-nu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\3371cc94-8b45-4166-851a-aa30af7082c4_anh-the-dep-nu.jpg",
+      "PackagePath": "staticwebassets\\uploads\\3371cc94-8b45-4166-851a-aa30af7082c4_anh-the-dep-nu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\39877b1b-f7de-4da7-ab9d-a2ae5e77b18f_Phúc.jpg",
+      "PackagePath": "staticwebassets\\uploads\\39877b1b-f7de-4da7-ab9d-a2ae5e77b18f_Phúc.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\3d4d3b39-3f45-40a6-a5c6-cb9d0b4ac1e0_392769762_2050237861980462_2654414646896870468_n.jpg",
+      "PackagePath": "staticwebassets\\uploads\\3d4d3b39-3f45-40a6-a5c6-cb9d0b4ac1e0_392769762_2050237861980462_2654414646896870468_n.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\4063f5c0-eda7-42fe-9d64-bec28554d88f_OIP.jfif",
+      "PackagePath": "staticwebassets\\uploads\\4063f5c0-eda7-42fe-9d64-bec28554d88f_OIP.jfif"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\49d5b170-ec0f-4173-8fa1-c65539ef5540_bg2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\49d5b170-ec0f-4173-8fa1-c65539ef5540_bg2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\534ef4e8-3fc6-40de-89a0-a7850997485d_Hùng.jpg",
+      "PackagePath": "staticwebassets\\uploads\\534ef4e8-3fc6-40de-89a0-a7850997485d_Hùng.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\5ba7c0a7-a40e-44b7-a222-6100a186a3dd_anh-the-dep-nu.jpg",
+      "PackagePath": "staticwebassets\\uploads\\5ba7c0a7-a40e-44b7-a222-6100a186a3dd_anh-the-dep-nu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\5e7033df-090c-4d7f-9582-303e26b39275_27083dbfffaa2cf475bb.jpg",
+      "PackagePath": "staticwebassets\\uploads\\5e7033df-090c-4d7f-9582-303e26b39275_27083dbfffaa2cf475bb.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\602f1392-5eea-4588-a40e-3db7eab59ff7_anh-the-dep-nu.jpg",
+      "PackagePath": "staticwebassets\\uploads\\602f1392-5eea-4588-a40e-3db7eab59ff7_anh-the-dep-nu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\60a598c6-f9e4-41fd-81b8-6b6244317767_620d0248af184e461709.jpg",
+      "PackagePath": "staticwebassets\\uploads\\60a598c6-f9e4-41fd-81b8-6b6244317767_620d0248af184e461709.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\62180d15-2113-43ee-b0e1-db2fb0a33949_anh-the-dep-nu.jpg",
+      "PackagePath": "staticwebassets\\uploads\\62180d15-2113-43ee-b0e1-db2fb0a33949_anh-the-dep-nu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\64b31d58-9ae6-4179-9140-e1def4f71e44_Pho.png",
+      "PackagePath": "staticwebassets\\uploads\\64b31d58-9ae6-4179-9140-e1def4f71e44_Pho.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\6608432b-ae29-46ef-8bba-65caeee122cc_Amthuc.png",
+      "PackagePath": "staticwebassets\\uploads\\6608432b-ae29-46ef-8bba-65caeee122cc_Amthuc.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\68bb2eb7-bbc4-4960-bc8b-020c61a93811_anh-the-dep-nu.jpg",
+      "PackagePath": "staticwebassets\\uploads\\68bb2eb7-bbc4-4960-bc8b-020c61a93811_anh-the-dep-nu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\6fcad2ad-8081-4ce9-a661-8f1a34872f5a_Quyền.jpg",
+      "PackagePath": "staticwebassets\\uploads\\6fcad2ad-8081-4ce9-a661-8f1a34872f5a_Quyền.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\76262c86-7353-4be7-be61-34a37dd77a30_d6d9de50964a77142e5b.jpg",
+      "PackagePath": "staticwebassets\\uploads\\76262c86-7353-4be7-be61-34a37dd77a30_d6d9de50964a77142e5b.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\8bb316ce-5485-488f-9eaa-0a4571128bba_620d0248af184e461709.jpg",
+      "PackagePath": "staticwebassets\\uploads\\8bb316ce-5485-488f-9eaa-0a4571128bba_620d0248af184e461709.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\8fe6aeb4-a9bc-4a6b-9458-240fbe940912_anh-the-dep-nu.jpg",
+      "PackagePath": "staticwebassets\\uploads\\8fe6aeb4-a9bc-4a6b-9458-240fbe940912_anh-the-dep-nu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\90b6930a-ff5f-4a7f-a3c1-7a7660694fe3_PD.jpg",
+      "PackagePath": "staticwebassets\\uploads\\90b6930a-ff5f-4a7f-a3c1-7a7660694fe3_PD.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\916393fd-f409-4414-8e86-0217a48718ea_Thảo.jpg",
+      "PackagePath": "staticwebassets\\uploads\\916393fd-f409-4414-8e86-0217a48718ea_Thảo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\94e5582c-1e30-4e5d-a9bf-167426d3951f_27083dbfffaa2cf475bb.jpg",
+      "PackagePath": "staticwebassets\\uploads\\94e5582c-1e30-4e5d-a9bf-167426d3951f_27083dbfffaa2cf475bb.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\97a14e0e-132a-4257-bac1-41b32f7b2234_anh-the-dep-nu.jpg",
+      "PackagePath": "staticwebassets\\uploads\\97a14e0e-132a-4257-bac1-41b32f7b2234_anh-the-dep-nu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\9d48a4bc-3fd2-434e-a967-803c7ca289cd_Duy.jpg",
+      "PackagePath": "staticwebassets\\uploads\\9d48a4bc-3fd2-434e-a967-803c7ca289cd_Duy.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\9f27512d-5cc9-4101-af3f-efc5e5a5fd3d_Duy.jpg",
+      "PackagePath": "staticwebassets\\uploads\\9f27512d-5cc9-4101-af3f-efc5e5a5fd3d_Duy.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\a1fe86b8-8c49-448b-9bb1-30f6646f76b7_27083dbfffaa2cf475bb.jpg",
+      "PackagePath": "staticwebassets\\uploads\\a1fe86b8-8c49-448b-9bb1-30f6646f76b7_27083dbfffaa2cf475bb.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\a267b53f-bad6-4b9f-8fa6-90778bd96850_d6d9de50964a77142e5b.jpg",
+      "PackagePath": "staticwebassets\\uploads\\a267b53f-bad6-4b9f-8fa6-90778bd96850_d6d9de50964a77142e5b.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\a77e1aff-5d30-47c7-ab35-75936097d9f2_anh-the-dep-nu.jpg",
+      "PackagePath": "staticwebassets\\uploads\\a77e1aff-5d30-47c7-ab35-75936097d9f2_anh-the-dep-nu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\aa410eb6-ad56-43b7-96c6-cb911c7033ed_d6d9de50964a77142e5b.jpg",
+      "PackagePath": "staticwebassets\\uploads\\aa410eb6-ad56-43b7-96c6-cb911c7033ed_d6d9de50964a77142e5b.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\adc1d2a5-f822-4e1b-b693-7b2bf0bc8d06_anh-the-dep-nu.jpg",
+      "PackagePath": "staticwebassets\\uploads\\adc1d2a5-f822-4e1b-b693-7b2bf0bc8d06_anh-the-dep-nu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\b27aef09-bc00-4741-afb3-4e853c5b8252_chandunganhtrang.jpg",
+      "PackagePath": "staticwebassets\\uploads\\b27aef09-bc00-4741-afb3-4e853c5b8252_chandunganhtrang.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\b4315eb1-81c8-4617-af87-b0c4be9f1c8b_zyro-image.png",
+      "PackagePath": "staticwebassets\\uploads\\b4315eb1-81c8-4617-af87-b0c4be9f1c8b_zyro-image.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\bcaf8891-7a8a-457b-be61-983112e83a18_Mây.png",
+      "PackagePath": "staticwebassets\\uploads\\bcaf8891-7a8a-457b-be61-983112e83a18_Mây.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\c1c47417-c41e-4fa2-bb03-1fe1a97dab85_anh-the-dep-nu.jpg",
+      "PackagePath": "staticwebassets\\uploads\\c1c47417-c41e-4fa2-bb03-1fe1a97dab85_anh-the-dep-nu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\cc0e6ae8-c335-4199-b644-ea345ef1832b_d6d9de50964a77142e5b.jpg",
+      "PackagePath": "staticwebassets\\uploads\\cc0e6ae8-c335-4199-b644-ea345ef1832b_d6d9de50964a77142e5b.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\d130bbf3-ab4c-4f1b-a9a4-be646536a762_anh-the-dep-nu.jpg",
+      "PackagePath": "staticwebassets\\uploads\\d130bbf3-ab4c-4f1b-a9a4-be646536a762_anh-the-dep-nu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\d2a49fe5-2412-47cc-a231-9cc3335a032a_CV Ngô văn quỳnh - CV Lập trình viên-TopCV.vn.pdf",
+      "PackagePath": "staticwebassets\\uploads\\d2a49fe5-2412-47cc-a231-9cc3335a032a_CV Ngô văn quỳnh - CV Lập trình viên-TopCV.vn.pdf"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\d64a98bc-f85c-4995-8f93-e27a24a8e77a_2.png",
+      "PackagePath": "staticwebassets\\uploads\\d64a98bc-f85c-4995-8f93-e27a24a8e77a_2.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\d8fd8f8a-6ffb-43fe-a4f8-3e47eb975014_anh-the-dep-nu.jpg",
+      "PackagePath": "staticwebassets\\uploads\\d8fd8f8a-6ffb-43fe-a4f8-3e47eb975014_anh-the-dep-nu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\dd4df8fa-cf4b-48c8-be29-25b670ea1c67_phongcanh.png",
+      "PackagePath": "staticwebassets\\uploads\\dd4df8fa-cf4b-48c8-be29-25b670ea1c67_phongcanh.png"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\de86413e-86b8-45b8-abd2-a05d3f3fa01a_27083dbfffaa2cf475bb.jpg",
+      "PackagePath": "staticwebassets\\uploads\\de86413e-86b8-45b8-abd2-a05d3f3fa01a_27083dbfffaa2cf475bb.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\edcaf776-e0c1-4f21-b500-868063200b83_27083dbfffaa2cf475bb.jpg",
+      "PackagePath": "staticwebassets\\uploads\\edcaf776-e0c1-4f21-b500-868063200b83_27083dbfffaa2cf475bb.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\f8d21317-6314-40ac-9ce5-df4c0b2672fa_0545f11db85969073048.jpg",
+      "PackagePath": "staticwebassets\\uploads\\f8d21317-6314-40ac-9ce5-df4c0b2672fa_0545f11db85969073048.jpg"
+    },
+    {
+      "Id": "C:\\Users\\datn\\Desktop\\QuanLyNhanSuAPI\\QuanLyNhanSuWEB\\wwwroot\\uploads\\fa56e442-d6af-49ab-b361-8ded7e7bf67b_trangphucvn001.png",
+      "PackagePath": "staticwebassets\\uploads\\fa56e442-d6af-49ab-b361-8ded7e7bf67b_trangphucvn001.png"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.QuanLyNhanSuWEB.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.QuanLyNhanSuWEB.props",
+      "PackagePath": "build\\QuanLyNhanSuWEB.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.QuanLyNhanSuWEB.props",
+      "PackagePath": "buildMultiTargeting\\QuanLyNhanSuWEB.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.QuanLyNhanSuWEB.props",
+      "PackagePath": "buildTransitive\\QuanLyNhanSuWEB.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

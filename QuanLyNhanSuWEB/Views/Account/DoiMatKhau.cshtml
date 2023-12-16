@@ -1,0 +1,31 @@
+﻿@model QuanLyNhanSuWEB.Models.DoiMatKhau
+
+@{
+    ViewData["Title"] = "DoiMatKhau";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var email = ViewData["Email"];
+}
+
+
+<div class="container">
+    <div class="col-md-12">
+        <form asp-action="DoiMatKhau" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group col-md-12">
+                <label class="control-label">Mật Khẩu Mới</label>
+                <input asp-for="newPassword" type="password" class="form-control" />
+                <span asp-validation-for="newPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Lưu" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

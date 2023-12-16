@@ -1,0 +1,279 @@
+/* Nhân sự */
+.tab-wrapper ul{
+    overflow: hidden;
+    background: #fbfbfb;
+    margin: 0px;
+    padding: 0px;
+  }
+  .tab-wrapper ul li{
+    float: left;
+    list-style: none;
+    padding: 10px 20px;
+    /* background: #66a5c9; */
+    background: none;
+    border-radius: 10px 10px 0px 0px;
+    margin-right: 5px;
+    margin-top: 5px;
+  }
+  .tab-wrapper ul li.active{
+    background: #5cdaeb;
+  }
+  .tab-wrapper ul li.active a{
+    color: #000;
+  }
+  .tab-wrapper ul li a{
+    /* color: #fff; */
+    color: #000;
+    text-decoration: none;
+  }
+  
+  #table {
+    padding-top: 10px;
+    overflow-x: auto;
+  }
+  
+  #table table {
+    border-collapse: collapse;
+    /* table-layout: fixed; */
+    white-space: nowrap;
+  }
+  
+  #table table td:nth-child(1) {
+    width: 10px;
+    text-align: center;
+  }
+  
+  #table table td:nth-child(2) {
+    width: 150px;
+    text-align: center;
+  }
+  #table table td:nth-child(3) {
+    width: 250px;
+    text-align: center;
+  }
+  
+  #table table td:nth-child(4),
+  #table table td:nth-child(5),
+  #table table td:nth-child(6),
+  #table table td:nth-child(7),
+  #table table td:nth-child(8),
+  #table table td:nth-child(9),
+  #table table td:nth-child(10) {
+    width: 150px;
+    text-align: center;
+  }
+  
+  #table table thead {
+    border: 1px solid #e2e9e1;
+    height: 40px;
+    border-left: none;
+    border-right: none;
+  }
+  
+  #table table thead td {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 18px 0;
+  }
+  
+  #table table tbody tr td {
+    padding-top: 15px;
+  }
+  
+  #table table tbody td {
+    font-size: 13px;
+  }
+  
+  /* Nhân viên */
+  
+  #profile {
+    display: flex;
+    justify-content: space-between;
+  }
+  #profile .profile-details {
+    background-color: #fbfbfb;
+    width: 15%;
+  }
+  
+  #profile .profile-details .company {
+    text-align: center;
+  }
+  
+  #profile .profile-details .people {
+    text-align:left;
+  }
+  
+  #profile .profile-details .people .details{
+    display: flex;
+    padding: 10px 0 10px 0;
+  }
+  
+  #profile .profile-details .people .details h5{
+    padding:0 0 0 15px;
+  }
+  
+  #profile .profile-details .card {
+    text-align: center;
+  }
+  
+  #profile .profile-details .card img {
+    text-align: center;
+    border: #fbfbfb 1px solid;
+    border-radius: 50%;
+  }
+  
+  #profile .info-details {
+    background-color: #fbfbfb;
+    width: 84.5%;
+  }
+  
+  #profile .info-details .f-grid .f-grid-col{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #profile .info-details .f-grid input,
+  #profile .info-details .f-grid select,
+  #profile .info-details .row input,
+  #profile .info-details .ktkl select,
+  #profile .info-details .row select {
+    width: 250px;
+    height: 25px;
+    border-radius: 3px;
+    border: 1px solid;
+  }
+  
+  .f-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-left: -1rem;
+    flex-flow: row wrap;
+  }
+  
+  .f-grid-col {
+    flex: 1 0;
+    background-color: #fbfbfb;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+  
+  .row{
+    text-align: end;
+  }
+  
+  .row button{
+    text-align: start;
+  }
+  
+  .row button:hover{
+    background-color: #66a5c9;
+    color: #fff;
+  }
+  
+  .row i{
+    padding:0 2px 0 0;
+  }
+  
+  .details{
+    padding: 5px;
+  }
+  
+  .normal:hover{
+    color: #0864f8;
+  }
+  
+  
+  #profile {
+    padding-top: 10px;
+    overflow-x: auto;
+  }
+  
+  #profile table {
+    border-collapse: collapse;
+    /* table-layout: fixed; */
+    white-space: nowrap;
+  }
+  
+  #profile table td {
+    height: 50px;
+  }
+  
+  
+  #profile table td:nth-child(1) {
+    width: 10px;
+    text-align: center;
+  }
+  
+  #profile table td:nth-child(2) {
+    width: 150px;
+    text-align: center;
+  }
+  #profile table td:nth-child(3) {
+    width: 250px;
+    text-align: center;
+  }
+  
+  #profile table td:nth-child(4),
+  #profile table td:nth-child(5),
+  #profile table td:nth-child(6){
+    width: 150px;
+    text-align: center;
+  }
+  
+  #profile table td:nth-child(6){
+    color: green;
+  }
+  
+  #profile table thead {
+    border: 1px solid #e2e9e1;
+    height: 40px;
+    border-left: none;
+    border-right: none;
+  }
+  
+  #profile table thead td {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 18px 0;
+  }
+  
+  #profile table tbody td {
+    border: 1px solid #e2e9e1;
+    height: 40px;
+    border-left: none;
+    border-right: none;
+  }
+  
+  #profile table tbody tr td {
+    padding-top: 15px;
+  }
+  
+  #profile table tbody td {
+    font-size: 13px;
+  }
+  
+  .venus{
+    padding-top: 15px;
+  }
+  
+  .venus label{
+    padding:0 0 0 10px;
+    font-weight: bold;
+  }
+  
+  .venus-tab{
+    padding-top: 5px;
+    padding-left: 10px;
+  }
+  .venus-tab input{
+    height: 25px;
+  }
+  
+  #chart {
+    max-width: 650px;
+    margin: 35px auto;
+  }
+  

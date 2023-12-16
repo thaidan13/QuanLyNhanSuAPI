@@ -1,0 +1,231 @@
+﻿@model QuanLyNhanSuWEB.DTO.HoSoNhanSuDTO.QuaTrinhDaoTaoDTO
+
+
+<div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+
+    <div class="d-flex justify-content-between align-items-center mt-3 mb-3" style="gap: 10px;">
+
+        <div>
+            <a class="btn" href="@Url.Action("Details", "ThongTinNhanVien", new {  IdNV = @Model.NhanVien.IdNv })" style="background-color: rgb(36, 92, 166) !important; font-weight: bold; color: white;"><i class="fa-solid fa-arrow-left"></i> Trở về</a>
+        </div>
+
+        <div class="d-flex" style="gap: 10px;">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                Thêm mới
+            </button>
+
+            <button type="button" class="btn btn-success update-ngoaingu" data-bs-toggle="modal" data-bs-target="#modalupdatengoaingu">
+                Cập Nhật
+            </button>
+
+            <button class="btn btn-danger delete-ngoaingu">Xoá</button>
+        </div>
+
+
+    </div>
+
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <form asp-action="Create" method="post" data-ajax="true" data-ajax-method="POST">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Quá Trình Đào Tạo</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                            <input hidden asp-for="@Model.NgoaiNgu.IdNv" value="@Model.NhanVien.IdNv" class="form-control" />
+
+                            <div class="col-md-6">
+                                <dl class="dl-horizontal d-flex">
+                                    <dt style="display: inline; margin-right: 20px;">
+                                        Ngoại Ngữ
+                                    </dt>
+                                    <dd style="display: inline;">
+                                        <input asp-for="@Model.NgoaiNgu.NgoaiNgu" class="form-control" />
+                                        <span asp-validation-for="@Model.NgoaiNgu.NgoaiNgu" class="text-danger"></span>
+                                    </dd>
+                                </dl>
+
+                                <dl class="dl-horizontal d-flex">
+                                    <dt style="display: inline; margin-right: 20px;">
+                                        Kết Quả
+                                    </dt>
+                                    <dd style="display: inline;">
+                                        <input asp-for="@Model.NgoaiNgu.KetQua" class="form-control" />
+                                        <span asp-validation-for="@Model.NgoaiNgu.KetQua" class="text-danger"></span>
+                                    </dd>
+                                </dl>
+
+                                <dl class="dl-horizontal d-flex">
+                                    <dt style="display: inline; margin-right: 20px;">
+                                        Kinh Phí:
+                                    </dt>
+                                    <dd style="display: inline;">
+                                        <input asp-for="@Model.NgoaiNgu.KinhPhi" class="form-control" />
+                                        <span asp-validation-for="@Model.NgoaiNgu.KinhPhi" class="text-danger"></span>
+                                    </dd>
+                                </dl>
+
+                                <dl class="dl-horizontal d-flex">
+                                    <dt style="display: inline; margin-right: 20px;">
+                                        Nguồn Kinh Phí
+                                    </dt>
+                                    <dd style="display: inline;">
+                                        <input asp-for="@Model.NgoaiNgu.NguonKinhPhi" class="form-control" />
+                                        <span asp-validation-for="@Model.NgoaiNgu.NguonKinhPhi" class="text-danger"></span>
+                                    </dd>
+                                </dl>
+
+
+
+                                <dl class="dl-horizontal d-flex">
+                                    <dt style="display: inline; margin-right: 20px;">
+                                        Ghi Chú
+                                    </dt>
+                                    <dd style="display: inline;">
+                                        <input asp-for="@Model.NgoaiNgu.GhiChu" class="form-control" />
+                                        <span asp-validation-for="@Model.NgoaiNgu.GhiChu" class="text-danger"></span>
+                                    </dd>
+                                </dl>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <dl class="dl-horizontal d-flex">
+                                    <dt style="display: inline; margin-right: 20px;">
+                                        Bằng Cấp
+                                    </dt>
+                                    <dd style="display: inline;">
+                                        <input asp-for="@Model.NgoaiNgu.BangCap" class="form-control" />
+                                        <span asp-validation-for="@Model.NgoaiNgu.BangCap" class="text-danger"></span>
+                                    </dd>
+                                </dl>
+
+                                <dl class="dl-horizontal d-flex">
+                                    <dt style="display: inline; margin-right: 20px;">
+                                        Ngày Cấp
+                                    </dt>
+                                    <dd style="display: inline;">
+                                        <input type="date" asp-for="@Model.NgoaiNgu.NgayCap" class="form-control" />
+                                        <span asp-validation-for="@Model.NgoaiNgu.NgayCap" class="text-danger"></span>
+                                    </dd>
+                                </dl>
+
+
+
+                                <dl class="dl-horizontal d-flex">
+                                    <dt style="display: inline; margin-right: 20px;">
+                                        Chính/Phụ
+                                    </dt>
+                                    <dd style="display: inline;">
+                                        <select asp-for="@Model.NgoaiNgu.ChinhPhu" class="form-control">
+                                            <option value="true">Chính</option>
+                                            <option value="false">Phụ</option>
+                                        </select>
+                                        <span asp-validation-for="@Model.NgoaiNgu.ChinhPhu" class="text-danger"></span>
+                                    </dd>
+                                </dl>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-primary" value="Lưu">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <table id="ngoaingutable" class="table table-striped tablengoaingu" width="100%">
+        <thead>
+            <tr>
+                <th hidden>
+                    Id
+                </th>
+                <th>
+                    Ngoại Ngữ
+                </th>
+                <th>
+                    Bằng Cấp
+                </th>
+                <th>
+                    Kết Quả
+                </th>
+                <th>
+                    Ngày Cấp
+                </th>
+                <th>
+                    Kinh Phí
+                </th>
+                <th>
+                    Chính/Phụ
+                </th>
+                <th>
+                    Nguồn Kinh Phí
+                </th>
+                <th>
+                    Ghi Chú
+                </th>
+                <th hidden>
+                    IdNv
+                </th>
+
+            </tr>
+        </thead>
+        <tbody class="tbodyngoaingu">
+            @foreach (var item in Model.NgoaiNgus)
+            {
+                <tr class="selectedngoaingu trngoaingu" data-id="@item.Id">
+                    <td hidden>@Html.DisplayFor(modelItem => item.Id)</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NgoaiNgu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BangCap)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KetQua)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NgayCap)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KinhPhi)
+                    </td>
+                    <td>
+                        @if (item.ChinhPhu == true)
+                        {
+                            <p>Chính</p>
+                        }
+                        else
+                        {
+                            <p>Phụ</p>
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NguonKinhPhi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GhiChu)
+                    </td>
+                    <td hidden>
+                        @Html.DisplayFor(modelItem => item.IdNv)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
